@@ -1,0 +1,1 @@
+patient_id,sample_id,aliquot_id,tissue_type,file_name,file_format,file_size,file_hash_type,file_hash_value,sequencing_center,platform,instrument_model,experimental_strategy,library_selection,library_strand,library_prep,RNA_library,is_paired_end,read_pair_number,flow_cell_barcode,lane_number,is_adapter_trimmed,adapter_sequencing,total_reads,reference_genome,FFPE
