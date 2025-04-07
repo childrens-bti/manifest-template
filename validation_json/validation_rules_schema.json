@@ -46,7 +46,7 @@
         "type": "string",
         "required": true
     },
-    "experiment_strategy": {
+    "experimental_strategy": {
         "type": "string",
         "required": true,
         "allowed": ["WGS", "WXS", "Targeted Sequencing", "Panel"]
@@ -88,17 +88,22 @@
     "target_capture_kit_name": {
         "type": "string",
         "required": true,
-        "dependencies": {"experiment_strategy": ["Targeted Sequencing", "Panel"]}
+        "dependencies": {"experimental_strategy": ["Targeted Sequencing", "Panel"]}
     },
     "target_capture_kit_link": {
         "type": "string",
         "required": true,
-        "dependencies": {"experiment_strategy": ["Targeted Sequencing", "Panel"]}
+        "dependencies": {"experimental_strategy": ["Targeted Sequencing", "Panel"]}
     },
     "mean_coverage": {
         "type": "string",
         "required": true,
-        "dependencies": {"experiment_strategy": ["WGS", "WXS", "WES", "Targeted Sequencing", "Panel"]}
+        "dependencies": {"experimental_strategy": ["WGS", "WXS", "WES", "Targeted Sequencing", "Panel"]}
+    },
+    "FFPE": {
+        "type": "boolean",
+        "required": true,
+        "allowed": ["TRUE", "FALSE"]
     }
   },
   "RNAseq_rules":{
@@ -132,7 +137,7 @@
         "type": "string",
         "required": true
     },
-    "experiment_strategy": {
+    "experimental_strategy": {
         "type": "string",
         "required": true,
         "allowed": ["RNA-Seq","RNAseq","miRNA-Seq"]
@@ -146,6 +151,11 @@
         "type": "string",
         "required": true,
         "allowed": ["Stranded","Unstranded","First Stranded","Second Stranded","Not Applicable"]
+    },
+    "library_prep": {
+        "type": "string",
+        "required": true,
+        "allowed": ["polyA", "totalRNAseq", "Other"]
     },
     "total_reads": {"type": "integer", "required": true},
     "read_pair_number": {
@@ -180,6 +190,11 @@
         "type": "string",
         "required": true,
         "dependencies": {"is_adapter_trimmed": "FALSE"}
+    },
+    "FFPE": {
+        "type": "boolean",
+        "required": true,
+        "allowed": ["TRUE", "FALSE"]
     }
   },
   "single_cell_rules":{
@@ -215,7 +230,7 @@
         "type": "string",
         "required": true
     },
-    "experiment_strategy": {
+    "experimental_strategy": {
         "type": "string",
         "required": true,
         "allowed": ["scRNA-Seq", "snRNA-Seq"]
@@ -291,6 +306,11 @@
         "type": "string",
         "required": true,
         "dependencies": {"is_adapter_trimmed": "FALSE"}
+    },
+    "FFPE": {
+        "type": "boolean",
+        "required": true,
+        "allowed": ["TRUE", "FALSE"]
     }
   },
   "pacbio_longread_rules":{
@@ -324,7 +344,7 @@
         "type": "string",
         "required": true
     },
-    "experiment_strategy": {
+    "experimental_strategy": {
         "type": "string",
         "required": true,
         "allowed": ["WGS", "WXS", "RNA-Seq", "Targeted Sequencing", "Panel"]
@@ -381,17 +401,22 @@
     "target_capture_kit_name": {
         "type": "string",
         "required": true,
-        "dependencies": {"experiment_strategy": ["Targeted Sequencing", "Panel"]}
+        "dependencies": {"experimental_strategy": ["Targeted Sequencing", "Panel"]}
     },
     "target_capture_kit_link": {
         "type": "string",
         "required": true,
-        "dependencies": {"experiment_strategy": ["Targeted Sequencing", "Panel"]}
+        "dependencies": {"experimental_strategy": ["Targeted Sequencing", "Panel"]}
     },
     "mean_coverage": {
         "type": "string",
         "required": true,
-        "dependencies": {"experiment_strategy": ["WGS", "WXS", "WES", "Targeted Sequencing", "Panel"]}
+        "dependencies": {"experimental_strategy": ["WGS", "WXS", "WES", "Targeted Sequencing", "Panel"]}
+    },
+    "FFPE": {
+        "type": "boolean",
+        "required": true,
+        "allowed": ["TRUE", "FALSE"]
     }
   },
   "methylation_rules":{
@@ -421,10 +446,15 @@
         "required": true,
         "allowed": ["Illumina Infinium HumanMethylation450","Illumina Infinium HumanMethylationEPIC","Illumina Infinium HumanMethylationEPICv2","Illumina Infinium HumanMethylation27k","Roche NimbleGen MethylationSeq","Agilent SurePrint Methyl-Seq"]
     },
-    "experiment_strategy": {
+    "experimental_strategy": {
         "type": "string",
         "required": true,
         "allowed": ["Methylation", "Methylation Microarray"]
+    },
+    "FFPE": {
+        "type": "boolean",
+        "required": true,
+        "allowed": ["TRUE", "FALSE"]
     }
   }
 }
