@@ -1,1 +1,1 @@
-patient_id,sample_id,aliquot_id,tissue_type,file_name,file_format,file_size,file_hash_type,file_hash_value,sequencing_center,platform,experimental_strategy,primary_site,FFPE
+external_patient_id,external_sample_id,external_aliquot_id,tissue_type,file_name,file_format,file_size,file_hash_type,file_hash_value,sequencing_center,platform,experimental_strategy,primary_site,FFPE
