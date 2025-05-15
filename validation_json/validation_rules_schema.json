@@ -4,7 +4,7 @@
         "file_size_byte_cutoff": {
             "_comment": "The threshold of file_size for WGS/WXS is 1GB, and 200MB for others.",
             "type": "integer",
-            "general_cutoff": 200000000,
+            "general_cutoff": 1000000000,
             "wgs_wxs_cutoff": 200000000,
             "dependencies": {
                 "file_format": [
@@ -142,10 +142,6 @@
         "is_paired_end": {
             "type": "boolean",
             "required": true,
-            "allowed": [
-                "TRUE",
-                "FALSE"
-            ],
             "dependencies": {
                 "file_format": [
                     "FASTQ",
@@ -156,10 +152,6 @@
         "is_adapter_trimmed": {
             "type": "boolean",
             "required": true,
-            "allowed": [
-                "TRUE",
-                "FALSE"
-            ],
             "dependencies": {
                 "file_format": [
                     "FASTQ"
@@ -226,11 +218,7 @@
         },
         "FFPE": {
             "type": "boolean",
-            "required": true,
-            "allowed": [
-                "TRUE",
-                "FALSE"
-            ]
+            "required": true
         },
         "composition": {
             "type": "string",
@@ -402,10 +390,6 @@
         "is_paired_end": {
             "type": "boolean",
             "required": true,
-            "allowed": [
-                "TRUE",
-                "FALSE"
-            ],
             "dependencies": {
                 "file_format": [
                     "FASTQ",
@@ -416,10 +400,6 @@
         "is_adapter_trimmed": {
             "type": "boolean",
             "required": true,
-            "allowed": [
-                "TRUE",
-                "FALSE"
-            ],
             "dependencies": {
                 "file_format": [
                     "FASTQ"
@@ -453,11 +433,7 @@
         },
         "FFPE": {
             "type": "boolean",
-            "required": true,
-            "allowed": [
-                "TRUE",
-                "FALSE"
-            ]
+            "required": true
         },
         "composition": {
             "type": "string",
@@ -687,10 +663,6 @@
         "is_paired_end": {
             "type": "boolean",
             "required": true,
-            "allowed": [
-                "TRUE",
-                "FALSE"
-            ],
             "dependencies": {
                 "file_format": [
                     "FASTQ",
@@ -701,10 +673,6 @@
         "is_adapter_trimmed": {
             "type": "boolean",
             "required": true,
-            "allowed": [
-                "TRUE",
-                "FALSE"
-            ],
             "dependencies": {
                 "file_format": [
                     "FASTQ"
@@ -738,11 +706,7 @@
         },
         "FFPE": {
             "type": "boolean",
-            "required": true,
-            "allowed": [
-                "TRUE",
-                "FALSE"
-            ]
+            "required": true
         },
         "composition": {
             "type": "string",
@@ -908,10 +872,6 @@
         "is_paired_end": {
             "type": "boolean",
             "required": true,
-            "allowed": [
-                "TRUE",
-                "FALSE"
-            ],
             "dependencies": {
                 "file_format": [
                     "FASTQ",
@@ -922,10 +882,6 @@
         "is_adapter_trimmed": {
             "type": "boolean",
             "required": true,
-            "allowed": [
-                "TRUE",
-                "FALSE"
-            ],
             "dependencies": {
                 "file_format": [
                     "FASTQ"
@@ -992,11 +948,7 @@
         },
         "FFPE": {
             "type": "boolean",
-            "required": true,
-            "allowed": [
-                "TRUE",
-                "FALSE"
-            ]
+            "required": true
         },
         "composition": {
             "type": "string",
@@ -1110,11 +1062,7 @@
         },
         "FFPE": {
             "type": "boolean",
-            "required": true,
-            "allowed": [
-                "TRUE",
-                "FALSE"
-            ]
+            "required": true
         },
         "composition": {
             "type": "string",
