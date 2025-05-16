@@ -108,8 +108,6 @@
             "allowed": [
                 "Tumor",
                 "Normal",
-                "Abnormal",
-                "Peritumoral",
                 "Unknown",
                 "Not Reported"
             ]
