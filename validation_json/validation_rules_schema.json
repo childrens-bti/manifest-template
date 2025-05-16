@@ -206,7 +206,8 @@
             "required": true,
             "dependencies": {
                 "experimental_strategy": [
-                    "Targeted Sequencing"
+                    "Targeted Sequencing",
+                    "WXS"
                 ]
             }
         },
@@ -215,7 +216,18 @@
             "required": true,
             "dependencies": {
                 "experimental_strategy": [
-                    "Targeted Sequencing"
+                    "Targeted Sequencing",
+                    "WXS"
+                ]
+            }
+        },
+        "target_capture_bed": {
+            "type": "string",
+            "required": true,
+            "dependencies": {
+                "experimental_strategy": [
+                    "Targeted Sequencing",
+                    "WXS"
                 ]
             }
         },
@@ -655,7 +667,8 @@
             "required": true,
             "dependencies": {
                 "experimental_strategy": [
-                    "Targeted Sequencing"
+                    "Targeted Sequencing",
+                    "WXS"
                 ]
             }
         },
@@ -664,7 +677,18 @@
             "required": true,
             "dependencies": {
                 "experimental_strategy": [
-                    "Targeted Sequencing"
+                    "Targeted Sequencing",
+                    "WXS"
+                ]
+            }
+        },
+        "target_capture_bed": {
+            "type": "string",
+            "required": true,
+            "dependencies": {
+                "experimental_strategy": [
+                    "Targeted Sequencing",
+                    "WXS"
                 ]
             }
         },
