@@ -4,7 +4,7 @@
         "file_size_byte_cutoff": {
             "_comment": "The threshold of file_size for WGS/WXS is 1GB, and 200MB for others.",
             "type": "integer",
-            "general_cutoff": 200000000,
+            "general_cutoff": 1000000000,
             "wgs_wxs_cutoff": 200000000,
             "dependencies": {
                 "file_format": [
@@ -21,24 +21,12 @@
             "crai": ".crai"
         }
     },
-    "DNAseq_rules": {
+    "common_rules": {
         "external_sample_id": {
             "required": true
         },
         "external_aliquot_id": {
             "required": true
-        },
-        "sample_type": {
-            "type": "string",
-            "required": true,
-            "allowed": [
-                "Tumor",
-                "Normal",
-                "Abnormal",
-                "Peritumoral",
-                "Unknown",
-                "Not Reported"
-            ]
         },
         "file_name": {
             "type": "string",
@@ -95,6 +83,38 @@
             "type": "string",
             "required": true
         },
+        "FFPE": {
+            "type": "boolean",
+            "required": true
+        },
+        "composition": {
+            "type": "string",
+            "required": true,
+            "allowed": [
+                "Bone Marrow",
+                "Buffy Coat",
+                "Derived Cell Line",
+                "Not Available",
+                "Not Reported",
+                "Patient Derived Xenograft",
+                "Patient Derived Organoid",
+                "Peripheral Whole Blood",
+                "Saliva",
+                "Solid Tissue"
+            ]
+        },
+        "sample_type": {
+            "type": "string",
+            "required": true,
+            "allowed": [
+                "Tumor",
+                "Normal",
+                "Unknown",
+                "Not Reported"
+            ]
+        }
+    },
+    "DNAseq_rules": {
         "platform": {
             "type": "string",
             "required": true,
@@ -119,8 +139,7 @@
             "allowed": [
                 "WGS",
                 "WXS",
-                "Targeted Sequencing",
-                "Panel"
+                "Targeted Sequencing"
             ]
         },
         "total_reads": {
@@ -142,10 +161,6 @@
         "is_paired_end": {
             "type": "boolean",
             "required": true,
-            "allowed": [
-                "TRUE",
-                "FALSE"
-            ],
             "dependencies": {
                 "file_format": [
                     "FASTQ",
@@ -156,10 +171,6 @@
         "is_adapter_trimmed": {
             "type": "boolean",
             "required": true,
-            "allowed": [
-                "TRUE",
-                "FALSE"
-            ],
             "dependencies": {
                 "file_format": [
                     "FASTQ"
@@ -197,7 +208,7 @@
             "dependencies": {
                 "experimental_strategy": [
                     "Targeted Sequencing",
-                    "Panel"
+                    "WXS"
                 ]
             }
         },
@@ -207,7 +218,17 @@
             "dependencies": {
                 "experimental_strategy": [
                     "Targeted Sequencing",
-                    "Panel"
+                    "WXS"
+                ]
+            }
+        },
+        "target_capture_bed": {
+            "type": "string",
+            "required": true,
+            "dependencies": {
+                "experimental_strategy": [
+                    "Targeted Sequencing",
+                    "WXS"
                 ]
             }
         },
@@ -218,110 +239,12 @@
                 "experimental_strategy": [
                     "WGS",
                     "WXS",
-                    "WES",
-                    "Targeted Sequencing",
-                    "Panel"
+                    "Targeted Sequencing"
                 ]
             }
-        },
-        "FFPE": {
-            "type": "boolean",
-            "required": true,
-            "allowed": [
-                "TRUE",
-                "FALSE"
-            ]
-        },
-        "composition": {
-            "type": "string",
-            "required": true,
-            "allowed": [
-                "Bone Marrow",
-                "Buffy Coat",
-                "Derived Cell Line",
-                "Not Available",
-                "Not Reported",
-                "Patient Derived Xenograft",
-                "Peripheral Whole Blood",
-                "Saliva",
-                "Solid Tissue"
-            ]
         }
     },
     "RNAseq_rules": {
-        "external_sample_id": {
-            "required": true
-        },
-        "external_aliquot_id": {
-            "required": true
-        },
-        "sample_type": {
-            "type": "string",
-            "required": true,
-            "allowed": [
-                "Tumor",
-                "Normal",
-                "Abnormal",
-                "Peritumoral",
-                "Unknown",
-                "Not Reported"
-            ]
-        },
-        "file_name": {
-            "type": "string",
-            "required": true
-        },
-        "file_format": {
-            "type": "string",
-            "required": true,
-            "allowed": [
-                "FASTQ",
-                "BAM",
-                "BAI",
-                "CRAM",
-                "CRAI",
-                "GVCF",
-                "VCF",
-                "TBI",
-                "MAF",
-                "PDF",
-                "HTML",
-                "DCM",
-                "IDAT",
-                "SVS",
-                "GPR",
-                "CNS",
-                "TXT",
-                "PNG",
-                "CSV",
-                "PED",
-                "SEG",
-                "TAR",
-                "TSV"
-            ]
-        },
-        "file_size": {
-            "type": "integer",
-            "required": true
-        },
-        "file_hash_type": {
-            "type": "string",
-            "required": true,
-            "allowed": [
-                "MD5",
-                "SHA1",
-                "SHA256",
-                "SHA512",
-                "ETag"
-            ]
-        },
-        "file_hash_value": {
-            "required": true
-        },
-        "sequencing_center": {
-            "type": "string",
-            "required": true
-        },
         "platform": {
             "type": "string",
             "required": true,
@@ -402,10 +325,6 @@
         "is_paired_end": {
             "type": "boolean",
             "required": true,
-            "allowed": [
-                "TRUE",
-                "FALSE"
-            ],
             "dependencies": {
                 "file_format": [
                     "FASTQ",
@@ -416,10 +335,6 @@
         "is_adapter_trimmed": {
             "type": "boolean",
             "required": true,
-            "allowed": [
-                "TRUE",
-                "FALSE"
-            ],
             "dependencies": {
                 "file_format": [
                     "FASTQ"
@@ -450,109 +365,13 @@
             "dependencies": {
                 "is_adapter_trimmed": "FALSE"
             }
-        },
-        "FFPE": {
-            "type": "boolean",
-            "required": true,
-            "allowed": [
-                "TRUE",
-                "FALSE"
-            ]
-        },
-        "composition": {
-            "type": "string",
-            "required": true,
-            "allowed": [
-                "Bone Marrow",
-                "Buffy Coat",
-                "Derived Cell Line",
-                "Not Available",
-                "Not Reported",
-                "Patient Derived Xenograft",
-                "Peripheral Whole Blood",
-                "Saliva",
-                "Solid Tissue"
-            ]
         }
     },
     "single_cell_rules": {
-        "external_sample_id": {
-            "required": true
-        },
-        "external_aliquot_id": {
-            "required": true
-        },
         "organism": {
             "required": true
         },
         "cell_entity": {
-            "required": true
-        },
-        "sample_type": {
-            "type": "string",
-            "required": true,
-            "allowed": [
-                "Tumor",
-                "Normal",
-                "Abnormal",
-                "Peritumoral",
-                "Unknown",
-                "Not Reported"
-            ]
-        },
-        "file_name": {
-            "type": "string",
-            "required": true
-        },
-        "file_format": {
-            "type": "string",
-            "required": true,
-            "allowed": [
-                "FASTQ",
-                "BAM",
-                "BAI",
-                "CRAM",
-                "CRAI",
-                "GVCF",
-                "VCF",
-                "TBI",
-                "MAF",
-                "PDF",
-                "HTML",
-                "DCM",
-                "IDAT",
-                "SVS",
-                "GPR",
-                "CNS",
-                "TXT",
-                "PNG",
-                "CSV",
-                "PED",
-                "SEG",
-                "TAR",
-                "TSV"
-            ]
-        },
-        "file_size": {
-            "type": "integer",
-            "required": true
-        },
-        "file_hash_type": {
-            "type": "string",
-            "required": true,
-            "allowed": [
-                "MD5",
-                "SHA1",
-                "SHA256",
-                "SHA512",
-                "ETag"
-            ]
-        },
-        "file_hash_value": {
-            "required": true
-        },
-        "sequencing_center": {
-            "type": "string",
             "required": true
         },
         "platform": {
@@ -687,10 +506,6 @@
         "is_paired_end": {
             "type": "boolean",
             "required": true,
-            "allowed": [
-                "TRUE",
-                "FALSE"
-            ],
             "dependencies": {
                 "file_format": [
                     "FASTQ",
@@ -701,10 +516,6 @@
         "is_adapter_trimmed": {
             "type": "boolean",
             "required": true,
-            "allowed": [
-                "TRUE",
-                "FALSE"
-            ],
             "dependencies": {
                 "file_format": [
                     "FASTQ"
@@ -735,105 +546,9 @@
             "dependencies": {
                 "is_adapter_trimmed": "FALSE"
             }
-        },
-        "FFPE": {
-            "type": "boolean",
-            "required": true,
-            "allowed": [
-                "TRUE",
-                "FALSE"
-            ]
-        },
-        "composition": {
-            "type": "string",
-            "required": true,
-            "allowed": [
-                "Bone Marrow",
-                "Buffy Coat",
-                "Derived Cell Line",
-                "Not Available",
-                "Not Reported",
-                "Patient Derived Xenograft",
-                "Peripheral Whole Blood",
-                "Saliva",
-                "Solid Tissue"
-            ]
         }
     },
     "pacbio_longread_rules": {
-        "external_sample_id": {
-            "required": true
-        },
-        "external_aliquot_id": {
-            "required": true
-        },
-        "sample_type": {
-            "type": "string",
-            "required": true,
-            "allowed": [
-                "Tumor",
-                "Normal",
-                "Abnormal",
-                "Peritumoral",
-                "Unknown",
-                "Not Reported"
-            ]
-        },
-        "file_name": {
-            "type": "string",
-            "required": true
-        },
-        "file_format": {
-            "type": "string",
-            "required": true,
-            "allowed": [
-                "FASTQ",
-                "BAM",
-                "BAI",
-                "CRAM",
-                "CRAI",
-                "GVCF",
-                "VCF",
-                "TBI",
-                "MAF",
-                "PDF",
-                "HTML",
-                "DCM",
-                "IDAT",
-                "SVS",
-                "GPR",
-                "CNS",
-                "TXT",
-                "PNG",
-                "CSV",
-                "PED",
-                "SEG",
-                "TAR",
-                "TSV"
-            ]
-        },
-        "file_size": {
-            "type": "integer",
-            "required": true
-        },
-        "file_hash_type": {
-            "type": "string",
-            "required": true,
-            "allowed": [
-                "MD5",
-                "SHA1",
-                "SHA256",
-                "SHA512",
-                "ETag"
-            ]
-        },
-        "file_hash_value": {
-            "required": true
-        },
-        "sequencing_center": {
-            "type": "string",
-            "required": true
-        },
         "platform": {
             "type": "string",
             "required": true,
@@ -852,8 +567,7 @@
                 "WGS",
                 "WXS",
                 "RNA-Seq",
-                "Targeted Sequencing",
-                "Panel"
+                "Targeted Sequencing"
             ]
         },
         "library_selection": {
@@ -908,10 +622,6 @@
         "is_paired_end": {
             "type": "boolean",
             "required": true,
-            "allowed": [
-                "TRUE",
-                "FALSE"
-            ],
             "dependencies": {
                 "file_format": [
                     "FASTQ",
@@ -922,10 +632,6 @@
         "is_adapter_trimmed": {
             "type": "boolean",
             "required": true,
-            "allowed": [
-                "TRUE",
-                "FALSE"
-            ],
             "dependencies": {
                 "file_format": [
                     "FASTQ"
@@ -963,7 +669,7 @@
             "dependencies": {
                 "experimental_strategy": [
                     "Targeted Sequencing",
-                    "Panel"
+                    "WXS"
                 ]
             }
         },
@@ -973,7 +679,17 @@
             "dependencies": {
                 "experimental_strategy": [
                     "Targeted Sequencing",
-                    "Panel"
+                    "WXS"
+                ]
+            }
+        },
+        "target_capture_bed": {
+            "type": "string",
+            "required": true,
+            "dependencies": {
+                "experimental_strategy": [
+                    "Targeted Sequencing",
+                    "WXS"
                 ]
             }
         },
@@ -984,110 +700,12 @@
                 "experimental_strategy": [
                     "WGS",
                     "WXS",
-                    "WES",
-                    "Targeted Sequencing",
-                    "Panel"
+                    "Targeted Sequencing"
                 ]
             }
-        },
-        "FFPE": {
-            "type": "boolean",
-            "required": true,
-            "allowed": [
-                "TRUE",
-                "FALSE"
-            ]
-        },
-        "composition": {
-            "type": "string",
-            "required": true,
-            "allowed": [
-                "Bone Marrow",
-                "Buffy Coat",
-                "Derived Cell Line",
-                "Not Available",
-                "Not Reported",
-                "Patient Derived Xenograft",
-                "Peripheral Whole Blood",
-                "Saliva",
-                "Solid Tissue"
-            ]
         }
     },
     "methylation_rules": {
-        "external_sample_id": {
-            "required": true
-        },
-        "external_aliquot_id": {
-            "required": true
-        },
-        "sample_type": {
-            "type": "string",
-            "required": true,
-            "allowed": [
-                "Tumor",
-                "Normal",
-                "Abnormal",
-                "Peritumoral",
-                "Unknown",
-                "Not Reported"
-            ]
-        },
-        "file_name": {
-            "type": "string",
-            "required": true
-        },
-        "file_format": {
-            "type": "string",
-            "required": true,
-            "allowed": [
-                "FASTQ",
-                "BAM",
-                "BAI",
-                "CRAM",
-                "CRAI",
-                "GVCF",
-                "VCF",
-                "TBI",
-                "MAF",
-                "PDF",
-                "HTML",
-                "DCM",
-                "IDAT",
-                "SVS",
-                "GPR",
-                "CNS",
-                "TXT",
-                "PNG",
-                "CSV",
-                "PED",
-                "SEG",
-                "TAR",
-                "TSV"
-            ]
-        },
-        "file_size": {
-            "type": "integer",
-            "required": true
-        },
-        "file_hash_type": {
-            "type": "string",
-            "required": true,
-            "allowed": [
-                "MD5",
-                "SHA1",
-                "SHA256",
-                "SHA512",
-                "ETag"
-            ]
-        },
-        "file_hash_value": {
-            "required": true
-        },
-        "sequencing_center": {
-            "type": "string",
-            "required": true
-        },
         "platform": {
             "type": "string",
             "required": true,
@@ -1106,29 +724,6 @@
             "allowed": [
                 "Methylation",
                 "Methylation Microarray"
-            ]
-        },
-        "FFPE": {
-            "type": "boolean",
-            "required": true,
-            "allowed": [
-                "TRUE",
-                "FALSE"
-            ]
-        },
-        "composition": {
-            "type": "string",
-            "required": true,
-            "allowed": [
-                "Bone Marrow",
-                "Buffy Coat",
-                "Derived Cell Line",
-                "Not Available",
-                "Not Reported",
-                "Patient Derived Xenograft",
-                "Peripheral Whole Blood",
-                "Saliva",
-                "Solid Tissue"
             ]
         }
     }
