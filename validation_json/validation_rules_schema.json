@@ -32,6 +32,14 @@
             "type": "string",
             "required": true
         },
+        "PI_name": {
+            "type": "string",
+            "required": true
+        },
+        "project": {
+            "type": "string",
+            "required": true
+        },
         "file_format": {
             "type": "string",
             "required": true,
