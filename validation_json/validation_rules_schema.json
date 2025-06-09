@@ -126,12 +126,33 @@
             ]
         },
         "species": {
-            "type": "string",
             "required": true,
             "allowed": [
                 "Homo sapiens",
                 "Mus musculus"
             ]
+        },
+        "total_reads": {
+            "required": true,
+            "nullable": true
+        },
+        "flow_cell_barcode": {
+            "required": true,
+            "dependencies": {
+                "file_format": [
+                    "FASTQ"
+                ]
+            },
+            "nullable": true
+        },
+        "lane_number": {
+            "required": true,
+            "dependencies": {
+                "file_format": [
+                    "FASTQ"
+                ]
+            },
+            "nullable": true
         }
     },
     "DNAseq_rules": {
