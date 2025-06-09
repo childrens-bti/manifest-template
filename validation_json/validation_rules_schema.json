@@ -124,6 +124,14 @@
                 "Unknown",
                 "Not Reported"
             ]
+        },
+        "species": {
+            "type": "string",
+            "required": true,
+            "allowed": [
+                "Homo sapiens",
+                "Mus musculus"
+            ]
         }
     },
     "DNAseq_rules": {
