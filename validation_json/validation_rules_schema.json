@@ -108,7 +108,11 @@
                 "Patient Derived Organoid",
                 "Peripheral Whole Blood",
                 "Saliva",
-                "Solid Tissue"
+                "Solid Tissue",
+                "Umbilical Cord Blood",
+                "Patient-Derived T Cells",
+                "iPSC-Derived Organoid",
+                "Cerebrospinal Fluid"
             ]
         },
         "sample_type": {
@@ -120,6 +124,35 @@
                 "Unknown",
                 "Not Reported"
             ]
+        },
+        "species": {
+            "required": true,
+            "allowed": [
+                "Homo sapiens",
+                "Mus musculus"
+            ]
+        },
+        "total_reads": {
+            "required": true,
+            "nullable": true
+        },
+        "flow_cell_barcode": {
+            "required": true,
+            "dependencies": {
+                "file_format": [
+                    "FASTQ"
+                ]
+            },
+            "nullable": true
+        },
+        "lane_number": {
+            "required": true,
+            "dependencies": {
+                "file_format": [
+                    "FASTQ"
+                ]
+            },
+            "nullable": true
         }
     },
     "DNAseq_rules": {
@@ -150,10 +183,6 @@
                 "Targeted Sequencing"
             ]
         },
-        "total_reads": {
-            "type": "integer",
-            "required": true
-        },
         "read_pair_number": {
             "type": "string",
             "required": true,
@@ -178,24 +207,6 @@
         },
         "is_adapter_trimmed": {
             "type": "boolean",
-            "required": true,
-            "dependencies": {
-                "file_format": [
-                    "FASTQ"
-                ]
-            }
-        },
-        "flow_cell_barcode": {
-            "type": "string",
-            "required": true,
-            "dependencies": {
-                "file_format": [
-                    "FASTQ"
-                ]
-            }
-        },
-        "lane_number": {
-            "type": "integer",
             "required": true,
             "dependencies": {
                 "file_format": [
@@ -314,10 +325,6 @@
                 "Other"
             ]
         },
-        "total_reads": {
-            "type": "integer",
-            "required": true
-        },
         "read_pair_number": {
             "type": "string",
             "required": true,
@@ -342,24 +349,6 @@
         },
         "is_adapter_trimmed": {
             "type": "boolean",
-            "required": true,
-            "dependencies": {
-                "file_format": [
-                    "FASTQ"
-                ]
-            }
-        },
-        "flow_cell_barcode": {
-            "type": "string",
-            "required": true,
-            "dependencies": {
-                "file_format": [
-                    "FASTQ"
-                ]
-            }
-        },
-        "lane_number": {
-            "type": "integer",
             "required": true,
             "dependencies": {
                 "file_format": [
@@ -530,24 +519,6 @@
                 ]
             }
         },
-        "flow_cell_barcode": {
-            "type": "string",
-            "required": true,
-            "dependencies": {
-                "file_format": [
-                    "FASTQ"
-                ]
-            }
-        },
-        "lane_number": {
-            "type": "integer",
-            "required": true,
-            "dependencies": {
-                "file_format": [
-                    "FASTQ"
-                ]
-            }
-        },
         "adapter_sequencing": {
             "type": "string",
             "required": true,
@@ -611,10 +582,6 @@
                 "CCS"
             ]
         },
-        "total_reads": {
-            "type": "integer",
-            "required": true
-        },
         "read_pair_number": {
             "type": "string",
             "required": true,
@@ -639,24 +606,6 @@
         },
         "is_adapter_trimmed": {
             "type": "boolean",
-            "required": true,
-            "dependencies": {
-                "file_format": [
-                    "FASTQ"
-                ]
-            }
-        },
-        "flow_cell_barcode": {
-            "type": "string",
-            "required": true,
-            "dependencies": {
-                "file_format": [
-                    "FASTQ"
-                ]
-            }
-        },
-        "lane_number": {
-            "type": "integer",
             "required": true,
             "dependencies": {
                 "file_format": [
