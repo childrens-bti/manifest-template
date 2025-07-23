@@ -125,7 +125,7 @@
                 "Not Reported"
             ]
         },
-        "species": {
+        "organism": {
             "required": true,
             "allowed": [
                 "Homo sapiens",
