@@ -287,7 +287,6 @@
             "required": true,
             "allowed": [
                 "RNA-Seq",
-                "RNAseq",
                 "miRNA-Seq"
             ]
         },
@@ -323,6 +322,16 @@
                 "polyA",
                 "totalRNAseq",
                 "Other"
+            ]
+        },
+        "RNA_library": {
+            "type": "string",
+            "required": true,
+            "allowed": [
+                "exome_capture",
+                "poly-A",
+                "poly-A stranded",
+                "stranded"
             ]
         },
         "read_pair_number": {
