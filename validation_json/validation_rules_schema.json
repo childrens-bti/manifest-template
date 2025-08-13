@@ -287,7 +287,8 @@
             "required": true,
             "allowed": [
                 "RNA-Seq",
-                "miRNA-Seq"
+                "miRNA-Seq",
+                "Ribo-Seq"
             ]
         },
         "library_selection": {
@@ -301,6 +302,7 @@
                 "Poly-T Enrichment",
                 "Random",
                 "rRNA Depletion",
+                "Ribosome-protected fragments",
                 "Other"
             ]
         },
@@ -331,6 +333,7 @@
                 "exome_capture",
                 "poly-A",
                 "poly-A stranded",
+                "RPFs"
                 "stranded"
             ]
         },
