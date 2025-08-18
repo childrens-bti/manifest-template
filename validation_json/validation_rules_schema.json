@@ -112,7 +112,8 @@
                 "Umbilical Cord Blood",
                 "Patient-Derived T Cells",
                 "iPSC-Derived Organoid",
-                "Cerebrospinal Fluid"
+                "Cerebrospinal Fluid",
+                "Embryonic Stem Cell Derived Cell Line"
             ]
         },
         "sample_type": {
