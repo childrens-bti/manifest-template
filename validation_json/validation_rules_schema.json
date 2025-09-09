@@ -403,12 +403,15 @@
             "required": true
         },
         "experimental_strategy": {
-            "type": "string",
-            "required": true,
-            "allowed": [
-                "scRNA-Seq",
-                "snRNA-Seq"
-            ]
+          "type": "string",
+          "required": true,
+          "allowed": [
+            "scRNA-Seq",
+            "snRNA-Seq",
+            "CITE-Seq",
+            "scTCR-Seq",
+            "scBCR-Seq"
+          ]
         },
         "end_bias": {
             "type": "string",
