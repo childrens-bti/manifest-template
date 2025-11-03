@@ -89,7 +89,7 @@
         },
         "sequencing_center": {
             "type": "string",
-            "required": true
+            "required": false
         },
         "FFPE": {
             "type": "boolean",
@@ -276,6 +276,7 @@
                 "SOLiD",
                 "ONT",
                 "DNBSEQ",
+                "PacBio SMRT Cell",
                 "Other"
             ]
         },
@@ -289,7 +290,8 @@
             "allowed": [
                 "RNA-Seq",
                 "miRNA-Seq",
-                "Ribo-Seq"
+                "Ribo-Seq",
+                "long-read RNA-Seq"
             ]
         },
         "library_selection": {
