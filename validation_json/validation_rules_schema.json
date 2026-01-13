@@ -66,7 +66,9 @@
                 "PED",
                 "SEG",
                 "TAR",
-                "TSV"
+                "TSV",
+                "mzML",
+                "raw"
             ]
         },
         "file_size": {
@@ -700,6 +702,61 @@
                 "Methylation",
                 "Methylation Microarray"
             ]
+        }
+    },
+    "proteomics_rules": {
+        "proteomics_experiment": {
+            "type": "string",
+            "required": true,
+            "allowed": [
+                "Proteome",
+                "Ubiquitylome",
+                "Phosphoproteome",
+                "Acetylome",
+                "Glycoproteome",
+                "Metabolome",
+                "Lipidome"
+            ]
+        },
+        "platform": {
+            "type": "string",
+            "required": true
+        },
+        "acquisition_type": {
+            "type": "string",
+            "required": true
+        },
+        "ion_fragmentation": {
+            "type": "string",
+            "required": true
+        },
+        "enrichment_approach": {
+            "type": "string",
+            "required": true
+        },
+        "quantification_technique": {
+            "type": "string",
+            "required": true
+        },
+        "quantification_labeling_method": {
+            "type": "string",
+            "required": true
+        },
+        "quantification_label_id": {
+            "type": "string",
+            "required": true
+        },
+        "chromatography_approach": {
+            "type": "string",
+            "required": true
+        },
+        "fractionation_approach": {
+            "type": "string",
+            "required": true
+        },
+        "fraction_number": {
+            "type": "integer",
+            "required": true
         }
     }
 }
