@@ -7,7 +7,7 @@
 | external_aliquot_id | True | Unique id linked to a specific aliquot (if leveraged for multiple assays, comprised of aliquot_id + T/N + assay performed) | |
 | sample_type | True | Text term that represents a description of the kind of tissue collected with respect to disease status | "Tumor", "Normal", "Unknown", "Not Reported" |
 | composition | True | Tissue type collected sample comes from | "Bone Marrow", "Buffy Coat", "Derived Cell Line", "Not Available", "Not Reported", "Patient Derived Xenograft", "Patient Derived Organoid", "Peripheral Whole Blood", "Saliva", "Solid Tissue", "Umbilical Cord Blood", "Patient-Derived T Cells", "iPSC-Derived Organoid", "Cerebrospinal Fluid", "Embryonic Stem Cell Derived Cell Line" |
-| proteomics_experiment_type | True | The type of omics experiment that the sample was subject to. This will be a proteomics-based data, by default, but this should specify the type of proteomics data. | "Proteome", "Ubiquitylome", "Phosphoproteome", "Acetylome", "Glycoproteome", "Metabolome", "Lipidome" |
+| proteomics_experiment | True | The type of omics experiment that the sample was subject to. This will be a proteomics-based data, by default, but this should specify the type of proteomics data. | "Proteome", "Ubiquitylome", "Phosphoproteome", "Acetylome", "Glycoproteome", "Metabolome", "Lipidome" |
 | file_name | True | Name of the file | |
 | file_format | True | Format of the file | "FASTQ", "BAM", "BAI", "CRAM", "CRAI", "GVCF", "VCF", "TBI", "MAF", "PDF", "HTML", "DCM", "IDAT", "SVS", "GPR", "CNS", "TXT", "PNG", "CSV", "PED", "SEG", "TAR", "TSV", "mzML", "raw" |
 | file_size | True | Reported file size in bytes | |
@@ -15,6 +15,7 @@
 | file_hash_value | True | Full has value of the file | |
 | sequencing_center | True | Name of the center generating sequencing data | |
 | platform | True | Name of the platform used to obtain data | |
+| experimental_strategy | True | Name of the type of experiment being performed | |
 | acquisition_type | True | Data acquisition type | |
 | ion_fragmentation | True | Reporter ion MS level | |
 | enrichment_approach | True | Enrichment method used for phospho, ubiquitin, acetyl, or other enrichment | |
