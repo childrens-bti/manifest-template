@@ -2,9 +2,9 @@
 
 | Column Name | Required | Explanation | Allowed Values | Data Type | Example Entry |
 | ---- | ---- | ---- | ---- | ---- | ---- |
-| external_patient_id | False | Non-unique identifier for patients from whom the sample was collected | | string | PID1899 |
-| external_sample_id | True | Non-unique identifier for samples linked to the same clinical event | | string | 7316-11566 |
-| external_aliquot_id | True | Unique id linked to a specific aliquot (if leveraged for multiple assays, comprised of aliquot_id + T/N + assay performed) | | string | 1549608_T_Prot |
+| external_patient_id | False | Non-unique identifier for patients from whom the sample was collected | | string | P007 |
+| external_sample_id | True | Non-unique identifier for samples linked to the same clinical event | | string | 8182-86886 |
+| external_aliquot_id | True | Unique id linked to a specific aliquot (if leveraged for multiple assays, comprised of aliquot_id + T/N + assay performed) | | string | 54774975_T_Prot |
 | sample_type | True | Text term that represents a description of the kind of tissue collected with respect to disease status | "Tumor", "Normal", "Unknown", "Not Reported" | string | Normal |
 | composition | True | Tissue type collected sample comes from | "Bone Marrow", "Buffy Coat", "Derived Cell Line", "Not Available", "Not Reported", "Patient Derived Xenograft", "Patient Derived Organoid", "Peripheral Whole Blood", "Saliva", "Solid Tissue", "Umbilical Cord Blood", "Patient-Derived T Cells", "iPSC-Derived Organoid", "Cerebrospinal Fluid", "Embryonic Stem Cell Derived Cell Line" |  string | Bone Marrow |
 | proteomics_experiment | True | The type of omics experiment that the sample was subject to. This will be a proteomics-based data, by default, but this should specify the type of proteomics data. | "Proteome", "Ubiquitylome", "Phosphoproteome", "Acetylome", "Glycoproteome", "Metabolome", "Lipidome" | string | Metabolome |
