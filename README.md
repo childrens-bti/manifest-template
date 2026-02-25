@@ -6,6 +6,8 @@ Validation rules are based on the rules established at Children's Hospital of Ph
 
 Any other repositories or workflows using the manifests or the validation rules should include this repository as a [git submodule](https://git-scm.com/book/en/v2/Git-Tools-Submodules).
 
+An explanation of each column in the manifests, their explanations, and any required values can be found in the [docs folder](docs/).
+
 ## Manifest Creation Flowchart
 
 ![manifest creation flowchart](assets/manifest_generation.png)
