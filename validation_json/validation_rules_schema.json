@@ -724,19 +724,32 @@
         },
         "acquisition_type": {
             "type": "string",
-            "required": true
+            "required": true,
+            "allowed": [
+                "DIA",
+                "DDA"
+            ]
         },
         "ion_fragmentation": {
             "type": "string",
-            "required": true
+            "required": true,
+            "allowed": [
+                "HCD fragmentation"
+            ]
         },
         "enrichment_approach": {
             "type": "string",
-            "required": true
+            "required": true,
+            "allowed": [
+                "whole proteome"
+            ]
         },
         "quantification_technique": {
             "type": "string",
-            "required": true
+            "required": true,
+            "allowed": [
+                "LFQ"
+            ]
         },
         "quantification_labeling_method": {
             "type": "string",
@@ -752,7 +765,10 @@
         },
         "fractionation_approach": {
             "type": "string",
-            "required": true
+            "required": true,
+            "allowed": [
+                "HpH"
+            ]
         },
         "fraction_number": {
             "type": "integer",
