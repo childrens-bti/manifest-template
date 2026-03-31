@@ -108,6 +108,7 @@
                 "Not Reported",
                 "Patient Derived Xenograft",
                 "Patient Derived Organoid",
+                "Peripheral Blood Mononuclear Cells",
                 "Peripheral Whole Blood",
                 "Saliva",
                 "Solid Tissue",
@@ -125,6 +126,7 @@
                 "Tumor",
                 "Normal",
                 "Unknown",
+                "Virus-infected",
                 "Not Reported"
             ]
         },
