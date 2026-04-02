@@ -337,11 +337,11 @@
             "type": "string",
             "required": true,
             "allowed": [
-                "exome_capture",
+                "exome capture",
                 "poly-A",
                 "poly-A stranded",
                 "RPFs",
-                "stranded"
+                "total-RNA stranded"
             ]
         },
         "read_pair_number": {
