@@ -10,4 +10,4 @@ An explanation of each column in the manifests, their explanations, and any requ
 
 ## Manifest Creation Flowchart
 
-![manifest creation flowchart](assets/manifest_generation.png)
+![manifest creation flowchart](assets/manifest_generation.png
