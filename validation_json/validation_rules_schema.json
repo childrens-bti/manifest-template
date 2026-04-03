@@ -707,6 +707,14 @@
         }
     },
     "proteomics_rules": {
+        "experimental_strategy": {
+            "type": "string",
+            "required": true,
+            "allowed": [
+                "Whole Cell Proteomics",
+                "Phospho-Proteomics"
+            ]
+        },
         "proteomics_experiment": {
             "type": "string",
             "required": true,
