@@ -422,32 +422,13 @@
         "chain_type": {
             "type": "string",
             "required": true,
-            "schema": {
-                "TCRα": {
-                    "dependencies": {
-                        "experimental_strategy": "scTCR-Seq"
-                    }
-                },
-                "TCRβ": {
-                    "dependencies": {
-                        "experimental_strategy": "scTCR-Seq"
-                    }
-                },
-                "IGH": {
-                    "dependencies": {
-                        "experimental_strategy": "scBCR-Seq"
-                    }
-                },
-                "IGK": {
-                    "dependencies": {
-                        "experimental_strategy": "scBCR-Seq"
-                    }
-                },
-                "IGL": {
-                    "dependencies": {
-                        "experimental_strategy": "scBCR-Seq"
-                    }
-                }
+            "allowed": [
+                "IGH",
+                "IGK",
+                "IGL"
+            ],
+            "dependencies": {
+                "experimental_strategy": "scBCR-Seq"
             }
         },
         "end_bias": {
