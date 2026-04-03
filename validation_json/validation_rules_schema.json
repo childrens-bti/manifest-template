@@ -422,16 +422,23 @@
         "chain_type": {
             "type": "string",
             "required": true,
-            "allowed": [
-                "IGH",
-                "IGK",
-                "IGL",
-                "TCRa",
-                "TCRb"
-            ],
             "dependencies": {
                 "experimental_strategy": ["scBCR-Seq", "scTCR-Seq"]
-            }
+            },
+            "anyof": [
+                {
+                    "allowed": ["IGH", "IGK", "IGL", "igh"],
+                    "dependencies": {
+                        "experimental_strategy": "scBCR-Seq"
+                    }
+                },
+                {
+                    "allowed": ["TCRa", "TCRb"],
+                    "dependencies": {
+                        "experimental_strategy": "scTCR-Seq"
+                    }
+                }
+            ]
         },
         "end_bias": {
             "type": "string",
