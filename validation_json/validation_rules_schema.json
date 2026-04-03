@@ -425,10 +425,12 @@
             "allowed": [
                 "IGH",
                 "IGK",
-                "IGL"
+                "IGL",
+                "TCRa",
+                "TCRb"
             ],
             "dependencies": {
-                "experimental_strategy": "scBCR-Seq"
+                "experimental_strategy": ["scBCR-Seq", "scTCR-Seq"]
             }
         },
         "end_bias": {
