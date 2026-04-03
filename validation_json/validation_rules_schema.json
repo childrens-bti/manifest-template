@@ -107,6 +107,7 @@
                 "Not Available",
                 "Not Reported",
                 "Patient Derived Xenograft",
+                "Xenograft",
                 "Patient Derived Organoid",
                 "Peripheral Blood Mononuclear Cells",
                 "Peripheral Whole Blood",
@@ -118,6 +119,17 @@
                 "Cerebrospinal Fluid",
                 "Embryonic Stem Cell Derived Cell Line"
             ]
+        },
+        "host_organism": {
+            "type": "string",
+            "required": true,
+            "allowed": ["Mus musculus"],
+            "dependencies": {
+                "composition": [
+                    "Patient Derived Xenograft",
+                    "Xenograft"
+                ]
+            }
         },
         "sample_type": {
             "type": "string",
