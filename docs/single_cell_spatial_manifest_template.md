@@ -30,9 +30,9 @@ feature_type
 | UMI_barcode_read | True | The type of read that contains the UMI barcode. | "index1", "index2", "read1", "read2", "Not Applicable" | string | index1 | |
 | UMI_barcode_offset | True | The offset in sequence of the UMI barcode. | | integer | 16 | |
 | UMI_barcode_size | True | The length of the UMI barcode sequence. | | integer | 10 | |
-spatial_barcode_read
-spatial_barcode_offset
-spatial_barcode_size
+| spatial_barcode_read | True | The type of read that contains the spatial barcode. | "index1", "index2", "read1", "read2", "Not Applicable" | string | read2 | |
+| spatial_barcode_offset | True | The offset in sequence of the spatial barcode. | | integer | 16 | |
+| spatial_barcode_size | True | The length of the spatial barcode sequence. | | integer | 10 | |
 | cDNA_read | True | The type of read that contains the cDNA read. | "index1", "index2", "read1", "read2", "Not Applicable" | string | read1 | |
 | cDNA_read_offset | True | The offset in sequence of the cDNA read. | | integer | 0 | |
 | is_paired_end | True | If fastq/bam files, are the reads paired end? | "True", "False" | boolean | True | |
