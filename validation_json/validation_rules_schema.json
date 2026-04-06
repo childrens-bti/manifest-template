@@ -400,7 +400,23 @@
             "required": true
         },
         "cell_entity": {
-            "required": true
+            "required": true,
+            "dependencies": {
+                "experimental_strategy": [
+                    "CITE-Seq",
+                    "scTCR-Seq",
+                    "scBCR-Seq"
+                ]
+            }
+        },
+        "spatial_unit": {
+            "required": true,
+            "dependencies": {
+                "experimental_strategy": [
+                    "scRNA-Seq",
+                    "snRNA-Seq",
+                ]
+            }
         },
         "platform": {
             "type": "string",
@@ -493,7 +509,31 @@
                 "read1",
                 "read2",
                 "Not Applicable"
-            ]
+            ],
+            "dependencies": {
+                "experimental_strategy": [
+                    "CITE-Seq",
+                    "scTCR-Seq",
+                    "scBCR-Seq"
+                ]
+            }
+        },
+        "spatial_barcode_read": {
+            "type": "string",
+            "required": true,
+            "allowed": [
+                "index1",
+                "index2",
+                "read1",
+                "read2",
+                "Not Applicable"
+            ],
+            "dependencies": {
+                "experimental_strategy": [
+                    "scRNA-Seq",
+                    "snRNA-Seq"
+                ]
+            }
         },
         "UMI_barcode_size": {
             "type": "integer",
@@ -501,11 +541,45 @@
         },
         "cell_barcode_offset": {
             "type": "integer",
-            "required": true
+            "required": true,
+            "dependencies": {
+                "experimental_strategy": [
+                    "CITE-Seq",
+                    "scTCR-Seq",
+                    "scBCR-Seq"
+                ]
+            }
         },
         "cell_barcode_size": {
             "type": "integer",
-            "required": true
+            "required": true,
+            "dependencies": {
+                "experimental_strategy": [
+                    "CITE-Seq",
+                    "scTCR-Seq",
+                    "scBCR-Seq"
+                ]
+            }
+        },
+        "spatial_barcode_offset": {
+            "type": "integer",
+            "required": true,
+            "dependencies": {
+                "experimental_strategy": [
+                    "scRNA-Seq",
+                    "snRNA-Seq"
+                ]
+            }
+        },
+        "spatial_barcode_size": {
+            "type": "integer",
+            "required": true,
+            "dependencies": {
+                "experimental_strategy": [
+                    "scRNA-Seq",
+                    "snRNA-Seq"
+                ]
+            }
         },
         "cDNA_read": {
             "type": "string",
