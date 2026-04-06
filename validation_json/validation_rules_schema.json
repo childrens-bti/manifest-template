@@ -400,7 +400,23 @@
             "required": true
         },
         "cell_entity": {
-            "required": true
+            "required": true,
+            "dependencies": {
+                "experimental_strategy": [
+                    "CITE-Seq",
+                    "scTCR-Seq",
+                    "scBCR-Seq"
+                ]
+            }
+        },
+        "spatial_unit": {
+            "required": true,
+            "dependencies": {
+                "experimental_strategy": [
+                    "scRNA-Seq",
+                    "snRNA-Seq"
+                ]
+            }
         },
         "platform": {
             "type": "string",
@@ -514,7 +530,31 @@
                 "read1",
                 "read2",
                 "Not Applicable"
-            ]
+            ],
+            "dependencies": {
+                "experimental_strategy": [
+                    "CITE-Seq",
+                    "scTCR-Seq",
+                    "scBCR-Seq"
+                ]
+            }
+        },
+        "spatial_barcode_read": {
+            "type": "string",
+            "required": true,
+            "allowed": [
+                "index1",
+                "index2",
+                "read1",
+                "read2",
+                "Not Applicable"
+            ],
+            "dependencies": {
+                "experimental_strategy": [
+                    "scRNA-Seq",
+                    "snRNA-Seq"
+                ]
+            }
         },
         "UMI_barcode_size": {
             "type": "integer",
@@ -522,11 +562,45 @@
         },
         "cell_barcode_offset": {
             "type": "integer",
-            "required": true
+            "required": true,
+            "dependencies": {
+                "experimental_strategy": [
+                    "CITE-Seq",
+                    "scTCR-Seq",
+                    "scBCR-Seq"
+                ]
+            }
         },
         "cell_barcode_size": {
             "type": "integer",
-            "required": true
+            "required": true,
+            "dependencies": {
+                "experimental_strategy": [
+                    "CITE-Seq",
+                    "scTCR-Seq",
+                    "scBCR-Seq"
+                ]
+            }
+        },
+        "spatial_barcode_offset": {
+            "type": "integer",
+            "required": true,
+            "dependencies": {
+                "experimental_strategy": [
+                    "scRNA-Seq",
+                    "snRNA-Seq"
+                ]
+            }
+        },
+        "spatial_barcode_size": {
+            "type": "integer",
+            "required": true,
+            "dependencies": {
+                "experimental_strategy": [
+                    "scRNA-Seq",
+                    "snRNA-Seq"
+                ]
+            }
         },
         "cDNA_read": {
             "type": "string",
@@ -580,7 +654,67 @@
             "dependencies": {
                 "is_adapter_trimmed": "FALSE"
             }
-        }
+        },
+        "feature_type": {
+            "required": true,
+            "allowed": [
+                "gex",
+                "vdj",
+                "ab",
+                "molecule",
+                "protein"
+            ],
+            "dependencies": {
+                "experimental_strategy": [
+                    "CITE-Seq",
+                    "scTCR-Seq",
+                    "scBCR-Seq"
+                ]
+            }
+        },
+        "image_type": {
+            "type": "string",
+            "required": true,
+            "allowed": [
+                "brightfield",
+                "fluroscence_dark",
+                "fluroscence_colorized",
+                "cytassist"
+            ],
+            "dependencies": {
+                "experimental_strategy": [
+                    "scRNA-Seq",
+                    "snRNA-Seq"
+                ]
+            }
+        },
+        "slide_id": {
+            "type": "string",
+            "required": true,
+            "dependencies": {
+                "experimental_strategy": [
+                    "scRNA-Seq",
+                    "snRNA-Seq"
+                ]
+            }
+        },
+        "capture_area": {
+            "type": "string",
+            "required": true,
+            "allowed": [
+                "A1",
+                "B1",
+                "C1",
+                "D1",
+                "Not Applicable"
+            ],
+            "dependencies": {
+                "experimental_strategy": [
+                    "scRNA-Seq",
+                    "snRNA-Seq"
+                ]
+            }
+        },
     },
     "pacbio_longread_rules": {
         "platform": {
