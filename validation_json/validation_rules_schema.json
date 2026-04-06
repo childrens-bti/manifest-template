@@ -414,7 +414,7 @@
             "dependencies": {
                 "experimental_strategy": [
                     "scRNA-Seq",
-                    "snRNA-Seq",
+                    "snRNA-Seq"
                 ]
             }
         },
@@ -633,7 +633,22 @@
             "dependencies": {
                 "is_adapter_trimmed": "FALSE"
             }
-        }
+        },
+        "feature_type": {
+            "required": true,
+            "allowed": [
+                "gex",
+                "vdj",
+                "ab"
+            ],
+            "dependencies": {
+                "experimental_strategy": [
+                    "CITE-Seq",
+                    "scTCR-Seq",
+                    "scBCR-Seq"
+                ]
+            }
+        },
     },
     "pacbio_longread_rules": {
         "platform": {
