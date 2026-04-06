@@ -639,13 +639,58 @@
             "allowed": [
                 "gex",
                 "vdj",
-                "ab"
+                "ab",
+                "molecule",
+                "protein"
             ],
             "dependencies": {
                 "experimental_strategy": [
                     "CITE-Seq",
                     "scTCR-Seq",
                     "scBCR-Seq"
+                ]
+            }
+        },
+        "image_type": {
+            "type": "string",
+            "required": true,
+            "allowed": [
+                "brightfield",
+                "fluroscence_dark",
+                "fluroscence_colorized",
+                "cytassist"
+            ],
+            "dependencies": {
+                "experimental_strategy": [
+                    "scRNA-Seq",
+                    "snRNA-Seq"
+                ]
+            }
+        },
+        "slide_id": {
+            "type": "string",
+            "required": true,
+            "dependencies": {
+                "experimental_strategy": [
+                    "scRNA-Seq",
+                    "snRNA-Seq"
+                ]
+            }
+        },
+        "capture_area": {
+            "type": "string",
+            "required": true,
+            "allowed": [
+                "A1",
+                "B1",
+                "C1",
+                "D1",
+                "Not Applicable"
+            ],
+            "dependencies": {
+                "experimental_strategy": [
+                    "scRNA-Seq",
+                    "snRNA-Seq"
                 ]
             }
         },
