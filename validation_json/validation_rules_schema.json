@@ -468,6 +468,36 @@
                 }
             ]
         },
+        "library_type": {
+            "type": "string",
+            "required": true,
+            "anyof": [
+                {
+                    "allowed": ["GEX", "ADT"],
+                    "dependencies": {
+                        "experimental_strategy": "CITE-Seq"
+                    }
+                },
+                {
+                    "allowed": ["GEX"],
+                    "dependencies": {
+                        "experimental_strategy": ["scRNA-Seq", "snRNA-Seq"]
+                    }
+                },
+                {
+                    "allowed": ["scTCR", "GEX", "VDJ-T"],
+                    "dependencies": {
+                        "experimental_strategy": "scTCR-Seq"
+                    }
+                },
+                {
+                    "allowed": ["scBCR", "GEX", "VDJ-B"],
+                    "dependencies": {
+                        "experimental_strategy": "scBCR-Seq"
+                    }
+                }
+            ]
+        },
         "end_bias": {
             "type": "string",
             "required": true,
@@ -714,7 +744,7 @@
                     "snRNA-Seq"
                 ]
             }
-        },
+        }
     },
     "pacbio_longread_rules": {
         "platform": {
