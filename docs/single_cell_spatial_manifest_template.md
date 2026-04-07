@@ -17,7 +17,7 @@
 | file_hash_value | True | Full has value of the file | | string | 938c2cc0dcc05f2b68c4287040cfcf71 | |
 | sequencing_center | True | Name of the center generating sequencing data | | string | Harvard Med School | |
 | platform | True | Name of the platform used to obtain data | "Complete Genomics", "Illumina", "Ion Torrent", "LS454", "SOLiD", "ONT", "DNBSEQ", "Other" | string | Illumina | |
-| instrument_model | True | Specific model of sequencing instrument used. | string | Model name of the instrument used for sequencing | NovaSeq 6000 | |
+| instrument_model | False | Specific model of sequencing instrument used. | string | Model name of the instrument used for sequencing | NovaSeq 6000 | |
 | experimental_strategy | True | The sequencing strategy used to generate the data file. | "scRNA-Seq", "snRNA-Seq" | string | scRNA-Seq | |
 | assay_type | True | Chemistry used to generate Visium expression signal (poly(A) capture vs targeted probe capture) | | string | Probe_Based_GEX | |
 | library_type | True | Specify the library modality. | "GEX" | string | GEX | |
