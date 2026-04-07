@@ -491,7 +491,7 @@
                     }
                 },
                 {
-                    "allowed": ["scBCR", "VDJ-B"],
+                    "allowed": ["scBCR", "GEX", "VDJ-B"],
                     "dependencies": {
                         "experimental_strategy": "scBCR-Seq"
                     }
