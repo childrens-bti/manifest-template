@@ -485,13 +485,13 @@
                     }
                 },
                 {
-                    "allowed": ["scTCR-Seq"],
+                    "allowed": ["scTCR", "GEX", "VDJ-T"],
                     "dependencies": {
                         "experimental_strategy": "scTCR-Seq"
                     }
                 },
                 {
-                    "allowed": ["scBCR-Seq"],
+                    "allowed": ["scBCR", "VDJ-B"],
                     "dependencies": {
                         "experimental_strategy": "scBCR-Seq"
                     }
