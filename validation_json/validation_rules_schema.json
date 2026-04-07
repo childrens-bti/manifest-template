@@ -235,7 +235,7 @@
             "type": "string",
             "required": true,
             "dependencies": {
-                "is_adapter_trimmed": "FALSE"
+                "is_adapter_trimmed": false
             }
         },
         "target_capture_kit_name": {
@@ -269,7 +269,7 @@
             }
         },
         "mean_coverage": {
-            "type": "string",
+            "type": ["string", "integer"],
             "required": true,
             "dependencies": {
                 "experimental_strategy": [
@@ -391,7 +391,7 @@
             "type": "string",
             "required": true,
             "dependencies": {
-                "is_adapter_trimmed": "FALSE"
+                "is_adapter_trimmed": false
             }
         }
     },
@@ -652,7 +652,7 @@
             "type": "string",
             "required": true,
             "dependencies": {
-                "is_adapter_trimmed": "FALSE"
+                "is_adapter_trimmed": false
             }
         },
         "feature_type": {
@@ -806,7 +806,7 @@
             "type": "string",
             "required": true,
             "dependencies": {
-                "is_adapter_trimmed": "FALSE"
+                "is_adapter_trimmed": false
             }
         },
         "target_capture_kit_name": {
@@ -840,7 +840,7 @@
             }
         },
         "mean_coverage": {
-            "type": "string",
+            "type": ["string", "integer"],
             "required": true,
             "dependencies": {
                 "experimental_strategy": [
