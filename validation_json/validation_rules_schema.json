@@ -187,10 +187,6 @@
                 "Other"
             ]
         },
-        "instrument_model": {
-            "type": "string",
-            "required": true
-        },
         "experimental_strategy": {
             "type": "string",
             "required": true,
@@ -270,7 +266,7 @@
         },
         "mean_coverage": {
             "type": ["string", "integer"],
-            "required": true,
+            "required": false,
             "dependencies": {
                 "experimental_strategy": [
                     "WGS",
@@ -295,10 +291,6 @@
                 "PacBio SMRT Cell",
                 "Other"
             ]
-        },
-        "instrument_model": {
-            "type": "string",
-            "required": true
         },
         "experimental_strategy": {
             "type": "string",
@@ -431,10 +423,6 @@
                 "DNBSEQ",
                 "Other"
             ]
-        },
-        "instrument_model": {
-            "type": "string",
-            "required": true
         },
         "experimental_strategy": {
           "type": "string",
@@ -754,10 +742,6 @@
                 "PacBio"
             ]
         },
-        "instrument_model": {
-            "type": "string",
-            "required": true
-        },
         "experimental_strategy": {
             "type": "string",
             "required": true,
@@ -866,17 +850,6 @@
                 "experimental_strategy": [
                     "Targeted Sequencing",
                     "WXS"
-                ]
-            }
-        },
-        "mean_coverage": {
-            "type": ["string", "integer"],
-            "required": true,
-            "dependencies": {
-                "experimental_strategy": [
-                    "WGS",
-                    "WXS",
-                    "Targeted Sequencing"
                 ]
             }
         }

@@ -14,7 +14,7 @@
 | file_hash_value | True | Full has value of the file | | string | 938c2cc0dcc05f2b68c4287040cfcf71 | |
 | sequencing_center | True | Name of the center generating sequencing data | | string | Harvard Med School | |
 | platform | True | Name of the platform used to obtain data | "Complete Genomics", "Illumina", "Ion Torrent", "LS454", "SOLiD", "ONT", "DNBSEQ", "Other" | string | Illumina | |
-| instrument_model | True | Specific model of sequencing instrument used. | string | Model name of the instrument used for sequencing | NovaSeq 6000 | |
+| instrument_model | False | Specific model of sequencing instrument used. | string | Model name of the instrument used for sequencing | NovaSeq 6000 | |
 | experimental_strategy | True | The sequencing strategy used to generate the data file. | "WGS", "WXS", "Targeted Sequencing" | string | WGS | |
 | target_capture_kit_name | False | Description that can uniquely identify a target capture kit. Required for WXS and Targeted Sequencing. | | string | | |
 | target_capture_kit_link | False | Full download link for the bed file corresponding to the target panel or capture kit used for sequence enrichment. | | string | | |
@@ -26,7 +26,7 @@
 | is_adapter_trimmed | False | Were adapters trimmed from sequencing data? Required when inputs are FASTQ files. | "True", "False" | boolean | True | |
 | adapter_sequencing | False | Base sequence of the sequencing adapter. Required when adapters were not trimmed. | | string | GCAT |
 | total_reads | True | Total number of reads that align to the reference. | | integer | 525600 | |
-| mean_coverage | True | Mean coverage for whole genome sequencing, or mean target coverage for whole exome and targeted sequencing, collected from Picard Tools. | | integer | 60 | |
+| mean_coverage | False | Mean coverage for whole genome sequencing, or mean target coverage for whole exome and targeted sequencing, collected from Picard Tools. | | integer | 60 | |
 | reference_genome | True | Reference genome version. | | string | GRCH38 | |
 | FFPE | True | Is the sample preserved in FFPE | "True", "False" | boolean | False | |
 | PI_name | True | Principal Investigator of the project | | string | Fonseca | True |
