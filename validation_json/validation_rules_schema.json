@@ -68,6 +68,10 @@
                 "TAR",
                 "TSV",
                 "mzML",
+                "TIF",
+                "TIFF",
+                "BTF",
+                "BIGTIFF",
                 "raw"
             ]
         },
