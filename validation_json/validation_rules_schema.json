@@ -71,6 +71,7 @@
                 "TIF",
                 "TIFF",
                 "BTF",
+                "BIGTIFF",
                 "raw"
             ]
         },
