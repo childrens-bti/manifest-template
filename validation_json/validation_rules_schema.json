@@ -299,7 +299,8 @@
                 "RNA-Seq",
                 "miRNA-Seq",
                 "Ribo-Seq",
-                "long-read RNA-Seq"
+                "long-read RNA-Seq",
+                "Flash-Seq"
             ]
         },
         "library_selection": {
