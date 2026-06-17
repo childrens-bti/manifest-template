@@ -411,7 +411,8 @@
             "dependencies": {
                 "experimental_strategy": [
                     "scRNA-Seq",
-                    "snRNA-Seq"
+                    "snRNA-Seq",
+                    "Spatial Transcriptomics"
                 ]
             }
         },
@@ -437,7 +438,8 @@
             "snRNA-Seq",
             "CITE-Seq",
             "scTCR-Seq",
-            "scBCR-Seq"
+            "scBCR-Seq",
+            "Spatial Transcriptomics"
           ]
         },
         "chain_type": {
@@ -474,7 +476,7 @@
                 {
                     "allowed": ["GEX"],
                     "dependencies": {
-                        "experimental_strategy": ["scRNA-Seq", "snRNA-Seq"]
+                        "experimental_strategy": ["scRNA-Seq", "snRNA-Seq", "Spatial Transcriptomics"]
                     }
                 },
                 {
@@ -575,7 +577,8 @@
             "dependencies": {
                 "experimental_strategy": [
                     "scRNA-Seq",
-                    "snRNA-Seq"
+                    "snRNA-Seq",
+                    "Spatial Transcriptomics"
                 ]
             }
         },
@@ -611,7 +614,8 @@
             "dependencies": {
                 "experimental_strategy": [
                     "scRNA-Seq",
-                    "snRNA-Seq"
+                    "snRNA-Seq",
+                    "Spatial Transcriptomics"
                 ]
             }
         },
@@ -621,7 +625,8 @@
             "dependencies": {
                 "experimental_strategy": [
                     "scRNA-Seq",
-                    "snRNA-Seq"
+                    "snRNA-Seq",
+                    "Spatial Transcriptomics"
                 ]
             }
         },
@@ -691,7 +696,8 @@
                 "experimental_strategy": [
                     "CITE-Seq",
                     "scTCR-Seq",
-                    "scBCR-Seq"
+                    "scBCR-Seq",
+                    "Spatial Transcriptomics"
                 ]
             }
         },
@@ -707,7 +713,8 @@
             "dependencies": {
                 "experimental_strategy": [
                     "scRNA-Seq",
-                    "snRNA-Seq"
+                    "snRNA-Seq",
+                    "Spatial Transcriptomics"
                 ]
             }
         },
@@ -717,7 +724,8 @@
             "dependencies": {
                 "experimental_strategy": [
                     "scRNA-Seq",
-                    "snRNA-Seq"
+                    "snRNA-Seq",
+                    "Spatial Transcriptomics"
                 ]
             }
         },
@@ -734,7 +742,8 @@
             "dependencies": {
                 "experimental_strategy": [
                     "scRNA-Seq",
-                    "snRNA-Seq"
+                    "snRNA-Seq",
+                    "Spatial Transcriptomics"
                 ]
             }
         }
