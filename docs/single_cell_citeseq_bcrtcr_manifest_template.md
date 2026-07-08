@@ -2,9 +2,12 @@
 
 | Column Name | Required | Explanation | Allowed Values | Data Type | Example Entry | BTI Derived |
 | ---- | ---- | ---- | ---- | ---- | ---- |  ---- |
-| external_patient_id | False | Non-unique identifier for patients from whom the sample was collected | | string | PID1899 | |
-| external_sample_id | True | Non-unique identifier for samples linked to the same clinical event | | string | 7316-11566 | |
-| external_aliquot_id | True | Unique id linked to a specific aliquot (if leveraged for multiple assays, comprised of aliquot_id + T/N + assay performed) | | string | 1549608_T_WGS | |
+| patient_id | True | Unique identifier for the patient from whom the sample was collected | | string | PT1899 | True |
+| sample_id | True | Unique identifier for the sample linked to the same clinical event | | string | SM7316-11566 | True |
+| aliquot_id | True | Unique identifier for a specific aliquot | | string | AL1549608_T_WGS | True |
+| external_patient_id | False | External, user-provided (non-unique) identifier for patients from whom the sample was collected | | string | PID1899 | |
+| external_sample_id | False | External, user-provided (non-unique) identifier for samples linked to the same clinical event | | string | 7316-11566 | |
+| external_aliquot_id | False | External, user-provided identifier linked to a specific aliquot (if leveraged for multiple assays, comprised of aliquot_id + T/N + assay performed) | | string | 1549608_T_WGS | |
 | organism | True | Binomial name of organism with full genus name | "Homo sapiens", "Mus musculus" | string | Homo sapiens | |
 | host_organism | False | Host organism binomial name when the sequenced sample is a xenograft. Required when compisition is "Patient Derived Xenograft" or "Xenograft" | "Mus musculus" | string | Mus musculus | True |
 | cell_entity | True | The type of single cell entity. | | string | Whole Cell | |
