@@ -34,7 +34,11 @@
             "type": "string",
             "required": true
         },
-        "external_patient_id": {
+        "external_participant_id": {
+            "type": "string",
+            "required": false
+        },
+        "cohort_participant_id": {
             "type": "string",
             "required": false
         },
@@ -142,6 +146,10 @@
                 "Cerebrospinal Fluid",
                 "Embryonic Stem Cell Derived Cell Line"
             ]
+        },
+        "bio_replicate": {
+            "type": "string",
+            "required": false
         },
         "host_organism": {
             "type": "string",

@@ -5,11 +5,13 @@
 | participant_id | True | Unique identifier for the participant from whom the sample was collected | | string | PT007 | True |
 | sample_id | True | Unique identifier for the sample linked to the same clinical event | | string | SM8182-86886 | True |
 | aliquot_id | True | Unique identifier for a specific aliquot | | string | AL54774975_T_Prot | True |
-| external_patient_id | False | External, user-provided (non-unique) identifier for patients from whom the sample was collected | | string | P007 | |
+| external_participant_id | False | External, user-provided (non-unique) identifier for participants from whom the sample was collected | | string | P007 | |
+| cohort_participant_id | False | Participant identifier as used within a specific cohort/study; interchangeable with external_participant_id when the two differ | | string | COH-PT1899 | |
 | external_sample_id | False | External, user-provided (non-unique) identifier for samples linked to the same clinical event | | string | 8182-86886 | |
 | external_aliquot_id | False | External, user-provided identifier linked to a specific aliquot (if leveraged for multiple assays, comprised of aliquot_id + T/N + assay performed) | | string | 54774975_T_Prot | |
 | sample_type | True | Text term that represents a description of the kind of tissue collected with respect to disease status | "Tumor", "Normal", "Virus-infected", "Unknown", "Not Reported" | string | Normal | |
 | composition | True | Tissue type the collected sample comes from | "Bone Marrow", "Buffy Coat", "Derived Cell Line", "Not Available", "Not Reported", "Patient Derived Xenograft", "Xenograft", Patient Derived Organoid", "Peripheral Whole Blood", "Saliva", "Solid Tissue", "Umbilical Cord Blood", "Patient-Derived T Cells", "iPSC-Derived Organoid", "Cerebrospinal Fluid", "Embryonic Stem Cell Derived Cell Line" |  string | Bone Marrow | |
+| bio_replicate | False | Label identifying the biological replicate this sample represents | | string | Rep1 | |
 | proteomics_experiment | True | The type of omics experiment that the sample was subject to. This will be a proteomics-based data, by default, but this should specify the type of proteomics data. | "Proteome", "Ubiquitylome", "Phosphoproteome", "Acetylome", "Glycoproteome", "Metabolome", "Lipidome" | string | Metabolome | |
 | file_name | True | Name of the file | | string | NCI-11Plex-13-F12A-z11358.mzML | |
 | file_format | True | Format of the file | "FASTQ", "BAM", "BAI", "CRAM", "CRAI", "GVCF", "VCF", "TBI", "MAF", "PDF", "HTML", "DCM", "IDAT", "SVS", "GPR", "CNS", "TXT", "PNG", "CSV", "PED", "SEG", "TAR", "TSV", "mzML", "raw" | string | mzML | |
