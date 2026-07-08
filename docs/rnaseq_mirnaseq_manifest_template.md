@@ -24,7 +24,7 @@
 | library_selection | True | Library selection method. | "Affinity Enrichment", "Hybrid Selection", "miRNA Size Fractionation", "PCR", "Poly-T Enrichment", "Random","rRNA Depletion", "Ribosome-protected fragments", "Other" | string | PCT | |
 | library_strand | True | Library strandedness. | "Stranded", "Unstranded", "First Stranded", "Second Stranded", "Not Applicable" | string | Stranded | |
 | library_prep | True | Library prep method. | "polyA", "totalRNAseq", "Other" | string | polyA | |
-| RNA_library | False | Library category. | "exome_capture", "poly-A", "poly-A stranded", "RPFs", "stranded" | string | stranded | True |
+| RNA_library | True | Library category. | "exome capture", "poly-A", "poly-A stranded", "RPFs", "total RNA stranded" | string | total RNA stranded | True |
 | is_paired_end | True | If fastq/bam files, are the reads paired end? | "True", "False" | boolean | True | |
 | read_pair_number | False | Denotes whether a submitted FASTQ file contains forward (R1) or reverse (R2) reads for paired-end sequencing. Required when inputs are FASTQ files. | "R1", "R1", "Not Applicaable" | string | R1 | |
 | flow_cell_barcode | False | Flow cell barcode. Wrong or missing information may affect analysis results. Required when inputs are FASTQ files. | | string | H0164ALXX140820 | |
