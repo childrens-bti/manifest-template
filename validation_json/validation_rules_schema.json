@@ -896,6 +896,13 @@
         }
     },
     "methylation_rules": {
+        "file_format": {
+            "type": "string",
+            "required": true,
+            "allowed": [
+                "IDAT"
+            ]
+        },
         "platform": {
             "type": "string",
             "required": true,
