@@ -22,11 +22,29 @@
         }
     },
     "common_rules": {
-        "external_sample_id": {
+        "patient_id": {
+            "type": "string",
             "required": true
         },
-        "external_aliquot_id": {
+        "sample_id": {
+            "type": "string",
             "required": true
+        },
+        "aliquot_id": {
+            "type": "string",
+            "required": true
+        },
+        "external_patient_id": {
+            "type": "string",
+            "required": false
+        },
+        "external_sample_id": {
+            "type": "string",
+            "required": false
+        },
+        "external_aliquot_id": {
+            "type": "string",
+            "required": false
         },
         "file_name": {
             "type": "string",

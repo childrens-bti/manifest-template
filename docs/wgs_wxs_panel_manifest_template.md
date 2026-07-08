@@ -2,9 +2,12 @@
 
 | Column Name | Required | Explanation | Allowed Values | Data Type | Example Entry | BTI Derived |
 | ---- | ---- | ---- | ---- | ---- | ---- | ---- |
-| external_patient_id | False | Non-unique identifier for patients from whom the sample was collected | | string | PID1899 | |
-| external_sample_id | True | Non-unique identifier for samples linked to the same clinical event | | string | 7316-11566 | |
-| external_aliquot_id | True | Unique id linked to a specific aliquot (if leveraged for multiple assays, comprised of aliquot_id + T/N + assay performed) | | string | 1549608_T_WGS | |
+| patient_id | True | Unique identifier for the patient from whom the sample was collected | | string | PT1899 | True |
+| sample_id | True | Unique identifier for the sample linked to the same clinical event | | string | SM7316-11566 | True |
+| aliquot_id | True | Unique identifier for a specific aliquot | | string | AL1549608_T_WGS | True |
+| external_patient_id | False | External, user-provided (non-unique) identifier for patients from whom the sample was collected | | string | PID1899 | |
+| external_sample_id | False | External, user-provided (non-unique) identifier for samples linked to the same clinical event | | string | 7316-11566 | |
+| external_aliquot_id | False | External, user-provided identifier linked to a specific aliquot (if leveraged for multiple assays, comprised of aliquot_id + T/N + assay performed) | | string | 1549608_T_WGS | |
 | sample_type | True | Text term that represents a description of the kind of tissue collected with respect to disease status | "Tumor", "Normal", "Virus-infected", "Unknown", "Not Reported" | string | Normal | |
 | composition | True | Tissue type the collected sample comes from | "Bone Marrow", "Buffy Coat", "Derived Cell Line", "Not Available", "Not Reported", "Patient Derived Xenograft", "Xenograft", Patient Derived Organoid", "Peripheral Whole Blood", "Saliva", "Solid Tissue", "Umbilical Cord Blood", "Patient-Derived T Cells", "iPSC-Derived Organoid", "Cerebrospinal Fluid", "Embryonic Stem Cell Derived Cell Line" |  string | Bone Marrow | |
 | file_name | True | Name of the file | | string | NCI-11Plex-13-F12A-z11358.fastq | |
