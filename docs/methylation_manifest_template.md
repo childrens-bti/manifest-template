@@ -2,7 +2,7 @@
 
 | Column Name | Required | Explanation | Allowed Values | Data Type | Example Entry | BTI Derived |
 | ---- | ---- | ---- | ---- | ---- | ---- | ---- |
-| patient_id | True | Unique identifier for the patient from whom the sample was collected | | string | PT1899 | True |
+| participant_id | True | Unique identifier for the participant from whom the sample was collected | | string | PT1899 | True |
 | sample_id | True | Unique identifier for the sample linked to the same clinical event | | string | SM7316-11566 | True |
 | aliquot_id | True | Unique identifier for a specific aliquot | | string | AL1549608_T_WGS | True |
 | external_patient_id | False | External, user-provided (non-unique) identifier for patients from whom the sample was collected | | string | PID1899 | |

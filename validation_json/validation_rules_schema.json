@@ -22,7 +22,7 @@
         }
     },
     "common_rules": {
-        "patient_id": {
+        "participant_id": {
             "type": "string",
             "required": true
         },
