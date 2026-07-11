@@ -680,6 +680,10 @@
                 "is_adapter_trimmed": false
             }
         },
+        "target_cell_number": {
+            "type": "integer",
+            "required": false
+        },
         "feature_type": {
             "required": true,
             "allowed": [

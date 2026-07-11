@@ -46,6 +46,7 @@
 | lane_number | False | The basic machine unit for sequencing. For Illumina machines, this reflects the physical lane number. Wrong or missing information may affect analysis results. Required when inputs are FASTQ files. | | string | 1 | |
 | is_adapter_trimmed | False | Were adapters trimmed from sequencing data? Required when inputs are FASTQ files. | "True", "False" | boolean | True | |
 | adapter_sequencing | False | Base sequence of the sequencing adapter. Required when adapters were not trimmed. | | string | GCAT | |
+| target_cell_number | False | Target number of cells to recover for the assay. | | integer | 10000 | |
 | reference_genome | True | Reference genome version. | | string | GRCH38 | |
 | FFPE | True | Is the sample preserved in FFPE | "True", "False" | boolean | False | |
 | PI_name | True | Principal Investigator of the project | | string | Fonseca | True |
