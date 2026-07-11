@@ -361,7 +361,8 @@
                 "poly-A",
                 "poly-A stranded",
                 "RPFs",
-                "total RNA stranded"
+                "total RNA stranded",
+                "total RNA unstranded"
             ]
         },
         "read_pair_number": {
