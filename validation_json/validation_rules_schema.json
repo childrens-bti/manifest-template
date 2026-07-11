@@ -185,7 +185,7 @@
             ]
         },
         "total_reads": {
-            "required": true,
+            "required": false,
             "nullable": true
         },
         "flow_cell_barcode": {
