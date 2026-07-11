@@ -233,7 +233,7 @@
             "allowed": [
                 "R1",
                 "R2",
-                "Not Applicable"
+                "NA"
             ],
             "dependencies": {
                 "file_format": "FASTQ"
@@ -371,7 +371,7 @@
             "allowed": [
                 "R1",
                 "R2",
-                "Not Applicable"
+                "NA"
             ],
             "dependencies": {
                 "file_format": "FASTQ"
@@ -647,15 +647,16 @@
             "allowed": [
                 "R1",
                 "R2",
-                "Not Applicable"
+                "NA"
             ],
             "dependencies": {
                 "file_format": "FASTQ"
             }
         },
         "is_paired_end": {
-            "type": "boolean",
+            "type": ["boolean", "string"],
             "required": true,
+            "allowed": [true, false, "NA"],
             "dependencies": {
                 "file_format": [
                     "FASTQ",
@@ -775,7 +776,7 @@
             "allowed": [
                 "R1",
                 "R2",
-                "Not Applicable"
+                "NA"
             ],
             "dependencies": {
                 "file_format": "FASTQ"

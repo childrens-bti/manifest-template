@@ -40,8 +40,8 @@
 | cell_barcode_size | True | The length of the cell barcode sequence. | | integer | 10 | |
 | cDNA_read | True | The type of read that contains the cDNA read. | "index1", "index2", "read1", "read2", "Not Applicable" | string | read1 | |
 | cDNA_read_offset | True | The offset in sequence of the cDNA read. | | integer | 0 | |
-| is_paired_end | True | If fastq/bam files, are the reads paired end? | "True", "False" | boolean | True | |
-| read_pair_number | False | Denotes whether a submitted FASTQ file contains forward (R1) or reverse (R2) reads for paired-end sequencing. Required when inputs are FASTQ files. | "R1", "R1", "Not Applicaable" | string | R1 | |
+| is_paired_end | True | If fastq/bam files, are the reads paired end? | "True", "False", "NA" | boolean/string | True | |
+| read_pair_number | False | Denotes whether a submitted FASTQ file contains forward (R1) or reverse (R2) reads for paired-end sequencing. Required when inputs are FASTQ files. | "R1", "R1", "NA" | string | R1 | |
 | flow_cell_barcode | False | Flow cell barcode. Wrong or missing information may affect analysis results. Required when inputs are FASTQ files. | | string | H0164ALXX140820 | |
 | lane_number | False | The basic machine unit for sequencing. For Illumina machines, this reflects the physical lane number. Wrong or missing information may affect analysis results. Required when inputs are FASTQ files. | | string | 1 | |
 | is_adapter_trimmed | False | Were adapters trimmed from sequencing data? Required when inputs are FASTQ files. | "True", "False" | boolean | True | |
