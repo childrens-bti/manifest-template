@@ -17,7 +17,7 @@
 | file_size | True | Reported file size in bytes | | integer | 529600 | |
 | file_hash_type | True | Hash algorithm used to generate file hash | "MD5", "SHA1", "SHA256", "SHA512", "ETag" | string | MD5 | |
 | file_hash_value | True | Full has value of the file | | string | 938c2cc0dcc05f2b68c4287040cfcf71 | |
-| sequencing_center | True | Name of the center generating sequencing data | | string | Harvard Med School | |
+| sequencing_center | False | Name of the center generating sequencing data | | string | Harvard Med School | |
 | platform | True | Name of the platform used to obtain data | "Illumina Infinium HumanMethylation450", "Illumina Infinium HumanMethylationEPIC", "Illumina Infinium HumanMethylationEPICv2", "Illumina Infinium HumanMethylation27k", "Roche NimbleGen MethylationSeq", "Agilent SurePrint Methyl-Seq" | string | Illumina | |
 | experimental_strategy | True | The sequencing strategy used to generate the data file. | "Methylation", "Methylation Microarray" | string | Methylation | |
 | FFPE | True | Is the sample preserved in FFPE | "True", "False" | boolean | False | |

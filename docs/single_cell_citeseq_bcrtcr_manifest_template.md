@@ -20,13 +20,13 @@
 | file_size | True | Reported file size in bytes | | integer | 529600 | |
 | file_hash_type | True | Hash algorithm used to generate file hash | "MD5", "SHA1", "SHA256", "SHA512", "ETag" | string | MD5 |
 | file_hash_value | True | Full has value of the file | | string | 938c2cc0dcc05f2b68c4287040cfcf71 | |
-| sequencing_center | True | Name of the center generating sequencing data | | string | Harvard Med School | |
+| sequencing_center | False | Name of the center generating sequencing data | | string | Harvard Med School | |
 | platform | True | Name of the platform used to obtain data | "Complete Genomics", "Illumina", "Ion Torrent", "LS454", "SOLiD", "ONT", "DNBSEQ", "Other" | string | Illumina | |
 | instrument_model | False | Specific model of sequencing instrument used. | string | Model name of the instrument used for sequencing | NovaSeq 6000 | |
 | experimental_strategy | True | The sequencing strategy used to generate the data file. | "CITE-Seq", "scTCR-Seq", "scBCR-Seq" | string | CITE-Seq | |
 | end_bias | True | "3'-end", "5'-end", "Full-length" | The end of the cDNA molecule that is preferentially sequenced. | string | Full-length | |
 | library_type | True | Specify the library modality (GEX vs ADT) in CITE-seq, or BCR/TCR for TCR/BCR-seq | "GEX", "ADT", "scTCR-Seq", "scBCR-Seq" | string | GEX | |
-| library_selection | True | Library selection method. | "Affinity Enrichment", "Hybrid Selection", "miRNA Size Fractionation", "PCR", "Poly-T Enrichment", "Random","rRNA Depletion", "Ribosome-protected fragments", "Other" | string | PCT | |
+| library_selection | True | Library selection method. | "Affinity Enrichment", "Hybrid Selection", "miRNA Size Fractionation", "PCR", "Poly-T Enrichment", "Random","rRNA Depletion", "Other" | string | PCT | |
 | library_strand | True | Library strandedness. | "Stranded", "Unstranded", "First Stranded", "Second Stranded", "Not Applicable" | string | Stranded | |
 | library_construction | True | The library construction method including version. | | string | 10X V3 | |
 | feature_type | True | 10x Feature Barcode Technology for cellranger-multi (ADT is a type of ab(antibody profiling) | "gex", "vdj", "ab" | string | ab | |
