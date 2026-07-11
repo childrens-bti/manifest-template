@@ -1,10 +1,10 @@
-# Manifest Template
+# Data Manifest Templates
 
 ![License](https://img.shields.io/badge/license-BSD--2--Clause-blue.svg)
 
 **Central repository for data manifest templates and their validation rules**, maintained by the Brain Tumor Institute (BTI) Bioinformatics Core @ Children's National Hospital.
 
-This repo defines, in one place, the required structure, fields, and allowed values for each supported data manifest — so that submissions can be generated and validated consistently across projects and tools.
+This repository defines the required structure, fields, and allowed values for each supported data manifest so that submissions can be generated and validated consistently across projects and tools.
 
 The validation framework builds upon rules originally established at Children's Hospital of Philadelphia Center for Data-Driven Discovery in Biomedicine and used in [their CLI](https://github.com/d3b-center/d3b-dff-cli), with further extensions and enhancements introduced here.
 
