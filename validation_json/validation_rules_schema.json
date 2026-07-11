@@ -119,6 +119,10 @@
             "type": "string",
             "required": false
         },
+        "instrument_model": {
+            "type": "string",
+            "required": false
+        },
         "FFPE": {
             "type": "boolean",
             "required": true
