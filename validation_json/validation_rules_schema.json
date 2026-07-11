@@ -269,7 +269,7 @@
                 ]
             }
         },
-        "target_capture_bed": {
+        "bed_filename": {
             "type": "string",
             "required": true,
             "dependencies": {
@@ -816,7 +816,7 @@
                 ]
             }
         },
-        "target_capture_bed": {
+        "bed_filename": {
             "type": "string",
             "required": true,
             "dependencies": {
