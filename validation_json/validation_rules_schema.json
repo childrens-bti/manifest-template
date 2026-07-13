@@ -113,9 +113,14 @@
             ]
         },
         "file_hash_value": {
+            "type": "string",
             "required": true
         },
         "sequencing_center": {
+            "type": "string",
+            "required": false
+        },
+        "instrument_model": {
             "type": "string",
             "required": false
         },
@@ -174,6 +179,7 @@
             ]
         },
         "organism": {
+            "type": "string",
             "required": true,
             "allowed": [
                 "Homo sapiens",
@@ -181,10 +187,11 @@
             ]
         },
         "total_reads": {
-            "required": true,
+            "required": false,
             "nullable": true
         },
         "flow_cell_barcode": {
+            "type": "string",
             "required": true,
             "dependencies": {
                 "file_format": [
@@ -194,6 +201,7 @@
             "nullable": true
         },
         "lane_number": {
+            "type": "string",
             "required": true,
             "dependencies": {
                 "file_format": [
@@ -233,7 +241,7 @@
             "allowed": [
                 "R1",
                 "R2",
-                "Not Applicable"
+                "NA"
             ],
             "dependencies": {
                 "file_format": "FASTQ"
@@ -247,22 +255,6 @@
                     "FASTQ",
                     "BAM"
                 ]
-            }
-        },
-        "is_adapter_trimmed": {
-            "type": "boolean",
-            "required": true,
-            "dependencies": {
-                "file_format": [
-                    "FASTQ"
-                ]
-            }
-        },
-        "adapter_sequencing": {
-            "type": "string",
-            "required": true,
-            "dependencies": {
-                "is_adapter_trimmed": false
             }
         },
         "target_capture_kit_name": {
@@ -285,7 +277,7 @@
                 ]
             }
         },
-        "target_capture_bed": {
+        "bed_filename": {
             "type": "string",
             "required": true,
             "dependencies": {
@@ -377,7 +369,8 @@
                 "poly-A",
                 "poly-A stranded",
                 "RPFs",
-                "total RNA stranded"
+                "total RNA stranded",
+                "total RNA unstranded"
             ]
         },
         "read_pair_number": {
@@ -386,7 +379,7 @@
             "allowed": [
                 "R1",
                 "R2",
-                "Not Applicable"
+                "NA"
             ],
             "dependencies": {
                 "file_format": "FASTQ"
@@ -400,22 +393,6 @@
                     "FASTQ",
                     "BAM"
                 ]
-            }
-        },
-        "is_adapter_trimmed": {
-            "type": "boolean",
-            "required": true,
-            "dependencies": {
-                "file_format": [
-                    "FASTQ"
-                ]
-            }
-        },
-        "adapter_sequencing": {
-            "type": "string",
-            "required": true,
-            "dependencies": {
-                "is_adapter_trimmed": false
             }
         }
     },
@@ -678,15 +655,16 @@
             "allowed": [
                 "R1",
                 "R2",
-                "Not Applicable"
+                "NA"
             ],
             "dependencies": {
                 "file_format": "FASTQ"
             }
         },
         "is_paired_end": {
-            "type": "boolean",
+            "type": ["boolean", "string"],
             "required": true,
+            "allowed": [true, false, "NA"],
             "dependencies": {
                 "file_format": [
                     "FASTQ",
@@ -709,6 +687,10 @@
             "dependencies": {
                 "is_adapter_trimmed": false
             }
+        },
+        "target_cell_number": {
+            "type": "integer",
+            "required": false
         },
         "feature_type": {
             "required": true,
@@ -789,33 +771,7 @@
             "allowed": [
                 "WGS",
                 "WXS",
-                "RNA-Seq",
                 "Targeted Sequencing"
-            ]
-        },
-        "library_selection": {
-            "type": "string",
-            "required": true,
-            "allowed": [
-                "Affinity Enrichment",
-                "Hybrid Selection",
-                "miRNA Size Fractionation",
-                "PCR",
-                "Poly-T Enrichment",
-                "Random",
-                "rRNA Depletion",
-                "Other"
-            ]
-        },
-        "library_strand": {
-            "type": "string",
-            "required": true,
-            "allowed": [
-                "Stranded",
-                "Unstranded",
-                "First Stranded",
-                "Second Stranded",
-                "Not Applicable"
             ]
         },
         "sequencing_mode": {
@@ -832,7 +788,7 @@
             "allowed": [
                 "R1",
                 "R2",
-                "Not Applicable"
+                "NA"
             ],
             "dependencies": {
                 "file_format": "FASTQ"
@@ -846,22 +802,6 @@
                     "FASTQ",
                     "BAM"
                 ]
-            }
-        },
-        "is_adapter_trimmed": {
-            "type": "boolean",
-            "required": true,
-            "dependencies": {
-                "file_format": [
-                    "FASTQ"
-                ]
-            }
-        },
-        "adapter_sequencing": {
-            "type": "string",
-            "required": true,
-            "dependencies": {
-                "is_adapter_trimmed": false
             }
         },
         "target_capture_kit_name": {
@@ -884,7 +824,7 @@
                 ]
             }
         },
-        "target_capture_bed": {
+        "bed_filename": {
             "type": "string",
             "required": true,
             "dependencies": {

@@ -18,7 +18,7 @@
 | file_size | True | Reported file size in bytes | | integer | 235000 | |
 | file_hash_type | True | Hash algorithm used to generate file hash | "MD5", "SHA1", "SHA256", "SHA512", "ETag" | string | MD5 | |
 | file_hash_value | True | Full has value of the file | | string | 938c2cc0dcc05f2b68c4287040cfcf71 | |
-| sequencing_center | True | Name of the center generating sequencing data | | string | Harvard Med School | |
+| sequencing_center | False | Name of the center generating sequencing data | | string | Harvard Med School | |
 | platform | True | Name of the platform used to obtain data | | string | Orbitrap Fusion Lumos | |
 | experimental_strategy | True | Name of the type of experiment being performed | | string | Proteomics | |
 | acquisition_type | True | Data acquisition type | | string | DDA | |
