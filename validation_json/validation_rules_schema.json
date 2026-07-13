@@ -183,7 +183,7 @@
             "required": true,
             "anyof": [
                 {
-                    "allowed": ["Not Applicable"],
+                    "allowed": ["NA"],
                     "dependencies": {
                         "sample_type": ["Normal"]
                     }
@@ -202,7 +202,7 @@
                         "Residual",
                         "Second Malignancy",
                         "Unknown",
-                        "Not Applicable"
+                        "NA"
                     ],
                     "dependencies": {
                         "sample_type": [
