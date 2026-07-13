@@ -178,6 +178,43 @@
                 "Not Reported"
             ]
         },
+        "tumor_descriptor": {
+            "type": "string",
+            "required": true,
+            "anyof": [
+                {
+                    "allowed": ["NA"],
+                    "dependencies": {
+                        "sample_type": ["Normal"]
+                    }
+                },
+                {
+                    "allowed": [
+                        "Deceased",
+                        "Initial CNS Tumor",
+                        "Metastatic",
+                        "Post-treatment",
+                        "Primary Tumor",
+                        "Progressive",
+                        "Progressive Disease Post-Mortem",
+                        "Recurrence",
+                        "Relapse",
+                        "Residual",
+                        "Second Malignancy",
+                        "Unknown",
+                        "NA"
+                    ],
+                    "dependencies": {
+                        "sample_type": [
+                            "Tumor",
+                            "Unknown",
+                            "Virus-infected",
+                            "Not Reported"
+                        ]
+                    }
+                }
+            ]
+        },
         "organism": {
             "type": "string",
             "required": true,
