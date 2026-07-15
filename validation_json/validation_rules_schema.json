@@ -992,7 +992,8 @@
                 "IlluminaHumanMethylationEPIC",
                 "IlluminaHumanMethylationEPICv2",
                 "IlluminaHumanMethylation450k",
-                "InfiniumMouseMethylationBeadChip"
+                "InfiniumMouseMethylationBeadChip",
+                "Unknown"
             ]
         },
         "experimental_strategy": {
