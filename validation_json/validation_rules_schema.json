@@ -484,13 +484,35 @@
         "RNA_library": {
             "type": "string",
             "required": true,
-            "allowed": [
-                "exome capture",
-                "poly-A",
-                "poly-A stranded",
-                "RPFs",
-                "total RNA stranded",
-                "total RNA unstranded"
+            "anyof": [
+                {
+                    "allowed": [
+                        "small RNA first-stranded"
+                    ],
+                    "dependencies": {
+                        "experimental_strategy": [
+                            "miRNA-Seq"
+                        ]
+                    }
+                },
+                {
+                    "allowed": [
+                        "exome capture",
+                        "poly-A",
+                        "poly-A stranded",
+                        "RPFs",
+                        "total RNA stranded",
+                        "total RNA unstranded"
+                    ],
+                    "dependencies": {
+                        "experimental_strategy": [
+                            "RNA-Seq",
+                            "Ribo-Seq",
+                            "long-read RNA-Seq",
+                            "Flash-Seq"
+                        ]
+                    }
+                }
             ]
         },
         "read_pair_number": {
@@ -967,12 +989,10 @@
             "type": "string",
             "required": true,
             "allowed": [
-                "Illumina Infinium HumanMethylation450",
-                "Illumina Infinium HumanMethylationEPIC",
-                "Illumina Infinium HumanMethylationEPICv2",
-                "Illumina Infinium HumanMethylation27k",
-                "Roche NimbleGen MethylationSeq",
-                "Agilent SurePrint Methyl-Seq"
+                "IlluminaHumanMethylationEPIC",
+                "IlluminaHumanMethylationEPICv2",
+                "IlluminaHumanMethylation450k",
+                "InfiniumMouseMethylationBeadChip"
             ]
         },
         "experimental_strategy": {

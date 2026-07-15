@@ -31,13 +31,13 @@
 | file_hash_type | True | Hash algorithm used to generate file hash | "MD5", "SHA1", "SHA256", "SHA512", "ETag" | string | MD5 |
 | file_hash_value | True | Full has value of the file | | string | 938c2cc0dcc05f2b68c4287040cfcf71 | |
 | sequencing_center | False | Name of the center generating sequencing data | | string | Harvard Med School | |
-| platform | True | Name of the platform used to obtain data | "Complete Genomics", "Illumina", "Ion Torrent", "LS454", "SOLiD", "ONT", "DNBSEQ", "Other" | string | Illumina | |
+| platform | True | Name of the platform used to obtain data | "Complete Genomics", "Illumina", "Ion Torrent", "LS454", "SOLiD", "ONT", "DNBSEQ", "PacBio SMRT Cell", "Other" | string | Illumina | |
 | instrument_model | False | Specific model of sequencing instrument used. | string | Model name of the instrument used for sequencing | NovaSeq 6000 | |
-| experimental_strategy | True | The sequencing strategy used to generate the data file. | "RNA-Seq","miRNA-Seq", "Ribo-Seq", "long-read RNA-Seq" | string | RNA-Seq | |
+| experimental_strategy | True | The sequencing strategy used to generate the data file. | "RNA-Seq","miRNA-Seq", "Ribo-Seq", "long-read RNA-Seq", "Flash-Seq" | string | RNA-Seq | |
 | library_selection | True | Library selection method. | "Affinity Enrichment", "Hybrid Selection", "miRNA Size Fractionation", "PCR", "Poly-T Enrichment", "Random","rRNA Depletion", "Ribosome-protected fragments", "Other" | string | PCT | |
 | library_strand | True | Library strandedness. | "Stranded", "Unstranded", "First Stranded", "Second Stranded", "Not Applicable" | string | Stranded | |
 | library_prep | True | Library prep method. | "polyA", "totalRNAseq", "Other" | string | polyA | |
-| RNA_library | True | Library category. | "exome capture", "poly-A", "poly-A stranded", "RPFs", "total RNA stranded", "total RNA unstranded" | string | total RNA stranded | True |
+| RNA_library | True | Library category. For miRNA-Seq, use "small RNA first-stranded". | "exome capture", "poly-A", "poly-A stranded", "RPFs", "total RNA stranded", "total RNA unstranded", "small RNA first-stranded" | string | total RNA stranded | True |
 | is_paired_end | True | If fastq/bam files, are the reads paired end? | "True", "False" | boolean | True | |
 | read_pair_number | False | Denotes whether a submitted FASTQ file contains forward (R1) or reverse (R2) reads for paired-end sequencing. Required when inputs are FASTQ files. | "R1", "R1", "NA" | string | R1 | |
 | flow_cell_barcode | False | Flow cell barcode. Wrong or missing information may affect analysis results. Required when inputs are FASTQ files. | | string | H0164ALXX140820 | |
