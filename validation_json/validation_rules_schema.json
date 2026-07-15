@@ -500,6 +500,7 @@
                         "exome capture",
                         "poly-A",
                         "poly-A stranded",
+                        "poly-A unstranded",
                         "RPFs",
                         "total RNA stranded",
                         "total RNA unstranded"
