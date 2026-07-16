@@ -39,7 +39,7 @@
 | library_prep | True | Library prep method. | "polyA", "totalRNAseq", "Other" | string | polyA | |
 | RNA_library | True | Library category. For miRNA-Seq, use "small RNA first-stranded". For unstranded polyA libraries, use "poly-A unstranded". | "exome capture", "poly-A", "poly-A stranded", "poly-A unstranded", "RPFs", "total RNA stranded", "total RNA unstranded", "small RNA first-stranded" | string | total RNA stranded | True |
 | is_paired_end | True | If fastq/bam files, are the reads paired end? | "True", "False" | boolean | True | |
-| read_pair_number | False | Denotes whether a submitted FASTQ file contains forward (R1) or reverse (R2) reads for paired-end sequencing. Required when inputs are FASTQ files. | "R1", "R1", "NA" | string | R1 | |
+| read_pair_number | False | Denotes whether a submitted FASTQ file contains forward (R1) or reverse (R2) reads for paired-end sequencing. Required when inputs are FASTQ files. | "R1", "R2", "NA" | string | R1 | |
 | flow_cell_barcode | False | Flow cell barcode. Wrong or missing information may affect analysis results. Required when inputs are FASTQ files. | | string | H0164ALXX140820 | |
 | lane_number | False | The basic machine unit for sequencing. For Illumina machines, this reflects the physical lane number. Wrong or missing information may affect analysis results. Required when inputs are FASTQ files. | | string | 1 | |
 | total_reads | False | Total number of reads that align to the reference. | | integer | 525600 | |
