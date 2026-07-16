@@ -24,7 +24,7 @@ The validation framework builds upon rules originally established at Children's 
 
 | Path | Description |
 |---|---|
-| [`validation_json/`](validation_json/) | The Cerberus validation schema (`validation_rules_schema.json`) that defines required fields, types, allowed values, and cross-field dependencies for every manifest type. |
+| [`validation_json/`](validation_json/) | The validation schema (`validation_rules_schema.json`) that defines required fields, types, allowed values, and cross-field dependencies for every manifest type. |
 | [`manifest_templates/`](manifest_templates/) | Blank CSV templates — one per manifest type — with the exact column headers expected by the validator. |
 | [`docs/`](docs/) | Human-readable, per-manifest field documentation: what each column means, whether it's required, allowed values, data type, and an example entry. |
 | [`assets/`](assets/) | Supporting diagrams, including the manifest creation flowchart below. |
@@ -42,7 +42,7 @@ The validation framework builds upon rules originally established at Children's 
 
 ## Validation Rules
 
-All validation logic lives in [`validation_json/validation_rules_schema.json`](validation_json/validation_rules_schema.json), written for the [Cerberus](https://docs.python-cerberus.org/) validation library. Rules are organized as:
+All validation logic lives in [`validation_json/validation_rules_schema.json`](validation_json/validation_rules_schema.json). Rules are organized as:
 
 - **`common_rules`** — fields shared across every manifest type (identifiers, file metadata, organism, etc.)
 - **Type-specific rule sets** (`DNAseq_rules`, `RNAseq_rules`, `single_cell_rules`, `pacbio_longread_rules`, `methylation_rules`, `proteomics_rules`) — fields and constraints unique to that assay type, including conditional requirements (`dependencies`) based on values like `experimental_strategy` or `file_format`.
