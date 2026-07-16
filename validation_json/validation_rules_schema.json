@@ -177,7 +177,7 @@
         },
         "cell_line_composition": {
             "type": "string",
-            "required": true,
+            "required": false,
             "dependencies": {
                 "composition": [
                     "Derived Cell Line"
@@ -186,7 +186,7 @@
         },
         "cell_line_passage": {
             "type": "integer",
-            "required": true,
+            "required": false,
             "dependencies": {
                 "composition": [
                     "Derived Cell Line"

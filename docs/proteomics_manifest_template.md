@@ -17,8 +17,8 @@
 | dose_2 | False | Dose for treatment_2 in a simultaneous combination treatment | | string | 20 nM | |
 | treatment_1 | False | First component of a simultaneous combination treatment administered or applied to the sample | | string | temozolomide | |
 | treatment_2 | False | Second component of a simultaneous combination treatment administered or applied to the sample | | string | radiation | |
-| cell_line_composition | False | Culture media used for the cell line. Required when composition is "Derived Cell Line" | | string | DMEM/F12 | |
-| cell_line_passage | False | Numeric passage number for the cell line. Required when composition is "Derived Cell Line" | | integer | 12 | |
+| cell_line_composition | False | Culture media used for the cell line, for a "Derived Cell Line" composition | | string | DMEM/F12 | |
+| cell_line_passage | False | Numeric passage number for the cell line, for a "Derived Cell Line" composition | | integer | 12 | |
 | timepoint | False | Timepoint associated with the treatment, collection, or experiment | | string | 24h | |
 | parental_model_id | False | Identifier for the parental model. Required for model-derived samples, including cell lines, xenografts, organoids, and other derived cell-line models; use this value for participant_id for model submissions | | string | MODEL-PARENT-001 | |
 | model_id | False | Identifier for the submitted model, including genetically modified cell lines or other model derivatives. Required for model-derived samples, including cell lines, xenografts, organoids, and other derived cell-line models | | string | MODEL-GM-001 | |
