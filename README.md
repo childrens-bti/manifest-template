@@ -52,7 +52,7 @@ All validation logic lives in [`validation_json/validation_rules_schema.json`](v
 - **Event identifiers:** `event_id` replaces the former `sample_id` field, and `external_event_id` replaces the former `external_sample_id` field.
 - **Tumor descriptor:** `tumor_descriptor` is required for every manifest. Normal samples must use `NA`; other allowed sample types may use an allowed tumor descriptor or `NA` where appropriate.
 - **Treatment fields:** `treatment_1` and `treatment_2` describe simultaneous combination-treatment components. `dose_1` and `dose_2` are the corresponding doses for those treatment components.
-- **Cell-line fields:** `cell_line_composition` records the culture media and `cell_line_passage` is a numeric passage number. Both are required when `composition` is `Derived Cell Line`.
+- **Cell-line fields:** `cell_line_composition` records the culture media and `cell_line_passage` is a numeric passage number. Both are optional, including when `composition` is `Derived Cell Line`, because this curation data may not be available for every sample.
 - **Model identifiers:** `parental_model_id` and `model_id` are required for model-derived samples such as cell lines, xenografts, organoids, and other derived cell-line models.
 - **Path fields:** `local_dir_path` expects an SMB path under `smb://cnmc.org/cri/Lab/CancerImmunology-BTI`; `aws_s3_path` expects an S3 URI.
 - **File-size thresholds:** file-size cutoffs are strategy-specific custom rules. Do not apply a general cutoff across all data types.
