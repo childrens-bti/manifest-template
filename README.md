@@ -15,6 +15,7 @@ The validation framework builds upon rules originally established at Children's 
 - [Repository Structure](#repository-structure)
 - [Supported Manifest Types](#supported-manifest-types)
 - [Validation Rules](#validation-rules)
+- [Shared Field Conventions](#shared-field-conventions)
 - [Using This Repo](#using-this-repo)
 - [Manifest Creation Flowchart](#manifest-creation-flowchart)
 - [License](#license)
@@ -23,7 +24,7 @@ The validation framework builds upon rules originally established at Children's 
 
 | Path | Description |
 |---|---|
-| [`validation_json/`](validation_json/) | The Cerberus validation schema (`validation_rules_schema.json`) that defines required fields, types, allowed values, and cross-field dependencies for every manifest type. |
+| [`validation_json/`](validation_json/) | The validation schema (`validation_rules_schema.json`) that defines required fields, types, allowed values, and cross-field dependencies for every manifest type. |
 | [`manifest_templates/`](manifest_templates/) | Blank CSV templates — one per manifest type — with the exact column headers expected by the validator. |
 | [`docs/`](docs/) | Human-readable, per-manifest field documentation: what each column means, whether it's required, allowed values, data type, and an example entry. |
 | [`assets/`](assets/) | Supporting diagrams, including the manifest creation flowchart below. |
@@ -41,10 +42,20 @@ The validation framework builds upon rules originally established at Children's 
 
 ## Validation Rules
 
-All validation logic lives in [`validation_json/validation_rules_schema.json`](validation_json/validation_rules_schema.json), written for the [Cerberus](https://docs.python-cerberus.org/) validation library. Rules are organized as:
+All validation logic lives in [`validation_json/validation_rules_schema.json`](validation_json/validation_rules_schema.json). Rules are organized as:
 
 - **`common_rules`** — fields shared across every manifest type (identifiers, file metadata, organism, etc.)
 - **Type-specific rule sets** (`DNAseq_rules`, `RNAseq_rules`, `single_cell_rules`, `pacbio_longread_rules`, `methylation_rules`, `proteomics_rules`) — fields and constraints unique to that assay type, including conditional requirements (`dependencies`) based on values like `experimental_strategy` or `file_format`.
+
+## Shared Field Conventions
+
+- **Event identifiers:** `event_id` replaces the former `sample_id` field, and `external_event_id` replaces the former `external_sample_id` field.
+- **Tumor descriptor:** `tumor_descriptor` is required for every manifest. Normal samples must use `NA`; other allowed sample types may use an allowed tumor descriptor or `NA` where appropriate.
+- **Treatment fields:** `treatment_1` and `treatment_2` describe simultaneous combination-treatment components. `dose_1` and `dose_2` are the corresponding doses for those treatment components.
+- **Cell-line fields:** `cell_line_composition` records the culture media and `cell_line_passage` is a numeric passage number. Both are required when `composition` is `Derived Cell Line`.
+- **Model identifiers:** `parental_model_id` and `model_id` are required for model-derived samples such as cell lines, xenografts, organoids, and other derived cell-line models.
+- **Path fields:** `local_dir_path` expects an SMB path under `smb://cnmc.org/cri/Lab/CancerImmunology-BTI`; `aws_s3_path` expects an S3 URI.
+- **File-size thresholds:** file-size cutoffs are strategy-specific custom rules. Do not apply a general cutoff across all data types.
 
 ## Using This Repo
 

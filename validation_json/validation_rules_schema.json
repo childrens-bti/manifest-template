@@ -2,10 +2,13 @@
     "custom_rules": {
         "_comment": "Add custom fields that Cerberus doesn't recognize as valid schema rules.",
         "file_size_byte_cutoff": {
-            "_comment": "The threshold of file_size for WGS/WXS is 1GB, and 200MB for others.",
+            "_comment": "Optional strategy-specific file_size thresholds. Do not apply a general cutoff across all data types.",
             "type": "integer",
-            "general_cutoff": 1000000000,
             "wgs_wxs_cutoff": 200000000,
+            "bulk_rnaseq_cutoff": 100000000,
+            "bulk_rnaseq_strategies": [
+                "RNA-Seq"
+            ],
             "dependencies": {
                 "file_format": [
                     "FASTQ",
@@ -26,7 +29,7 @@
             "type": "string",
             "required": true
         },
-        "sample_id": {
+        "event_id": {
             "type": "string",
             "required": true
         },
@@ -42,7 +45,7 @@
             "type": "string",
             "required": false
         },
-        "external_sample_id": {
+        "external_event_id": {
             "type": "string",
             "required": false
         },
@@ -153,6 +156,86 @@
             ]
         },
         "bio_replicate": {
+            "type": "string",
+            "required": false
+        },
+        "dose_1": {
+            "type": "string",
+            "required": false
+        },
+        "dose_2": {
+            "type": "string",
+            "required": false
+        },
+        "treatment_1": {
+            "type": "string",
+            "required": false
+        },
+        "treatment_2": {
+            "type": "string",
+            "required": false
+        },
+        "cell_line_composition": {
+            "type": "string",
+            "required": true,
+            "dependencies": {
+                "composition": [
+                    "Derived Cell Line"
+                ]
+            }
+        },
+        "cell_line_passage": {
+            "type": "integer",
+            "required": true,
+            "dependencies": {
+                "composition": [
+                    "Derived Cell Line"
+                ]
+            }
+        },
+        "timepoint": {
+            "type": "string",
+            "required": false
+        },
+        "parental_model_id": {
+            "type": "string",
+            "required": true,
+            "dependencies": {
+                "composition": [
+                    "Derived Cell Line",
+                    "Patient Derived Xenograft",
+                    "Xenograft",
+                    "Patient Derived Organoid",
+                    "iPSC-Derived Organoid",
+                    "Embryonic Stem Cell Derived Cell Line"
+                ]
+            }
+        },
+        "model_id": {
+            "type": "string",
+            "required": true,
+            "dependencies": {
+                "composition": [
+                    "Derived Cell Line",
+                    "Patient Derived Xenograft",
+                    "Xenograft",
+                    "Patient Derived Organoid",
+                    "iPSC-Derived Organoid",
+                    "Embryonic Stem Cell Derived Cell Line"
+                ]
+            }
+        },
+        "local_dir_path": {
+            "type": "string",
+            "required": false,
+            "regex": "^smb://cnmc\\.org/cri/Lab/CancerImmunology-BTI(/.*)?$"
+        },
+        "aws_s3_path": {
+            "type": "string",
+            "required": false,
+            "regex": "^s3://.+"
+        },
+        "sequencing_batch": {
             "type": "string",
             "required": false
         },
@@ -401,13 +484,36 @@
         "RNA_library": {
             "type": "string",
             "required": true,
-            "allowed": [
-                "exome capture",
-                "poly-A",
-                "poly-A stranded",
-                "RPFs",
-                "total RNA stranded",
-                "total RNA unstranded"
+            "anyof": [
+                {
+                    "allowed": [
+                        "small RNA first-stranded"
+                    ],
+                    "dependencies": {
+                        "experimental_strategy": [
+                            "miRNA-Seq"
+                        ]
+                    }
+                },
+                {
+                    "allowed": [
+                        "exome capture",
+                        "poly-A",
+                        "poly-A stranded",
+                        "poly-A unstranded",
+                        "RPFs",
+                        "total RNA stranded",
+                        "total RNA unstranded"
+                    ],
+                    "dependencies": {
+                        "experimental_strategy": [
+                            "RNA-Seq",
+                            "Ribo-Seq",
+                            "long-read RNA-Seq",
+                            "Flash-Seq"
+                        ]
+                    }
+                }
             ]
         },
         "read_pair_number": {
@@ -884,12 +990,11 @@
             "type": "string",
             "required": true,
             "allowed": [
-                "Illumina Infinium HumanMethylation450",
-                "Illumina Infinium HumanMethylationEPIC",
-                "Illumina Infinium HumanMethylationEPICv2",
-                "Illumina Infinium HumanMethylation27k",
-                "Roche NimbleGen MethylationSeq",
-                "Agilent SurePrint Methyl-Seq"
+                "IlluminaHumanMethylationEPIC",
+                "IlluminaHumanMethylationEPICv2",
+                "IlluminaHumanMethylation450k",
+                "InfiniumMouseMethylationBeadChip",
+                "Unknown"
             ]
         },
         "experimental_strategy": {
