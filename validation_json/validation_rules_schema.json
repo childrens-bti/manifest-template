@@ -322,7 +322,7 @@
         },
         "lane_number": {
             "type": "string",
-            "required": true,
+            "required": false,
             "dependencies": {
                 "file_format": [
                     "FASTQ"
@@ -379,7 +379,7 @@
         },
         "target_capture_kit_name": {
             "type": "string",
-            "required": true,
+            "required": false,
             "dependencies": {
                 "experimental_strategy": [
                     "Targeted Sequencing",
@@ -389,7 +389,7 @@
         },
         "target_capture_kit_link": {
             "type": "string",
-            "required": true,
+            "required": false,
             "dependencies": {
                 "experimental_strategy": [
                     "Targeted Sequencing",
@@ -949,7 +949,7 @@
         },
         "target_capture_kit_name": {
             "type": "string",
-            "required": true,
+            "required": false,
             "dependencies": {
                 "experimental_strategy": [
                     "Targeted Sequencing",
@@ -959,7 +959,7 @@
         },
         "target_capture_kit_link": {
             "type": "string",
-            "required": true,
+            "required": false,
             "dependencies": {
                 "experimental_strategy": [
                     "Targeted Sequencing",
