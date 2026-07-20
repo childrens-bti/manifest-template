@@ -1,4 +1,6 @@
-# RNAseq MiRNAseq Manifest Readme
+# RNAseq, MiRNAseq, and TIRTL-Seq Manifest Readme
+
+For TIRTL-seq, one completed manifest represents one plate. Each FASTQ has one row, and paired R1/R2 files from the same well use the same `well_name`. Bioassay assignment is performed after manifest creation and produces the pipeline-ready TSV with one `Bioassay_ID` repeated across every row in the plate.
 
 | Column Name | Required | Explanation | Allowed Values | Data Type | Example Entry | BTI Derived |
 | ---- | ---- | ---- | ---- | ---- | ---- |  ---- |
@@ -25,6 +27,7 @@
 | local_dir_path | False | SMB directory path on the L Drive for the source data | | string | smb://cnmc.org/cri/Lab/CancerImmunology-BTI | |
 | aws_s3_path | False | S3 URI for the submitted data location | | string | s3://bucket/prefix | |
 | sequencing_batch | False | Sequencing batch identifier | | string | 30-XXXXXXXX | |
+| well_name | TIRTL-Seq only | Plate coordinate for the well represented by the FASTQ. Paired R1/R2 files must share the same value. | Plate coordinates A1 through P24 | string | A1 | |
 | file_name | True | Name of the file | | string | NCI-11Plex-13-F12A-z11358.fastq | |
 | file_format | True | Format of the file | "FASTQ", "BAM", "BAI", "CRAM", "CRAI", "GVCF", "VCF", "TBI", "MAF", "PDF", "HTML", "DCM", "IDAT", "SVS", "GPR", "CNS", "TXT", "PNG", "CSV", "PED", "SEG", "TAR", "TSV", "mzML", "raw" | string | FASTQ | |
 | file_size | True | Reported file size in bytes | | integer | 529600 | |
@@ -33,11 +36,11 @@
 | sequencing_center | False | Name of the center generating sequencing data | | string | Harvard Med School | |
 | platform | True | Name of the platform used to obtain data | "Complete Genomics", "Illumina", "Ion Torrent", "LS454", "SOLiD", "ONT", "DNBSEQ", "PacBio SMRT Cell", "Other" | string | Illumina | |
 | instrument_model | False | Specific model of sequencing instrument used. | string | Model name of the instrument used for sequencing | NovaSeq 6000 | |
-| experimental_strategy | True | The sequencing strategy used to generate the data file. | "RNA-Seq","miRNA-Seq", "Ribo-Seq", "long-read RNA-Seq", "Flash-Seq" | string | RNA-Seq | |
+| experimental_strategy | True | The sequencing strategy used to generate the data file. | "RNA-Seq", "miRNA-Seq", "Ribo-Seq", "long-read RNA-Seq", "Flash-Seq", "TIRTL-Seq" | string | RNA-Seq | |
 | library_selection | True | Library selection method. | "Affinity Enrichment", "Hybrid Selection", "miRNA Size Fractionation", "PCR", "Poly-T Enrichment", "Random","rRNA Depletion", "Ribosome-protected fragments", "Other" | string | PCT | |
 | library_strand | True | Library strandedness. | "Stranded", "Unstranded", "First Stranded", "Second Stranded", "Not Applicable" | string | Stranded | |
 | library_prep | True | Library prep method. | "polyA", "totalRNAseq", "Other" | string | polyA | |
-| RNA_library | True | Library category. For miRNA-Seq, use "small RNA first-stranded". For unstranded polyA libraries, use "poly-A unstranded". | "exome capture", "poly-A", "poly-A stranded", "poly-A unstranded", "RPFs", "total RNA stranded", "total RNA unstranded", "small RNA first-stranded" | string | total RNA stranded | True |
+| RNA_library | RNA/miRNA only | Library category. For miRNA-Seq, use "small RNA first-stranded". For unstranded polyA libraries, use "poly-A unstranded". Not required for TIRTL-Seq. | "exome capture", "poly-A", "poly-A stranded", "poly-A unstranded", "RPFs", "total RNA stranded", "total RNA unstranded", "small RNA first-stranded" | string | total RNA stranded | True |
 | is_paired_end | True | If fastq/bam files, are the reads paired end? | "True", "False" | boolean | True | |
 | read_pair_number | False | Denotes whether a submitted FASTQ file contains forward (R1) or reverse (R2) reads for paired-end sequencing. Required when inputs are FASTQ files. | "R1", "R2", "NA" | string | R1 | |
 | flow_cell_barcode | False | Flow cell barcode. Wrong or missing information may affect analysis results. Required when inputs are FASTQ files. | | string | H0164ALXX140820 | |
