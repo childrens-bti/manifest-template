@@ -34,7 +34,7 @@ The validation framework builds upon rules originally established at Children's 
 | Manifest | Template | Field Documentation |
 |---|---|---|
 | WGS / WXS / Targeted Panel | [CSV](manifest_templates/wgs_wxs_panel_manifest_template.csv) | [Docs](docs/wgs_wxs_panel_manifest_template.md) |
-| RNAseq / miRNAseq | [CSV](manifest_templates/rnaseq_mirnaseq_manifest_template.csv) | [Docs](docs/rnaseq_mirnaseq_manifest_template.md) |
+| RNAseq / miRNAseq / TIRTL-Seq | [CSV](manifest_templates/rnaseq_mirnaseq_tirtl_manifest_template.csv) | [Docs](docs/rnaseq_mirnaseq_tirtl_manifest_template.md) |
 | Single Cell — CITE-Seq / BCR / TCR | [CSV](manifest_templates/single_cell_citeseq_bcrtcr_manifest_template.csv) | [Docs](docs/single_cell_citeseq_bcrtcr_manifest_template.md) |
 | Single Cell — Spatial | [CSV](manifest_templates/single_cell_spatial_manifest_template.csv) | [Docs](docs/single_cell_spatial_manifest_template.md) |
 | Methylation | [CSV](manifest_templates/methylation_manifest_template.csv) | [Docs](docs/methylation_manifest_template.md) |
