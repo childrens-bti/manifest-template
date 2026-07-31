@@ -41,7 +41,7 @@ This template is for 10x Genomics Flex / Fixed RNA Profiling gene expression sub
 | sequencing_center | False | Name of the center generating sequencing data | | string | Harvard Med School | |
 | platform | True | Name of the platform used to obtain data | "Complete Genomics", "Illumina", "Ion Torrent", "LS454", "SOLiD", "ONT", "DNBSEQ", "Other" | string | Illumina | |
 | instrument_model | False | Specific model of sequencing instrument used | | string | NovaSeq 6000 | |
-| experimental_strategy | True | The sequencing strategy used to generate the data file | "10x Flex Gene Expression" | string | 10x Flex Gene Expression | |
+| experimental_strategy | True | The sequencing strategy used to generate the data file | "10x Flex GEX" | string | 10x Flex GEX | |
 | end_bias | True | The end of the cDNA molecule that is preferentially sequenced | "3'-end", "5'-end", "Full-length" | string | 3'-end | |
 | library_type | True | Library modality | "GEX" | string | GEX | |
 | library_selection | True | Library selection method | "Affinity Enrichment", "Hybrid Selection", "miRNA Size Fractionation", "PCR", "Poly-T Enrichment", "Random", "rRNA Depletion", "Other" | string | Hybrid Selection | |

@@ -587,7 +587,7 @@
             "CITE-Seq",
             "scTCR-Seq",
             "scBCR-Seq",
-            "10x Flex Gene Expression",
+            "10x Flex GEX",
             "Spatial Transcriptomics"
           ]
         },
@@ -625,7 +625,7 @@
                 {
                     "allowed": ["GEX"],
                     "dependencies": {
-                        "experimental_strategy": ["scRNA-Seq", "snRNA-Seq", "10x Flex Gene Expression", "Spatial Transcriptomics"]
+                        "experimental_strategy": ["scRNA-Seq", "snRNA-Seq", "10x Flex GEX", "Spatial Transcriptomics"]
                     }
                 },
                 {
@@ -710,7 +710,7 @@
                     "CITE-Seq",
                     "scTCR-Seq",
                     "scBCR-Seq",
-                    "10x Flex Gene Expression"
+                    "10x Flex GEX"
                 ]
             }
         },
@@ -744,7 +744,7 @@
                     "CITE-Seq",
                     "scTCR-Seq",
                     "scBCR-Seq",
-                    "10x Flex Gene Expression"
+                    "10x Flex GEX"
                 ]
             }
         },
@@ -756,7 +756,7 @@
                     "CITE-Seq",
                     "scTCR-Seq",
                     "scBCR-Seq",
-                    "10x Flex Gene Expression"
+                    "10x Flex GEX"
                 ]
             }
         },
@@ -844,7 +844,7 @@
             "type": "string",
             "required": true,
             "dependencies": {
-                "experimental_strategy": "10x Flex Gene Expression"
+                "experimental_strategy": "10x Flex GEX"
             }
         },
         "probe_barcode_id": {
@@ -852,35 +852,35 @@
             "required": true,
             "regex": "^[^,;|]+$",
             "dependencies": {
-                "experimental_strategy": "10x Flex Gene Expression"
+                "experimental_strategy": "10x Flex GEX"
             }
         },
         "library_pool_id": {
             "type": "string",
             "required": true,
             "dependencies": {
-                "experimental_strategy": "10x Flex Gene Expression"
+                "experimental_strategy": "10x Flex GEX"
             }
         },
         "probe_set": {
             "type": "string",
             "required": true,
             "dependencies": {
-                "experimental_strategy": "10x Flex Gene Expression"
+                "experimental_strategy": "10x Flex GEX"
             }
         },
         "probe_spike_in": {
             "type": "boolean",
             "required": true,
             "dependencies": {
-                "experimental_strategy": "10x Flex Gene Expression"
+                "experimental_strategy": "10x Flex GEX"
             }
         },
         "probe_spike_in_description": {
             "type": "string",
             "required": true,
             "dependencies": {
-                "experimental_strategy": "10x Flex Gene Expression",
+                "experimental_strategy": "10x Flex GEX",
                 "probe_spike_in": true
             }
         },
@@ -891,7 +891,7 @@
                     "CITE-Seq",
                     "scTCR-Seq",
                     "scBCR-Seq",
-                    "10x Flex Gene Expression",
+                    "10x Flex GEX",
                     "Spatial Transcriptomics"
                 ]
             },
@@ -899,7 +899,7 @@
                 {
                     "allowed": ["gex"],
                     "dependencies": {
-                        "experimental_strategy": "10x Flex Gene Expression"
+                        "experimental_strategy": "10x Flex GEX"
                     }
                 },
                 {
