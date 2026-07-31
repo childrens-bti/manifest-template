@@ -18,7 +18,6 @@ The validation framework builds upon rules originally established at Children's 
 - [Shared Field Conventions](#shared-field-conventions)
 - [Excel Workbooks](#excel-workbooks)
 - [Using This Repo](#using-this-repo)
-- [Manifest Creation Flowchart](#manifest-creation-flowchart)
 - [License](#license)
 
 ## Repository Structure
@@ -29,7 +28,6 @@ The validation framework builds upon rules originally established at Children's 
 | [`manifest_templates/`](manifest_templates/) | Blank CSV templates — one per manifest type — with the exact column headers expected by the validator. |
 | [`docs/`](docs/) | Human-readable, per-manifest field documentation: what each column means, whether it's required, allowed values, data type, and an example entry. |
 | [`excel_templates/`](excel_templates/) | Auto-generated `.xlsx` workbook per manifest type, combining the docs table and CSV template into one file for lab use (see [Excel Workbooks](#excel-workbooks) below). |
-| [`assets/`](assets/) | Supporting diagrams, including the manifest creation flowchart below. |
 
 ## Supported Manifest Types
 
@@ -81,10 +79,6 @@ Any other repository or workflow that consumes these manifests or validation rul
 ```bash
 git submodule add git@github.com:childrens-bti/manifest-template.git
 ```
-
-## Manifest Creation Flowchart
-
-![manifest creation flowchart](assets/manifest_generation.png)
 
 ## License
 
