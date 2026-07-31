@@ -592,6 +592,7 @@
             "CITE-Seq",
             "scTCR-Seq",
             "scBCR-Seq",
+            "10x Flex GEX",
             "Spatial Transcriptomics"
           ]
         },
@@ -629,7 +630,7 @@
                 {
                     "allowed": ["GEX"],
                     "dependencies": {
-                        "experimental_strategy": ["scRNA-Seq", "snRNA-Seq", "Spatial Transcriptomics"]
+                        "experimental_strategy": ["scRNA-Seq", "snRNA-Seq", "10x Flex GEX", "Spatial Transcriptomics"]
                     }
                 },
                 {
@@ -713,7 +714,8 @@
                 "experimental_strategy": [
                     "CITE-Seq",
                     "scTCR-Seq",
-                    "scBCR-Seq"
+                    "scBCR-Seq",
+                    "10x Flex GEX"
                 ]
             }
         },
@@ -746,7 +748,8 @@
                 "experimental_strategy": [
                     "CITE-Seq",
                     "scTCR-Seq",
-                    "scBCR-Seq"
+                    "scBCR-Seq",
+                    "10x Flex GEX"
                 ]
             }
         },
@@ -757,7 +760,8 @@
                 "experimental_strategy": [
                     "CITE-Seq",
                     "scTCR-Seq",
-                    "scBCR-Seq"
+                    "scBCR-Seq",
+                    "10x Flex GEX"
                 ]
             }
         },
@@ -841,23 +845,86 @@
             "type": "integer",
             "required": false
         },
+        "cellranger_sample_id": {
+            "type": "string",
+            "required": true,
+            "dependencies": {
+                "experimental_strategy": "10x Flex GEX"
+            }
+        },
+        "probe_barcode_id": {
+            "type": "string",
+            "required": true,
+            "regex": "^[^,;|]+$",
+            "dependencies": {
+                "experimental_strategy": "10x Flex GEX"
+            }
+        },
+        "library_pool_id": {
+            "type": "string",
+            "required": true,
+            "dependencies": {
+                "experimental_strategy": "10x Flex GEX"
+            }
+        },
+        "probe_set": {
+            "type": "string",
+            "required": true,
+            "dependencies": {
+                "experimental_strategy": "10x Flex GEX"
+            }
+        },
+        "probe_spike_in": {
+            "type": "boolean",
+            "required": true,
+            "dependencies": {
+                "experimental_strategy": "10x Flex GEX"
+            }
+        },
+        "probe_spike_in_description": {
+            "type": "string",
+            "required": true,
+            "dependencies": {
+                "experimental_strategy": "10x Flex GEX",
+                "probe_spike_in": true
+            }
+        },
         "feature_type": {
             "required": true,
-            "allowed": [
-                "gex",
-                "vdj",
-                "ab",
-                "molecule",
-                "protein"
-            ],
             "dependencies": {
                 "experimental_strategy": [
                     "CITE-Seq",
                     "scTCR-Seq",
                     "scBCR-Seq",
+                    "10x Flex GEX",
                     "Spatial Transcriptomics"
                 ]
-            }
+            },
+            "anyof": [
+                {
+                    "allowed": ["gex"],
+                    "dependencies": {
+                        "experimental_strategy": "10x Flex GEX"
+                    }
+                },
+                {
+                    "allowed": [
+                        "gex",
+                        "vdj",
+                        "ab",
+                        "molecule",
+                        "protein"
+                    ],
+                    "dependencies": {
+                        "experimental_strategy": [
+                            "CITE-Seq",
+                            "scTCR-Seq",
+                            "scBCR-Seq",
+                            "Spatial Transcriptomics"
+                        ]
+                    }
+                }
+            ]
         },
         "image_type": {
             "type": "string",
