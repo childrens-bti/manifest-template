@@ -54,7 +54,7 @@ All validation logic lives in [`validation_json/validation_rules_schema.json`](v
 - **Treatment fields:** `treatment_1` and `treatment_2` describe simultaneous combination-treatment components. `dose_1` and `dose_2` are the corresponding doses for those treatment components.
 - **Cell-line fields:** `cell_line_composition` records the culture media and `cell_line_passage` is a numeric passage number. Both are optional, including when `composition` is `Derived Cell Line`, because this curation data may not be available for every sample.
 - **Model identifiers:** `parental_model_id` and `model_id` are required for model-derived samples such as cell lines, xenografts, organoids, and other derived cell-line models.
-- **Path fields:** `local_dir_path` expects an SMB path under `smb://cnmc.org/cri/Lab/CancerImmunology-BTI`; `aws_s3_path` expects an S3 URI.
+- **Path fields:** `local_dir_path` expects an SMB path under `smb://cnmc.org/cri/Lab/CancerImmunology-BTI` and is required for every manifest. `aws_s3_path` expects an S3 URI and is required for every manifest except single-cell manifests (`single_cell_rules`) which might come with processed data.
 - **File-size thresholds:** file-size cutoffs are strategy-specific custom rules. Do not apply a general cutoff across all data types.
 
 ## Using This Repo
