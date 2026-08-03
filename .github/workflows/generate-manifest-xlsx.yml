@@ -1,0 +1,80 @@
+name: Generate manifest Excel workbooks
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - "docs/**"
+      - "manifest_templates/**"
+      - "scripts/generate_manifest_xlsx.py"
+      - "scripts/requirements.txt"
+  pull_request:
+    paths:
+      - "docs/**"
+      - "manifest_templates/**"
+      - "scripts/generate_manifest_xlsx.py"
+      - "scripts/requirements.txt"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  generate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+
+      - name: Set up Python
+        uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 # v7.0.0
+        with:
+          python-version: "3.12"
+
+      - name: Install dependencies
+        run: pip install -r scripts/requirements.txt
+
+      - name: Generate xlsx workbooks
+        run: python scripts/generate_manifest_xlsx.py
+
+      # Pull requests: don't commit the regenerated files onto the PR branch.
+      # Instead attach them as a build artifact and link to it from a sticky
+      # comment so reviewers can preview them before merge.
+      - name: Upload xlsx workbooks as artifact
+        if: github.event_name == 'pull_request'
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
+        with:
+          name: manifest-xlsx-templates
+          path: excel_templates/*.xlsx
+
+      - name: Find existing preview comment
+        if: github.event_name == 'pull_request'
+        uses: peter-evans/find-comment@b30e6a3c0ed37e7c023ccd3f1db5c6c0b0c23aad # v4.0.0
+        id: find-comment
+        with:
+          issue-number: ${{ github.event.pull_request.number }}
+          comment-author: "github-actions[bot]"
+          body-includes: "<!-- manifest-xlsx-preview -->"
+
+      - name: Comment with artifact link
+        if: github.event_name == 'pull_request'
+        uses: peter-evans/create-or-update-comment@e8674b075228eee787fea43ef493e45ece1004c9 # v5.0.0
+        with:
+          comment-id: ${{ steps.find-comment.outputs.comment-id }}
+          issue-number: ${{ github.event.pull_request.number }}
+          edit-mode: replace
+          body: |
+            <!-- manifest-xlsx-preview -->
+            📄 Excel workbooks were regenerated for this PR. Download them from the **`manifest-xlsx-templates`** artifact on this run:
+            https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
+
+      # Push to main: commit the regenerated workbooks straight into the repo
+      # so labs can grab them from excel_templates/ without visiting Actions.
+      - name: Commit regenerated workbooks
+        if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+        uses: stefanzweifel/git-auto-commit-action@4a55954c782fc1ea30b9056cd3e7a2b40ca8887d # v7.2.0
+        with:
+          commit_message: "chore: regenerate manifest xlsx workbooks"
+          file_pattern: "excel_templates/*.xlsx"
