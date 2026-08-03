@@ -22,8 +22,8 @@
 | timepoint | False | Timepoint associated with the treatment, collection, or experiment | | string | 24h | |
 | parental_model_id | False | Identifier for the parental model. Required for model-derived samples, including cell lines, xenografts, organoids, and other derived cell-line models; use this value for participant_id for model submissions | | string | MODEL-PARENT-001 | |
 | model_id | False | Identifier for the submitted model, including genetically modified cell lines or other model derivatives. Required for model-derived samples, including cell lines, xenografts, organoids, and other derived cell-line models | | string | MODEL-GM-001 | |
-| local_dir_path | False | SMB directory path on the L Drive for the source data | | string | smb://cnmc.org/cri/Lab/CancerImmunology-BTI | |
-| aws_s3_path | False | S3 URI for the submitted data location | | string | s3://bucket/prefix | |
+| local_dir_path | True | SMB directory path on the L Drive for the source data | | string | smb://cnmc.org/cri/Lab/CancerImmunology-BTI | |
+| aws_s3_path | True | S3 URI for the submitted data location | | string | s3://bucket/prefix | |
 | sequencing_batch | False | Sequencing batch identifier | | string | 30-XXXXXXXX | |
 | proteomics_experiment | True | The type of omics experiment that the sample was subject to. This will be a proteomics-based data, by default, but this should specify the type of proteomics data. | "Proteome", "Ubiquitylome", "Phosphoproteome", "Acetylome", "Glycoproteome", "Metabolome", "Lipidome" | string | Metabolome | |
 | file_name | True | Name of the file | | string | NCI-11Plex-13-F12A-z11358.mzML | |

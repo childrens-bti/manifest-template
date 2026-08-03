@@ -228,12 +228,12 @@
         },
         "local_dir_path": {
             "type": "string",
-            "required": false,
+            "required": true,
             "regex": "^smb://cnmc\\.org/cri/Lab/CancerImmunology-BTI(/.*)?$"
         },
         "aws_s3_path": {
             "type": "string",
-            "required": false,
+            "required": true,
             "regex": "^s3://.+"
         },
         "sequencing_batch": {
@@ -543,6 +543,11 @@
     "single_cell_rules": {
         "organism": {
             "required": true
+        },
+        "aws_s3_path": {
+            "type": "string",
+            "required": false,
+            "regex": "^s3://.+"
         },
         "cell_entity": {
             "required": true,
