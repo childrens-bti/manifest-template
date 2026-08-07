@@ -378,6 +378,23 @@
                 ]
             }
         },
+        "is_adapter_trimmed": {
+            "type": ["boolean", "string"],
+            "required": false,
+            "allowed": [true, false, "Unknown"],
+            "dependencies": {
+                "file_format": [
+                    "FASTQ"
+                ]
+            }
+        },
+        "adapter_sequencing": {
+            "type": "string",
+            "required": false,
+            "dependencies": {
+                "is_adapter_trimmed": false
+            }
+        },
         "target_capture_kit_name": {
             "type": "string",
             "required": false,
@@ -537,6 +554,23 @@
                     "FASTQ",
                     "BAM"
                 ]
+            }
+        },
+        "is_adapter_trimmed": {
+            "type": ["boolean", "string"],
+            "required": false,
+            "allowed": [true, false, "Unknown"],
+            "dependencies": {
+                "file_format": [
+                    "FASTQ"
+                ]
+            }
+        },
+        "adapter_sequencing": {
+            "type": "string",
+            "required": false,
+            "dependencies": {
+                "is_adapter_trimmed": false
             }
         }
     },
@@ -1018,6 +1052,23 @@
                     "FASTQ",
                     "BAM"
                 ]
+            }
+        },
+        "is_adapter_trimmed": {
+            "type": ["boolean", "string"],
+            "required": false,
+            "allowed": [true, false, "Unknown"],
+            "dependencies": {
+                "file_format": [
+                    "FASTQ"
+                ]
+            }
+        },
+        "adapter_sequencing": {
+            "type": "string",
+            "required": false,
+            "dependencies": {
+                "is_adapter_trimmed": false
             }
         },
         "target_capture_kit_name": {

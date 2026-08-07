@@ -42,6 +42,8 @@
 | read_pair_number | False | Denotes whether a submitted FASTQ file contains forward (R1) or reverse (R2) reads for paired-end sequencing. Required when inputs are FASTQ files. | "R1", "R2", "NA" | string | R1 | |
 | flow_cell_barcode | False | Flow cell barcode. Wrong or missing information may affect analysis results. Required when inputs are FASTQ files. | | string | H0164ALXX140820 | |
 | lane_number | False | The basic machine unit for sequencing. For Illumina machines, this reflects the physical lane number. Wrong or missing information may affect analysis results. Required when inputs are FASTQ files. | | string | 1 | |
+| is_adapter_trimmed | False | Were adapters trimmed from sequencing data? Not required, as adapter presence is detected downstream; fill in if known. Only applies to FASTQ files. | "True", "False", "Unknown" | boolean/string | True | |
+| adapter_sequencing | False | Base sequence of the sequencing adapter. Only applies when adapters were not trimmed. | | string | GCAT | |
 | total_reads | False | Total number of reads that align to the reference. | | integer | 525600 | |
 | reference_genome | True | Reference genome version. | | string | GRCH38 | |
 | FFPE | True | Is the sample preserved in FFPE | "True", "False" | boolean | False | |
