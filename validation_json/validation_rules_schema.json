@@ -516,6 +516,7 @@
                 {
                     "allowed": [
                         "exome capture",
+                        "fragmented",
                         "poly-A",
                         "poly-A stranded",
                         "poly-A unstranded",
