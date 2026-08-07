@@ -1,7 +1,9 @@
 name: Generate manifest Excel workbooks
 
 on:
-  pull_request:
+  push:
+    branches-ignore:
+      - main
     paths:
       - "docs/**"
       - "manifest_templates/**"
@@ -16,13 +18,11 @@ jobs:
   generate:
     runs-on: ubuntu-latest
     steps:
-      # Check out the PR's actual head branch (not the merge ref) so the
-      # regenerated workbooks can be committed straight back onto it.
-      - name: Checkout PR branch
+      # Pushes (not pull_request) so GITHUB_TOKEN's own commit below can't
+      # retrigger this workflow — GitHub reliably suppresses that only for
+      # push-triggered workflows, not for pull_request:synchronize.
+      - name: Checkout branch
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
-        with:
-          ref: ${{ github.event.pull_request.head.ref || github.ref }}
-          repository: ${{ github.event.pull_request.head.repo.full_name || github.repository }}
 
       - name: Set up Python
         uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 # v7.0.0
@@ -35,10 +35,10 @@ jobs:
       - name: Generate xlsx workbooks
         run: python scripts/generate_manifest_xlsx.py
 
-      # Commits onto the PR branch itself, so the regenerated workbooks land
-      # in the same PR as the docs/template change that caused them — no
-      # separate follow-up PR needed. Only works for branches in this repo
-      # (GITHUB_TOKEN can't push to a fork).
+      # Commits onto the pushed branch itself, so the regenerated workbooks
+      # land in the same PR as the docs/template change that caused them —
+      # no separate follow-up PR needed. Only works for branches in this
+      # repo (GITHUB_TOKEN can't push to a fork).
       - name: Commit regenerated workbooks
         uses: stefanzweifel/git-auto-commit-action@4a55954c782fc1ea30b9056cd3e7a2b40ca8887d # v7.2.0
         with:
