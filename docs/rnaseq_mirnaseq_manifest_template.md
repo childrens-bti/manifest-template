@@ -35,7 +35,7 @@
 | instrument_model | False | Specific model of sequencing instrument used. | string | Model name of the instrument used for sequencing | NovaSeq 6000 | |
 | experimental_strategy | True | The sequencing strategy used to generate the data file. | "RNA-Seq","miRNA-Seq", "Ribo-Seq", "long-read RNA-Seq", "Flash-Seq" | string | RNA-Seq | |
 | library_selection | True | Library selection method. | "Affinity Enrichment", "Hybrid Selection", "miRNA Size Fractionation", "PCR", "Poly-T Enrichment", "Random","rRNA Depletion", "Ribosome-protected fragments", "Other" | string | PCT | |
-| library_strand | True | Library strandedness. | "Stranded", "Unstranded", "First Stranded", "Second Stranded" | string | Stranded | |
+| library_strand | True | Library strandedness. | "Stranded", "Unstranded", "First Stranded", "Second Stranded", "Unknown" | string | Stranded | |
 | library_prep | True | Library prep method. | "polyA", "totalRNAseq", "Other" | string | polyA | |
 | RNA_library | True | Library category. For miRNA-Seq, use "small RNA first-stranded". For unstranded polyA libraries, use "poly-A unstranded". | "exome capture", "poly-A", "poly-A stranded", "poly-A unstranded", "RPFs", "total RNA stranded", "total RNA unstranded", "small RNA first-stranded" | string | total RNA stranded | True |
 | is_paired_end | True | If fastq/bam files, are the reads paired end? | "True", "False" | boolean | True | |

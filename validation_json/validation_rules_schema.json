@@ -469,7 +469,8 @@
                 "Stranded",
                 "Unstranded",
                 "First Stranded",
-                "Second Stranded"
+                "Second Stranded",
+                "Unknown"
             ]
         },
         "library_prep": {
