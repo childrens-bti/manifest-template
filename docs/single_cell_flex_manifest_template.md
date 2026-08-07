@@ -4,9 +4,9 @@ This template is for 10x Genomics Flex / Fixed RNA Profiling gene expression sub
 
 | Column Name | Required | Explanation | Allowed Values | Data Type | Example Entry | BTI Derived |
 | ---- | ---- | ---- | ---- | ---- | ---- | ---- |
-| participant_id | True | Unique identifier for the participant from whom the sample was collected | | string | PT1899 | True |
-| event_id | True | Unique identifier for the clinical event associated with the participant; formerly sample_id | | string | SM7316-11566 | True |
-| aliquot_id | True | Unique identifier for a specific aliquot | | string | AL1549608_T_FLEX | True |
+| participant_id | True | Unique identifier for the participant from whom the sample was collected | | string | P_5P2QIUH2 | True |
+| event_id | True | Unique identifier for the clinical event associated with the participant; formerly sample_id | | string | S_0000012 | True |
+| aliquot_id | True | Unique identifier for a specific aliquot | | string | AL_0000025_T_10xFlexGEX | True |
 | external_participant_id | False | External, user-provided identifier for the participant from whom the sample was collected | | string | PID1899 | |
 | cohort_participant_id | False | Participant identifier as used within a specific cohort/study; interchangeable with external_participant_id when the two differ | | string | COH-PT1899 | |
 | external_event_id | False | External, user-provided identifier for events linked to the same participant; formerly external_sample_id | | string | 7316-11566 | |
@@ -25,8 +25,8 @@ This template is for 10x Genomics Flex / Fixed RNA Profiling gene expression sub
 | cell_line_composition | False | Culture media used for the cell line, for a Derived Cell Line composition | | string | DMEM/F12 | |
 | cell_line_passage | False | Numeric passage number for the cell line, for a Derived Cell Line composition | | integer | 12 | |
 | timepoint | False | Timepoint associated with the treatment, collection, or experiment | | string | 24h | |
-| parental_model_id | False | Identifier for the parental model. Required for model-derived samples | | string | MODEL-PARENT-001 | |
-| model_id | False | Identifier for the submitted model, including genetically modified cell lines or other model derivatives | | string | MODEL-GM-001 | |
+| parental_model_id | False | Identifier for the parental model. Required for model-derived samples | | string | CNMC-XD760 | |
+| model_id | False | Identifier for the submitted model, including genetically modified cell lines or other model derivatives | | string | CNMC-XD760-mCherry-Luciferase | |
 | cellranger_sample_id | True | Cell Ranger multi `sample_id` for this biological sample in the Flex pool | | string | FLEX_SAMPLE_001 | |
 | probe_barcode_id | True | One 10x probe barcode assigned to this biological sample in the Cell Ranger multi samples section. If Cell Ranger lists multiple probe barcodes for one sample, represent each sample/probe barcode assignment as separate manifest rows rather than storing a delimited list | | string | BC001 | |
 | library_pool_id | True | Identifier for the pooled 10x Flex library or FASTQ pool shared by one or more Cell Ranger samples | | string | FLEX_POOL_01 | |
@@ -64,10 +64,10 @@ This template is for 10x Genomics Flex / Fixed RNA Profiling gene expression sub
 | read_pair_number | False | Denotes whether a submitted FASTQ file contains forward (R1) or reverse (R2) reads for paired-end sequencing. Required when inputs are FASTQ files | "R1", "R2", "NA" | string | R1 | |
 | flow_cell_barcode | False | Flow cell barcode. Required when inputs are FASTQ files | | string | H0164ALXX | |
 | lane_number | False | Physical sequencing lane number. Required when inputs are FASTQ files | | string | 1 | |
-| is_adapter_trimmed | False | Were adapters trimmed from sequencing data? Required when inputs are FASTQ files | "True", "False" | boolean | True | |
-| adapter_sequencing | False | Base sequence of the sequencing adapter. Required when adapters were not trimmed | | string | GCAT | |
+| is_adapter_trimmed | False | Were adapters trimmed from sequencing data? Required when inputs are FASTQ files | "True", "False" | boolean | False | |
+| adapter_sequencing | False | Base sequence of the sequencing adapter. Required when adapters were not trimmed | | string | AGATCGGAAGAGCGTCGTGTAGGGAAAGAGTGT | |
 | target_cell_number | False | Target number of cells to recover for the assay | | integer | 10000 | |
 | reference_genome | True | Reference genome version | | string | GRCh38 | |
 | FFPE | True | Is the sample preserved in FFPE? | "True", "False" | boolean | False | |
 | PI_name | True | Principal Investigator of the project | | string | Fonseca | True |
-| project | True | Short name of the project | | string | flex trial | True |
+| project | True | Short name of the project | | string | RBT | True |

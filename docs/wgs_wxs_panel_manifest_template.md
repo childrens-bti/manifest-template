@@ -2,9 +2,9 @@
 
 | Column Name | Required | Explanation | Allowed Values | Data Type | Example Entry | BTI Derived |
 | ---- | ---- | ---- | ---- | ---- | ---- | ---- |
-| participant_id | True | Unique identifier for the participant from whom the sample was collected | | string | PT1899 | True |
-| event_id | True | Unique identifier for the clinical event associated with the participant; formerly sample_id | | string | SM7316-11566 | True |
-| aliquot_id | True | Unique identifier for a specific aliquot | | string | AL1549608_T_WGS | True |
+| participant_id | True | Unique identifier for the participant from whom the sample was collected | | string | P_5P2QIUH2 | True |
+| event_id | True | Unique identifier for the clinical event associated with the participant; formerly sample_id | | string | S_0000012 | True |
+| aliquot_id | True | Unique identifier for a specific aliquot | | string | AL_0000025_T_WGS | True |
 | external_participant_id | False | External, user-provided (non-unique) identifier for participants from whom the sample was collected | | string | PID1899 | |
 | cohort_participant_id | False | Participant identifier as used within a specific cohort/study; interchangeable with external_participant_id when the two differ | | string | COH-PT1899 | |
 | external_event_id | False | External, user-provided (non-unique) identifier for events linked to the same participant; formerly external_sample_id | | string | 7316-11566 | |
@@ -20,8 +20,8 @@
 | cell_line_composition | False | Culture media used for the cell line, for a "Derived Cell Line" composition | | string | DMEM/F12 | |
 | cell_line_passage | False | Numeric passage number for the cell line, for a "Derived Cell Line" composition | | integer | 12 | |
 | timepoint | False | Timepoint associated with the treatment, collection, or experiment | | string | 24h | |
-| parental_model_id | False | Identifier for the parental model. Required for model-derived samples, including cell lines, xenografts, organoids, and other derived cell-line models; use this value for participant_id for model submissions | | string | MODEL-PARENT-001 | |
-| model_id | False | Identifier for the submitted model, including genetically modified cell lines or other model derivatives. Required for model-derived samples, including cell lines, xenografts, organoids, and other derived cell-line models | | string | MODEL-GM-001 | |
+| parental_model_id | False | Identifier for the parental model. Required for model-derived samples, including cell lines, xenografts, organoids, and other derived cell-line models; use this value for participant_id for model submissions | | string | CNMC-XD760 | |
+| model_id | False | Identifier for the submitted model, including genetically modified cell lines or other model derivatives. Required for model-derived samples, including cell lines, xenografts, organoids, and other derived cell-line models | | string | CNMC-XD760-mCherry-Luciferase | |
 | local_dir_path | True | SMB directory path on the L Drive for the source data | | string | smb://cnmc.org/cri/Lab/CancerImmunology-BTI | |
 | aws_s3_path | True | S3 URI for the submitted data location | | string | s3://bucket/prefix | |
 | sequencing_batch | False | Sequencing batch identifier | | string | 30-XXXXXXXX | |
@@ -41,13 +41,13 @@
 | read_pair_number | False | Denotes whether a submitted FASTQ file contains forward (R1) or reverse (R2) reads for paired-end sequencing. Required when inputs are FASTQ files. | "R1", "R2", "NA" | string | R1 | |
 | flow_cell_barcode | False | Flow cell barcode. Wrong or missing information may affect analysis results. Required when inputs are FASTQ files. | | string | H0164ALXX140820 | |
 | lane_number | False | The basic machine unit for sequencing. For Illumina machines, this reflects the physical lane number. Wrong or missing information may affect analysis results. Required when inputs are FASTQ files. | | string | 1 | |
-| is_adapter_trimmed | False | Were adapters trimmed from sequencing data? Not required, as adapter presence is detected downstream; fill in if known. Only applies to FASTQ files. | "True", "False", "Unknown" | boolean/string | True | |
-| adapter_sequencing | False | Base sequence of the sequencing adapter. Only applies when adapters were not trimmed. | | string | GCAT | |
+| is_adapter_trimmed | False | Were adapters trimmed from sequencing data? Not required, as adapter presence is detected downstream; fill in if known. Only applies to FASTQ files. | "True", "False", "Unknown" | boolean/string | False | |
+| adapter_sequencing | False | Base sequence of the sequencing adapter. Only applies when adapters were not trimmed. | | string | AGATCGGAAGAGCGTCGTGTAGGGAAAGAGTGT | |
 | total_reads | False | Total number of reads that align to the reference. | | integer | 525600 | |
 | mean_coverage | False | Mean coverage for whole genome sequencing, or mean target coverage for whole exome and targeted sequencing, collected from Picard Tools. | | integer | 60 | |
 | reference_genome | True | Reference genome version. | | string | GRCH38 | |
 | FFPE | True | Is the sample preserved in FFPE | "True", "False" | boolean | False | |
 | PI_name | True | Principal Investigator of the project | | string | Fonseca | True |
-| project | True | Short name of the project | | string | impact trial | True |
+| project | True | Short name of the project | | string | RBT | True |
 | organism | True | Binomial name of organism with full genus name | "Homo sapiens", "Mus musculus" | string | Homo sapiens | |
 | host_organism | False | Host organism binomial name when the sequenced sample is a xenograft. Required when compisition is "Patient Derived Xenograft" or "Xenograft" | "Mus musculus" | string | Mus musculus | True |
