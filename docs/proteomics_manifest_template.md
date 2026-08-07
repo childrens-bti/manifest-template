@@ -2,13 +2,13 @@
 
 | Column Name | Required | Explanation | Allowed Values | Data Type | Example Entry | BTI Derived |
 | ---- | ---- | ---- | ---- | ---- | ---- |  ---- |
-| participant_id | True | Unique identifier for the participant from whom the sample was collected | | string | PT007 | True |
-| event_id | True | Unique identifier for the clinical event associated with the participant; formerly sample_id | | string | SM8182-86886 | True |
-| aliquot_id | True | Unique identifier for a specific aliquot | | string | AL54774975_T_Prot | True |
-| external_participant_id | False | External, user-provided (non-unique) identifier for participants from whom the sample was collected | | string | P007 | |
+| participant_id | True | Unique identifier for the participant from whom the sample was collected | | string | P_5P2QIUH2 | True |
+| event_id | True | Unique identifier for the clinical event associated with the participant; formerly sample_id | | string | S_0000012 | True |
+| aliquot_id | True | Unique identifier for a specific aliquot | | string | AL_0000025_T_Prot | True |
+| external_participant_id | False | External, user-provided (non-unique) identifier for participants from whom the sample was collected | | string | PID1899 | |
 | cohort_participant_id | False | Participant identifier as used within a specific cohort/study; interchangeable with external_participant_id when the two differ | | string | COH-PT1899 | |
-| external_event_id | False | External, user-provided (non-unique) identifier for events linked to the same participant; formerly external_sample_id | | string | 8182-86886 | |
-| external_aliquot_id | False | External, user-provided identifier linked to a specific aliquot (if leveraged for multiple assays, comprised of aliquot_id + T/N + assay performed) | | string | 54774975_T_Prot | |
+| external_event_id | False | External, user-provided (non-unique) identifier for events linked to the same participant; formerly external_sample_id | | string | 7316-11566 | |
+| external_aliquot_id | False | External, user-provided identifier linked to a specific aliquot (if leveraged for multiple assays, comprised of aliquot_id + T/N + assay performed) | | string | 1549608_T_Prot | |
 | sample_type | True | Text term that represents a description of the kind of tissue collected with respect to disease status | "Tumor", "Normal", "Virus-infected", "Unknown", "Not Reported" | string | Normal | |
 | tumor_descriptor | True | Descriptor of tumor status or clinical tumor context for the sample; must be NA for normal samples | "Deceased", "Initial CNS Tumor", "Metastatic", "Post-treatment", "Primary Tumor", "Progressive", "Progressive Disease Post-Mortem", "Recurrence", "Relapse", "Residual", "Second Malignancy", "Unknown", "NA" | string | NA | |
 | composition | True | Tissue type the collected sample comes from | "Bone Marrow", "Buffy Coat", "Derived Cell Line", "Not Available", "Not Reported", "Patient Derived Xenograft", "Xenograft", "Patient Derived Organoid", "Peripheral Blood Mononuclear Cells", "Peripheral Whole Blood", "Saliva", "Solid Tissue", "Umbilical Cord Blood", "Patient-Derived T Cells", "Modified T Cells", "Patient-Derived Primary Cells", "iPSC-Derived Organoid", "Cerebrospinal Fluid", "Embryonic Stem Cell Derived Cell Line" |  string | Bone Marrow | |
@@ -20,8 +20,8 @@
 | cell_line_composition | False | Culture media used for the cell line, for a "Derived Cell Line" composition | | string | DMEM/F12 | |
 | cell_line_passage | False | Numeric passage number for the cell line, for a "Derived Cell Line" composition | | integer | 12 | |
 | timepoint | False | Timepoint associated with the treatment, collection, or experiment | | string | 24h | |
-| parental_model_id | False | Identifier for the parental model. Required for model-derived samples, including cell lines, xenografts, organoids, and other derived cell-line models; use this value for participant_id for model submissions | | string | MODEL-PARENT-001 | |
-| model_id | False | Identifier for the submitted model, including genetically modified cell lines or other model derivatives. Required for model-derived samples, including cell lines, xenografts, organoids, and other derived cell-line models | | string | MODEL-GM-001 | |
+| parental_model_id | False | Identifier for the parental model. Required for model-derived samples, including cell lines, xenografts, organoids, and other derived cell-line models; use this value for participant_id for model submissions | | string | CNMC-XD760 | |
+| model_id | False | Identifier for the submitted model, including genetically modified cell lines or other model derivatives. Required for model-derived samples, including cell lines, xenografts, organoids, and other derived cell-line models | | string | CNMC-XD760-mCherry-Luciferase | |
 | local_dir_path | True | SMB directory path on the L Drive for the source data | | string | smb://cnmc.org/cri/Lab/CancerImmunology-BTI | |
 | aws_s3_path | True | S3 URI for the submitted data location | | string | s3://bucket/prefix | |
 | sequencing_batch | False | Sequencing batch identifier | | string | 30-XXXXXXXX | |
@@ -33,7 +33,7 @@
 | file_hash_value | True | Full has value of the file | | string | 938c2cc0dcc05f2b68c4287040cfcf71 | |
 | sequencing_center | False | Name of the center generating sequencing data | | string | Harvard Med School | |
 | platform | True | Name of the platform used to obtain data | | string | Orbitrap Fusion Lumos | |
-| experimental_strategy | True | Name of the type of experiment being performed | | string | Proteomics | |
+| experimental_strategy | True | Name of the type of experiment being performed | "Whole Cell Proteomics", "Phospho-Proteomics" | string | Whole Cell Proteomics | |
 | acquisition_type | True | Data acquisition type | | string | DDA | |
 | ion_fragmentation | True | Reporter ion MS level | | string | MS2 | |
 | enrichment_approach | True | Enrichment method used for phospho, ubiquitin, acetyl, or other enrichment | | string | metabolome | |
@@ -44,6 +44,6 @@
 | fractionation_approach | True | Method used to fractionate sample. | | string | reverse-phase HPLC | |
 | fraction_number | True | Number of fractions generated for sample. | | integer | 12 | |
 | PI_name | True | Principal Investigator of the project | | string | Fonseca | True |
-| project | True | Short name of the project | | string | impact trial | True |
+| project | True | Short name of the project | | string | RBT | True |
 | organism | True | Binomial name of organism with full genus name | "Homo sapiens", "Mus musculus" | string | Homo sapiens | |
 | host_organism | False | Host organism binomial name when the sequenced sample is a xenograft. Required when compisition is "Patient Derived Xenograft" or "Xenograft" | "Mus musculus" | string | Mus musculus | True |

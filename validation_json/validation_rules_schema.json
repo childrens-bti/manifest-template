@@ -378,6 +378,23 @@
                 ]
             }
         },
+        "is_adapter_trimmed": {
+            "type": ["boolean", "string"],
+            "required": false,
+            "allowed": [true, false, "Unknown"],
+            "dependencies": {
+                "file_format": [
+                    "FASTQ"
+                ]
+            }
+        },
+        "adapter_sequencing": {
+            "type": "string",
+            "required": false,
+            "dependencies": {
+                "is_adapter_trimmed": false
+            }
+        },
         "target_capture_kit_name": {
             "type": "string",
             "required": false,
@@ -456,7 +473,7 @@
                 "miRNA Size Fractionation",
                 "PCR",
                 "Poly-T Enrichment",
-                "Random",
+                "Random Fragmentation",
                 "rRNA Depletion",
                 "Ribosome-protected fragments",
                 "Other"
@@ -469,7 +486,8 @@
                 "Stranded",
                 "Unstranded",
                 "First Stranded",
-                "Second Stranded"
+                "Second Stranded",
+                "Unknown"
             ]
         },
         "library_prep": {
@@ -498,6 +516,7 @@
                 {
                     "allowed": [
                         "exome capture",
+                        "fragmented",
                         "poly-A",
                         "poly-A stranded",
                         "poly-A unstranded",
@@ -536,6 +555,23 @@
                     "FASTQ",
                     "BAM"
                 ]
+            }
+        },
+        "is_adapter_trimmed": {
+            "type": ["boolean", "string"],
+            "required": false,
+            "allowed": [true, false, "Unknown"],
+            "dependencies": {
+                "file_format": [
+                    "FASTQ"
+                ]
+            }
+        },
+        "adapter_sequencing": {
+            "type": "string",
+            "required": false,
+            "dependencies": {
+                "is_adapter_trimmed": false
             }
         }
     },
@@ -1017,6 +1053,23 @@
                     "FASTQ",
                     "BAM"
                 ]
+            }
+        },
+        "is_adapter_trimmed": {
+            "type": ["boolean", "string"],
+            "required": false,
+            "allowed": [true, false, "Unknown"],
+            "dependencies": {
+                "file_format": [
+                    "FASTQ"
+                ]
+            }
+        },
+        "adapter_sequencing": {
+            "type": "string",
+            "required": false,
+            "dependencies": {
+                "is_adapter_trimmed": false
             }
         },
         "target_capture_kit_name": {
