@@ -97,7 +97,8 @@
                 "TIFF",
                 "BTF",
                 "BIGTIFF",
-                "raw"
+                "raw",
+                "RAW"
             ]
         },
         "file_size": {
