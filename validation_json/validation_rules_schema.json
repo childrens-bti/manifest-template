@@ -92,12 +92,11 @@
                 "SEG",
                 "TAR",
                 "TSV",
-                "mzML",
+                "MZML",
                 "TIF",
                 "TIFF",
                 "BTF",
                 "BIGTIFF",
-                "raw",
                 "RAW"
             ]
         },
