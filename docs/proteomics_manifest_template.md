@@ -22,8 +22,9 @@
 | timepoint | False | Timepoint associated with the treatment, collection, or experiment | | string | 24h | |
 | parental_model_id | False | Identifier for the parental model. Required for model-derived samples, including cell lines, xenografts, organoids, and other derived cell-line models; use this value for participant_id for model submissions | | string | CNMC-XD760 | |
 | model_id | False | Identifier for the submitted model, including genetically modified cell lines or other model derivatives. Required for model-derived samples, including cell lines, xenografts, organoids, and other derived cell-line models | | string | CNMC-XD760-mCherry-Luciferase | |
-| local_dir_path | True | SMB directory path on the L Drive for the source data | | string | smb://cnmc.org/cri/Lab/CancerImmunology-BTI | |
-| aws_s3_path | True | S3 URI for the submitted data location | | string | s3://bucket/prefix | |
+| local_dir_path | False | SMB directory path on the L Drive for the source data. Required when file_source_platform is local_drive or bti_aws_and_local_drive | | string | smb://cnmc.org/cri/Lab/CancerImmunology-BTI | |
+| aws_s3_path | False | S3 URI for the submitted data location. Required when file_source_platform is bti_aws or bti_aws_and_local_drive | | string | s3://bucket/prefix | |
+| file_source_platform | True | Source platform where files are stored and from which they are harmonized | "bti_aws", "local_drive", "bti_aws_and_local_drive", "cgc", "kids_first", "sra", "synapse" | string | bti_aws | |
 | sequencing_batch | False | Sequencing batch identifier | | string | 30-XXXXXXXX | |
 | proteomics_experiment | True | The type of omics experiment that the sample was subject to. This will be a proteomics-based data, by default, but this should specify the type of proteomics data. | "Proteome", "Ubiquitylome", "Phosphoproteome", "Acetylome", "Glycoproteome", "Metabolome", "Lipidome" | string | Metabolome | |
 | file_name | True | Name of the file | | string | NCI-11Plex-13-F12A-z11358.mzML | |
@@ -32,7 +33,7 @@
 | file_hash_type | True | Hash algorithm used to generate file hash | "MD5", "SHA1", "SHA256", "SHA512", "ETag" | string | MD5 | |
 | file_hash_value | True | Full has value of the file | | string | 938c2cc0dcc05f2b68c4287040cfcf71 | |
 | sequencing_center | False | Name of the center generating sequencing data | | string | Harvard Med School | |
-| platform | True | Name of the platform used to obtain data | | string | Orbitrap Fusion Lumos | |
+| instrument_platform | True | Name of the platform used to obtain data | | string | Orbitrap Fusion Lumos | |
 | experimental_strategy | True | Name of the type of experiment being performed | "Whole Cell Proteomics", "Phospho-Proteomics" | string | Whole Cell Proteomics | |
 | acquisition_type | True | Data acquisition type | | string | DDA | |
 | ion_fragmentation | True | Reporter ion MS level | | string | MS2 | |
