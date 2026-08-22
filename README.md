@@ -6,7 +6,7 @@
 
 This repository defines the required structure, fields, and allowed values for each supported data manifest so that submissions can be generated and validated consistently across projects and tools.
 
-The validation framework builds upon rules originally established at Children's Hospital of Philadelphia Center for Data-Driven Discovery in Biomedicine and used in [their CLI](https://github.com/d3b-center/d3b-dff-cli), with further extensions and enhancements introduced here.
+This repository is consumed as a [git submodule](https://git-scm.com/book/en/v2/Git-Tools-Submodules) of the [data-modeling](https://github.com/childrens-bti/data-modeling) repository, which uses these templates and validation rules as part of its id-bank pipeline.
 
 ---
 
@@ -56,7 +56,9 @@ All validation logic lives in [`validation_json/validation_rules_schema.json`](v
 - **Treatment fields:** `treatment_1` and `treatment_2` describe simultaneous combination-treatment components. `dose_1` and `dose_2` are the corresponding doses for those treatment components.
 - **Cell-line fields:** `cell_line_composition` records the culture media and `cell_line_passage` is a numeric passage number. Both are optional, including when `composition` is `Derived Cell Line`, because this curation data may not be available for every sample.
 - **Model identifiers:** `parental_model_id` and `model_id` are required for model-derived samples such as cell lines, xenografts, organoids, and other derived cell-line models.
-- **Path fields:** `local_dir_path` expects an SMB path under `smb://cnmc.org/cri/Lab/CancerImmunology-BTI` and is required for every manifest. `aws_s3_path` expects an S3 URI and is required for every manifest except single-cell manifests (`single_cell_rules`) which might come with processed data.
+- **File source platform:** `file_source_platform` indicates the source platform where files are stored and from where they are harmonized and is required for every manifest. Allowed values: `bti_aws` (BTI AWS S3 internal storage only), `local_drive` (BTI local/network drive only, not yet uploaded to S3), `bti_aws_and_local_drive` (both an S3 copy and a local/network drive copy exist), `cgc` (Cancer Genomics Cloud), `kids_first` (Kids First DRC), `sra` (Sequence Read Archive), `synapse` (Synapse platform). Use DRS links from external platforms (cgc, kids_first, sra, synapse), or one of the `bti_*` values for internal storage. `aws_s3_path` is required when `file_source_platform` is `bti_aws` or `bti_aws_and_local_drive`; `local_dir_path` is required when it's `local_drive` or `bti_aws_and_local_drive`; otherwise both are optional.
+- **Path fields:** `local_dir_path` expects an SMB path under `smb://cnmc.org` (any share, e.g. `smb://cnmc.org/cri/Lab/CancerImmunology-BTI`) and is required only when `file_source_platform` is `local_drive` or `bti_aws_and_local_drive`. `aws_s3_path` expects an S3 URI and is required only when `file_source_platform` is `bti_aws` or `bti_aws_and_local_drive`.
+- **Instrument platform:** `instrument_platform` (formerly `platform`) specifies the sequencing or assay platform (e.g., Illumina, PacBio, ONT). Allowed values vary by manifest type — see type-specific validation rules.
 - **File-size thresholds:** file-size cutoffs are strategy-specific custom rules. Do not apply a general cutoff across all data types.
 
 ## Excel Workbooks
@@ -72,7 +74,7 @@ To regenerate locally: `pip install -r scripts/requirements.txt && python script
 
 ## Using This Repo
 
-Any other repository or workflow that consumes these manifests or validation rules should include this repository as a [git submodule](https://git-scm.com/book/en/v2/Git-Tools-Submodules) rather than copying files directly, so downstream consumers stay in sync with schema updates:
+This repository is used as a git submodule of [data-modeling](https://github.com/childrens-bti/data-modeling); it is not intended to be run standalone. Any other repository or workflow that consumes these manifests or validation rules should likewise include this repository as a [git submodule](https://git-scm.com/book/en/v2/Git-Tools-Submodules) rather than copying files directly, so downstream consumers stay in sync with schema updates:
 
 ```bash
 git submodule add git@github.com:childrens-bti/manifest-template.git

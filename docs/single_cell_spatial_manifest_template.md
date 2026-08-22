@@ -25,8 +25,9 @@
 | timepoint | False | Timepoint associated with the treatment, collection, or experiment | | string | 24h | |
 | parental_model_id | False | Identifier for the parental model. Required for model-derived samples, including cell lines, xenografts, organoids, and other derived cell-line models; use this value for participant_id for model submissions | | string | CNMC-XD760 | |
 | model_id | False | Identifier for the submitted model, including genetically modified cell lines or other model derivatives. Required for model-derived samples, including cell lines, xenografts, organoids, and other derived cell-line models | | string | CNMC-XD760-mCherry-Luciferase | |
-| local_dir_path | True | SMB directory path on the L Drive for the source data | | string | smb://cnmc.org/cri/Lab/CancerImmunology-BTI | |
-| aws_s3_path | False | S3 URI for the submitted data location | | string | s3://bucket/prefix | |
+| local_dir_path | False | SMB directory path on the L Drive for the source data. Required when file_source_platform is local_drive or bti_aws_and_local_drive | | string | smb://cnmc.org/cri/Lab/CancerImmunology-BTI | |
+| aws_s3_path | False | S3 URI for the submitted data location. Required when file_source_platform is bti_aws or bti_aws_and_local_drive | | string | s3://bucket/prefix | |
+| file_source_platform | True | Source platform where files are stored and from which they are harmonized | "bti_aws", "local_drive", "bti_aws_and_local_drive", "cgc", "kids_first", "sra", "synapse" | string | bti_aws | |
 | sequencing_batch | False | Sequencing batch identifier | | string | 30-XXXXXXXX | |
 | file_name | True | Name of the file | | string | NCI-11Plex-13-F12A-z11358.fastq | |
 | file_format | True | Format of the file | "FASTQ", "BAM", "BAI", "CRAM", "CRAI", "GVCF", "VCF", "TBI", "MAF", "PDF", "HTML", "DCM", "IDAT", "SVS", "GPR", "CNS", "TXT", "PNG", "CSV", "PED", "SEG", "TAR", "TSV", "mzML", "TIF", "TIFF", "BTF", "BIGTIFF", "raw" | string | FASTQ | |
@@ -34,7 +35,7 @@
 | file_hash_type | True | Hash algorithm used to generate file hash | "MD5", "SHA1", "SHA256", "SHA512", "ETag" | string | MD5 |
 | file_hash_value | True | Full has value of the file | | string | 938c2cc0dcc05f2b68c4287040cfcf71 | |
 | sequencing_center | False | Name of the center generating sequencing data | | string | Harvard Med School | |
-| platform | True | Name of the platform used to obtain data | "Complete Genomics", "Illumina", "Ion Torrent", "LS454", "SOLiD", "ONT", "DNBSEQ", "Other" | string | Illumina | |
+| instrument_platform | True | Name of the platform used to obtain data | "Complete Genomics", "Illumina", "Ion Torrent", "LS454", "SOLiD", "ONT", "DNBSEQ", "Other" | string | Illumina | |
 | instrument_model | False | Specific model of sequencing instrument used. | string | Model name of the instrument used for sequencing | NovaSeq 6000 | |
 | experimental_strategy | True | The sequencing strategy used to generate the data file. | "scRNA-Seq", "snRNA-Seq", "Spatial Transcriptomics" | string | scRNA-Seq | |
 | assay_type | True | Chemistry used to generate Visium expression signal (poly(A) capture vs targeted probe capture) | | string | Probe_Based_GEX | |

@@ -226,15 +226,34 @@
                 ]
             }
         },
+        "file_source_platform": {
+            "type": "string",
+            "required": true,
+            "allowed": [
+                "bti_aws",
+                "local_drive",
+                "bti_aws_and_local_drive",
+                "cgc",
+                "kids_first",
+                "sra",
+                "synapse"
+            ]
+        },
         "local_dir_path": {
             "type": "string",
             "required": true,
-            "regex": "^smb://cnmc\\.org/cri/Lab/CancerImmunology-BTI(/.*)?$"
+            "regex": "^smb://cnmc\\.org(/.*)?$",
+            "dependencies": {
+                "file_source_platform": ["local_drive", "bti_aws_and_local_drive"]
+            }
         },
         "aws_s3_path": {
             "type": "string",
             "required": true,
-            "regex": "^s3://.+"
+            "regex": "^s3://.+",
+            "dependencies": {
+                "file_source_platform": ["bti_aws", "bti_aws_and_local_drive"]
+            }
         },
         "sequencing_batch": {
             "type": "string",
@@ -333,7 +352,7 @@
         }
     },
     "DNAseq_rules": {
-        "platform": {
+        "instrument_platform": {
             "type": "string",
             "required": true,
             "allowed": [
@@ -438,7 +457,7 @@
         }
     },
     "RNAseq_rules": {
-        "platform": {
+        "instrument_platform": {
             "type": "string",
             "required": true,
             "allowed": [
@@ -581,8 +600,11 @@
         },
         "aws_s3_path": {
             "type": "string",
-            "required": false,
-            "regex": "^s3://.+"
+            "required": true,
+            "regex": "^s3://.+",
+            "dependencies": {
+                "file_source_platform": ["bti_aws", "bti_aws_and_local_drive"]
+            }
         },
         "cell_entity": {
             "required": true,
@@ -604,7 +626,7 @@
                 ]
             }
         },
-        "platform": {
+        "instrument_platform": {
             "type": "string",
             "required": true,
             "allowed": [
@@ -1009,7 +1031,7 @@
         }
     },
     "pacbio_longread_rules": {
-        "platform": {
+        "instrument_platform": {
             "type": "string",
             "required": true,
             "allowed": [
@@ -1111,7 +1133,7 @@
                 "IDAT"
             ]
         },
-        "platform": {
+        "instrument_platform": {
             "type": "string",
             "required": true,
             "allowed": [
@@ -1153,7 +1175,7 @@
                 "Lipidome"
             ]
         },
-        "platform": {
+        "instrument_platform": {
             "type": "string",
             "required": true
         },
