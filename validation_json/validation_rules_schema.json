@@ -226,11 +226,13 @@
                 ]
             }
         },
-        "file_platform": {
+        "file_source_platform": {
             "type": "string",
             "required": true,
             "allowed": [
                 "bti_aws",
+                "local_drive",
+                "bti_aws_and_local_drive",
                 "cgc",
                 "kids_first",
                 "sra",
@@ -239,15 +241,18 @@
         },
         "local_dir_path": {
             "type": "string",
-            "required": false,
-            "regex": "^smb://cnmc\\.org/cri/Lab/CancerImmunology-BTI(/.*)?$"
+            "required": true,
+            "regex": "^smb://cnmc\\.org(/.*)?$",
+            "dependencies": {
+                "file_source_platform": ["local_drive", "bti_aws_and_local_drive"]
+            }
         },
         "aws_s3_path": {
             "type": "string",
             "required": true,
             "regex": "^s3://.+",
             "dependencies": {
-                "file_platform": ["bti_aws"]
+                "file_source_platform": ["bti_aws", "bti_aws_and_local_drive"]
             }
         },
         "sequencing_batch": {
@@ -598,7 +603,7 @@
             "required": true,
             "regex": "^s3://.+",
             "dependencies": {
-                "file_platform": ["bti_aws"]
+                "file_source_platform": ["bti_aws", "bti_aws_and_local_drive"]
             }
         },
         "cell_entity": {
