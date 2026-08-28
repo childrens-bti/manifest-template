@@ -540,9 +540,9 @@
                         "poly-A stranded",
                         "poly-A unstranded",
                         "RPFs",
+                        "total RNA",
                         "total RNA stranded",
-                        "total RNA unstranded",
-                        "Unknown"
+                        "total RNA unstranded"
                     ],
                     "dependencies": {
                         "experimental_strategy": [
