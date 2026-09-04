@@ -4,10 +4,10 @@
         "file_size_byte_cutoff": {
             "_comment": "Optional strategy-specific file_size thresholds. Do not apply a general cutoff across all data types.",
             "type": "integer",
-            "wgs_wxs_cutoff": 200000000,
-            "bulk_rnaseq_cutoff": 100000000,
-            "bulk_rnaseq_strategies": [
-                "RNA-Seq"
+            "wgs_cutoff": 200000000,
+            "other_expr_cutoff": 0,
+            "wgs_strategies": [
+                "WGS"
             ],
             "dependencies": {
                 "file_format": [
