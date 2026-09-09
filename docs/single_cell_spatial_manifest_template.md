@@ -61,7 +61,7 @@
 | is_adapter_trimmed | False | Were adapters trimmed from sequencing data? Required when inputs are FASTQ files. | "True", "False" | boolean | False | |
 | adapter_sequencing | False | Base sequence of the sequencing adapter. Required when adapters were not trimmed. | | string | AGATCGGAAGAGCGTCGTGTAGGGAAAGAGTGT | |
 | probe_set | False | Targeted probe panel used for transcript capture in probe-based spatial assays (FFPE). Not used for polyA capture spatial assays. | | string | Human_Transcriptome_Probe_Set_v1.0 | |
-| reference_genome | True | Reference genome version. | | string | GRCH38 | |
+| reference_genome | False | Reference genome version. Required when file_format is "BAM" or "CRAM" | | string | GRCH38 | |
 | FFPE | True | Is the sample preserved in FFPE | "True", "False" | boolean | False | |
 | image_type | True | Type of microscopy or derived image associated with the spatial dataset. | "brightfield", "fluroscence_dark", "fluroscence_colorized", "cytassist" | string | brighfield | |
 | slide_id | True | Identifier of the physical spatial capture slide on which the tissue section was placed. | | string | V19J01-123 | |

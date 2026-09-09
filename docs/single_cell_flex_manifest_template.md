@@ -69,7 +69,7 @@ This template is for 10x Genomics Flex / Fixed RNA Profiling gene expression sub
 | is_adapter_trimmed | False | Were adapters trimmed from sequencing data? Required when inputs are FASTQ files | "True", "False" | boolean | False | |
 | adapter_sequencing | False | Base sequence of the sequencing adapter. Required when adapters were not trimmed | | string | AGATCGGAAGAGCGTCGTGTAGGGAAAGAGTGT | |
 | target_cell_number | False | Target number of cells to recover for the assay | | integer | 10000 | |
-| reference_genome | True | Reference genome version | | string | GRCh38 | |
+| reference_genome | False | Reference genome version. Required when file_format is "BAM" or "CRAM" | | string | GRCh38 | |
 | FFPE | True | Is the sample preserved in FFPE? | "True", "False" | boolean | False | |
 | PI_name | True | Principal Investigator of the project | | string | Fonseca | True |
 | project | True | Short name of the project | | string | RBT | True |

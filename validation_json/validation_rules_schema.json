@@ -334,6 +334,13 @@
                 "organism": ["Homo sapiens"]
             }
         },
+        "reference_genome": {
+            "type": "string",
+            "required": true,
+            "dependencies": {
+                "file_format": ["BAM", "CRAM"]
+            }
+        },
         "total_reads": {
             "required": false,
             "nullable": true
