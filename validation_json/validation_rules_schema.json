@@ -326,6 +326,14 @@
                 "Mus musculus"
             ]
         },
+        "reported_gender": {
+            "type": "string",
+            "required": true,
+            "allowed": ["Female", "Male", "Not Reported"],
+            "dependencies": {
+                "organism": ["Homo sapiens"]
+            }
+        },
         "total_reads": {
             "required": false,
             "nullable": true

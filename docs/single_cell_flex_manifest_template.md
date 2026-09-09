@@ -13,6 +13,7 @@ This template is for 10x Genomics Flex / Fixed RNA Profiling gene expression sub
 | external_aliquot_id | False | External, user-provided identifier linked to a specific aliquot | | string | 1549608_T_FLEX | |
 | organism | True | Binomial name of organism with full genus name | "Homo sapiens", "Mus musculus" | string | Homo sapiens | |
 | host_organism | False | Host organism binomial name when the sequenced sample is a xenograft | "Mus musculus" | string | Mus musculus | True |
+| reported_gender | False | Reported gender of the participant. Required when organism is "Homo sapiens" | "Female", "Male", "Not Reported" | string | Female | |
 | cell_entity | False | The type of single cell entity | | string | Whole Cell | |
 | sample_type | True | Description of the kind of tissue collected with respect to disease status | "Tumor", "Normal", "Virus-infected", "Unknown", "Not Reported" | string | Tumor | |
 | tumor_descriptor | True | Descriptor of tumor status or clinical tumor context for the sample; must be NA for normal samples | "Deceased", "Initial CNS Tumor", "Metastatic", "Post-treatment", "Primary Tumor", "Progressive", "Progressive Disease Post-Mortem", "Recurrence", "Relapse", "Residual", "Second Malignancy", "Unknown", "NA" | string | Primary Tumor | |
