@@ -11,6 +11,7 @@
 | external_aliquot_id | False | External, user-provided identifier linked to a specific aliquot (if leveraged for multiple assays, comprised of aliquot_id + T/N + assay performed) | | string | 1549608_T_WGS | |
 | organism | True | Binomial name of organism with full genus name | "Homo sapiens", "Mus musculus" | string | Homo sapiens | |
 | host_organism | False | Host organism binomial name when the sequenced sample is a xenograft. Required when compisition is "Patient Derived Xenograft" or "Xenograft" | "Mus musculus" | string | Mus musculus | True |
+| reported_gender | False | Reported gender of the participant. Required when organism is "Homo sapiens" | "Female", "Male", "Not Reported" | string | Female | |
 | cell_entity | True | The type of single cell entity. | | string | Whole Cell | |
 | sample_type | True | Text term that represents a description of the kind of tissue collected with respect to disease status | "Tumor", "Normal", "Virus-infected", "Unknown", "Not Reported" | string | Normal | |
 | tumor_descriptor | True | Descriptor of tumor status or clinical tumor context for the sample; must be NA for normal samples | "Deceased", "Initial CNS Tumor", "Metastatic", "Post-treatment", "Primary Tumor", "Progressive", "Progressive Disease Post-Mortem", "Recurrence", "Relapse", "Residual", "Second Malignancy", "Unknown", "NA" | string | NA | |
@@ -61,7 +62,7 @@
 | is_adapter_trimmed | False | Were adapters trimmed from sequencing data? Required when inputs are FASTQ files. | "True", "False" | boolean | False | |
 | adapter_sequencing | False | Base sequence of the sequencing adapter. Required when adapters were not trimmed. | | string | AGATCGGAAGAGCGTCGTGTAGGGAAAGAGTGT | |
 | target_cell_number | False | Target number of cells to recover for the assay. | | integer | 10000 | |
-| reference_genome | True | Reference genome version. | | string | GRCH38 | |
+| reference_genome | False | Reference genome version. Required when file_format is "BAM" or "CRAM" | | string | GRCH38 | |
 | FFPE | True | Is the sample preserved in FFPE | "True", "False" | boolean | False | |
 | PI_name | True | Principal Investigator of the project | | string | Fonseca | True |
 | project | True | Short name of the project | | string | RBT | True |

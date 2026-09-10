@@ -46,9 +46,10 @@
 | adapter_sequencing | False | Base sequence of the sequencing adapter. Only applies when adapters were not trimmed. | | string | AGATCGGAAGAGCGTCGTGTAGGGAAAGAGTGT | |
 | total_reads | False | Total number of reads that align to the reference. | | integer | 525600 | |
 | mean_coverage | False | Mean coverage for whole genome sequencing, or mean target coverage for whole exome and targeted sequencing, collected from Picard Tools. | | integer | 60 | |
-| reference_genome | True | Reference genome version. | | string | GRCH38 | |
+| reference_genome | False | Reference genome version. Required when file_format is "BAM" or "CRAM" | | string | GRCH38 | |
 | FFPE | True | Is the sample preserved in FFPE | "True", "False" | boolean | False | |
 | PI_name | True | Principal Investigator of the project | | string | Fonseca | True |
 | project | True | Short name of the project | | string | RBT | True |
 | organism | True | Binomial name of organism with full genus name | "Homo sapiens", "Mus musculus" | string | Homo sapiens | |
 | host_organism | False | Host organism binomial name when the sequenced sample is a xenograft. Required when compisition is "Patient Derived Xenograft" or "Xenograft" | "Mus musculus" | string | Mus musculus | True |
+| reported_gender | False | Reported gender of the participant. Required when organism is "Homo sapiens" | "Female", "Male", "Not Reported" | string | Female | |
