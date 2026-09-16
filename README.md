@@ -6,7 +6,7 @@
 
 This repository defines the required structure, fields, and allowed values for each supported data manifest so that submissions can be generated and validated consistently across projects and tools.
 
-The validation framework builds upon rules originally established at Children's Hospital of Philadelphia Center for Data-Driven Discovery in Biomedicine and used in [their CLI](https://github.com/d3b-center/d3b-dff-cli), with further extensions and enhancements introduced here.
+This repository is consumed as a [git submodule](https://git-scm.com/book/en/v2/Git-Tools-Submodules) of the [data-modeling](https://github.com/childrens-bti/data-modeling) repository, which uses these templates and validation rules as part of its id-bank pipeline.
 
 ---
 
@@ -16,8 +16,8 @@ The validation framework builds upon rules originally established at Children's 
 - [Supported Manifest Types](#supported-manifest-types)
 - [Validation Rules](#validation-rules)
 - [Shared Field Conventions](#shared-field-conventions)
+- [Excel Workbooks](#excel-workbooks)
 - [Using This Repo](#using-this-repo)
-- [Manifest Creation Flowchart](#manifest-creation-flowchart)
 - [License](#license)
 
 ## Repository Structure
@@ -27,14 +27,15 @@ The validation framework builds upon rules originally established at Children's 
 | [`validation_json/`](validation_json/) | The validation schema (`validation_rules_schema.json`) that defines required fields, types, allowed values, and cross-field dependencies for every manifest type. |
 | [`manifest_templates/`](manifest_templates/) | Blank CSV templates — one per manifest type — with the exact column headers expected by the validator. |
 | [`docs/`](docs/) | Human-readable, per-manifest field documentation: what each column means, whether it's required, allowed values, data type, and an example entry. |
-| [`assets/`](assets/) | Supporting diagrams, including the manifest creation flowchart below. |
+| [`excel_templates/`](excel_templates/) | Auto-generated `.xlsx` workbook per manifest type, combining the docs table and CSV template into one file for lab use (see [Excel Workbooks](#excel-workbooks) below). |
 
 ## Supported Manifest Types
 
 | Manifest | Template | Field Documentation |
 |---|---|---|
 | WGS / WXS / Targeted Panel | [CSV](manifest_templates/wgs_wxs_panel_manifest_template.csv) | [Docs](docs/wgs_wxs_panel_manifest_template.md) |
-| RNAseq / miRNAseq / TIRTL-Seq | [CSV](manifest_templates/rnaseq_mirnaseq_tirtl_manifest_template.csv) | [Docs](docs/rnaseq_mirnaseq_tirtl_manifest_template.md) |
+| RNAseq / miRNAseq | [CSV](manifest_templates/rnaseq_mirnaseq_manifest_template.csv) | [Docs](docs/rnaseq_mirnaseq_manifest_template.md) |
+| Single Cell — 10x Flex | [CSV](manifest_templates/single_cell_flex_manifest_template.csv) | [Docs](docs/single_cell_flex_manifest_template.md) |
 | Single Cell — CITE-Seq / BCR / TCR | [CSV](manifest_templates/single_cell_citeseq_bcrtcr_manifest_template.csv) | [Docs](docs/single_cell_citeseq_bcrtcr_manifest_template.md) |
 | Single Cell — Spatial | [CSV](manifest_templates/single_cell_spatial_manifest_template.csv) | [Docs](docs/single_cell_spatial_manifest_template.md) |
 | Methylation | [CSV](manifest_templates/methylation_manifest_template.csv) | [Docs](docs/methylation_manifest_template.md) |
@@ -50,24 +51,36 @@ All validation logic lives in [`validation_json/validation_rules_schema.json`](v
 ## Shared Field Conventions
 
 - **Event identifiers:** `event_id` replaces the former `sample_id` field, and `external_event_id` replaces the former `external_sample_id` field.
+- **Internal ID nomenclature:** `participant_id`, `event_id`, and `aliquot_id` are assigned automatically by the [data-modeling](https://github.com/childrens-bti/data-modeling) id-bank pipeline, not hand-authored. `participant_id` is `P_` + 8 random alphanumeric characters; `event_id` is `S_` + a 7-digit zero-padded sequential number; `aliquot_id` is `AL_` + a 7-digit zero-padded sequential number, optionally suffixed `_T`/`_N` (from `sample_type`) plus an assay abbreviation (e.g. `RNA`, `WGS`, `Ribo`, `Methyl`, `Prot`, `CITE`, `scRNA`) when the submission didn't supply its own `external_aliquot_id` — this keeps the same physical aliquot's outputs distinguishable across multiple assay-specific manifests. `external_participant_id`, `cohort_participant_id`, `external_event_id`, and `external_aliquot_id` are free-form, submitter-provided values and follow no fixed pattern.
 - **Tumor descriptor:** `tumor_descriptor` is required for every manifest. Normal samples must use `NA`; other allowed sample types may use an allowed tumor descriptor or `NA` where appropriate.
 - **Treatment fields:** `treatment_1` and `treatment_2` describe simultaneous combination-treatment components. `dose_1` and `dose_2` are the corresponding doses for those treatment components.
 - **Cell-line fields:** `cell_line_composition` records the culture media and `cell_line_passage` is a numeric passage number. Both are optional, including when `composition` is `Derived Cell Line`, because this curation data may not be available for every sample.
 - **Model identifiers:** `parental_model_id` and `model_id` are required for model-derived samples such as cell lines, xenografts, organoids, and other derived cell-line models.
-- **Path fields:** `local_dir_path` expects an SMB path under `smb://cnmc.org/cri/Lab/CancerImmunology-BTI`; `aws_s3_path` expects an S3 URI.
+- **Reported gender:** `reported_gender` is required only when `organism` is `Homo sapiens`. Allowed values: `Female`, `Male`, `Not Reported`.
+- **Reference genome:** `reference_genome` is required only when `file_format` is `BAM` or `CRAM`; it's not required for `FASTQ` or other file formats.
+- **File source platform:** `file_source_platform` indicates the source platform where files are stored and from where they are harmonized and is required for every manifest. Allowed values: `bti_aws` (BTI AWS S3 internal storage only), `local_drive` (BTI local/network drive only, not yet uploaded to S3), `bti_aws_and_local_drive` (both an S3 copy and a local/network drive copy exist), `cgc` (Cancer Genomics Cloud), `kids_first` (Kids First DRC), `sra` (Sequence Read Archive), `synapse` (Synapse platform). Use DRS links from external platforms (cgc, kids_first, sra, synapse), or one of the `bti_*` values for internal storage. `aws_s3_path` is required when `file_source_platform` is `bti_aws` or `bti_aws_and_local_drive`; `local_dir_path` is required when it's `local_drive` or `bti_aws_and_local_drive`; otherwise both are optional.
+- **Path fields:** `local_dir_path` expects an SMB path under `smb://cnmc.org` (any share, e.g. `smb://cnmc.org/cri/Lab/CancerImmunology-BTI`) and is required only when `file_source_platform` is `local_drive` or `bti_aws_and_local_drive`. `aws_s3_path` expects an S3 URI and is required only when `file_source_platform` is `bti_aws` or `bti_aws_and_local_drive`.
+- **Instrument platform:** `instrument_platform` (formerly `platform`) specifies the sequencing or assay platform (e.g., Illumina, PacBio, ONT). Allowed values vary by manifest type — see type-specific validation rules.
 - **File-size thresholds:** file-size cutoffs are strategy-specific custom rules. Do not apply a general cutoff across all data types.
+
+## Excel Workbooks
+
+For lab members who prefer filling out a spreadsheet over a raw CSV, [`excel_templates/`](excel_templates/) contains a generated `.xlsx` workbook per manifest type with two tabs:
+
+1. **Data Dictionary** — the field documentation table from the corresponding `docs/*.md` file.
+2. **Manifest Template** — the same column headers as the CSV template, with dropdown validation on any column that has an Allowed Values list (e.g. `sample_type`, `composition`).
+
+These workbooks are generated by [`scripts/generate_manifest_xlsx.py`](scripts/generate_manifest_xlsx.py) and kept in sync automatically by the [`generate-manifest-xlsx`](.github/workflows/generate-manifest-xlsx.yml) GitHub Action: on any push commit touching `docs/` or `manifest_templates/`, the workflow regenerates the workbooks and commits them straight back onto that PR's branch, so the updated `.xlsx` files land in the same PR as the change that caused them — no separate follow-up PR needed.
+
+To regenerate locally: `pip install -r scripts/requirements.txt && python scripts/generate_manifest_xlsx.py`.
 
 ## Using This Repo
 
-Any other repository or workflow that consumes these manifests or validation rules should include this repository as a [git submodule](https://git-scm.com/book/en/v2/Git-Tools-Submodules) rather than copying files directly, so downstream consumers stay in sync with schema updates:
+This repository is used as a git submodule of [data-modeling](https://github.com/childrens-bti/data-modeling); it is not intended to be run standalone. Any other repository or workflow that consumes these manifests or validation rules should likewise include this repository as a [git submodule](https://git-scm.com/book/en/v2/Git-Tools-Submodules) rather than copying files directly, so downstream consumers stay in sync with schema updates:
 
 ```bash
 git submodule add git@github.com:childrens-bti/manifest-template.git
 ```
-
-## Manifest Creation Flowchart
-
-![manifest creation flowchart](assets/manifest_generation.png)
 
 ## License
 

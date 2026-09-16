@@ -4,10 +4,10 @@
         "file_size_byte_cutoff": {
             "_comment": "Optional strategy-specific file_size thresholds. Do not apply a general cutoff across all data types.",
             "type": "integer",
-            "wgs_wxs_cutoff": 200000000,
-            "bulk_rnaseq_cutoff": 100000000,
-            "bulk_rnaseq_strategies": [
-                "RNA-Seq"
+            "wgs_cutoff": 200000000,
+            "other_expr_cutoff": 0,
+            "wgs_strategies": [
+                "WGS"
             ],
             "dependencies": {
                 "file_format": [
@@ -92,12 +92,12 @@
                 "SEG",
                 "TAR",
                 "TSV",
-                "mzML",
+                "MZML",
                 "TIF",
                 "TIFF",
                 "BTF",
                 "BIGTIFF",
-                "raw"
+                "RAW"
             ]
         },
         "file_size": {
@@ -149,6 +149,7 @@
                 "Solid Tissue",
                 "Umbilical Cord Blood",
                 "Patient-Derived T Cells",
+                "Modified T Cells",
                 "Patient-Derived Primary Cells",
                 "iPSC-Derived Organoid",
                 "Cerebrospinal Fluid",
@@ -225,15 +226,34 @@
                 ]
             }
         },
+        "file_source_platform": {
+            "type": "string",
+            "required": true,
+            "allowed": [
+                "bti_aws",
+                "local_drive",
+                "bti_aws_and_local_drive",
+                "cgc",
+                "kids_first",
+                "sra",
+                "synapse"
+            ]
+        },
         "local_dir_path": {
             "type": "string",
-            "required": false,
-            "regex": "^smb://cnmc\\.org/cri/Lab/CancerImmunology-BTI(/.*)?$"
+            "required": true,
+            "regex": "^smb://cnmc\\.org(/.*)?$",
+            "dependencies": {
+                "file_source_platform": ["local_drive", "bti_aws_and_local_drive"]
+            }
         },
         "aws_s3_path": {
             "type": "string",
-            "required": false,
-            "regex": "^s3://.+"
+            "required": true,
+            "regex": "^s3://.+",
+            "dependencies": {
+                "file_source_platform": ["bti_aws", "bti_aws_and_local_drive"]
+            }
         },
         "sequencing_batch": {
             "type": "string",
@@ -306,6 +326,21 @@
                 "Mus musculus"
             ]
         },
+        "reported_gender": {
+            "type": "string",
+            "required": true,
+            "allowed": ["Female", "Male", "Not Reported"],
+            "dependencies": {
+                "organism": ["Homo sapiens"]
+            }
+        },
+        "reference_genome": {
+            "type": "string",
+            "required": true,
+            "dependencies": {
+                "file_format": ["BAM", "CRAM"]
+            }
+        },
         "total_reads": {
             "required": false,
             "nullable": true
@@ -322,7 +357,7 @@
         },
         "lane_number": {
             "type": "string",
-            "required": true,
+            "required": false,
             "dependencies": {
                 "file_format": [
                     "FASTQ"
@@ -332,7 +367,7 @@
         }
     },
     "DNAseq_rules": {
-        "platform": {
+        "instrument_platform": {
             "type": "string",
             "required": true,
             "allowed": [
@@ -377,9 +412,26 @@
                 ]
             }
         },
+        "is_adapter_trimmed": {
+            "type": ["boolean", "string"],
+            "required": false,
+            "allowed": [true, false, "Unknown"],
+            "dependencies": {
+                "file_format": [
+                    "FASTQ"
+                ]
+            }
+        },
+        "adapter_sequencing": {
+            "type": "string",
+            "required": false,
+            "dependencies": {
+                "is_adapter_trimmed": false
+            }
+        },
         "target_capture_kit_name": {
             "type": "string",
-            "required": true,
+            "required": false,
             "dependencies": {
                 "experimental_strategy": [
                     "Targeted Sequencing",
@@ -389,7 +441,7 @@
         },
         "target_capture_kit_link": {
             "type": "string",
-            "required": true,
+            "required": false,
             "dependencies": {
                 "experimental_strategy": [
                     "Targeted Sequencing",
@@ -420,7 +472,7 @@
         }
     },
     "RNAseq_rules": {
-        "platform": {
+        "instrument_platform": {
             "type": "string",
             "required": true,
             "allowed": [
@@ -455,7 +507,7 @@
                 "miRNA Size Fractionation",
                 "PCR",
                 "Poly-T Enrichment",
-                "Random",
+                "Random Fragmentation",
                 "rRNA Depletion",
                 "Ribosome-protected fragments",
                 "Other"
@@ -469,7 +521,7 @@
                 "Unstranded",
                 "First Stranded",
                 "Second Stranded",
-                "Not Applicable"
+                "Unknown"
             ]
         },
         "library_prep": {
@@ -498,6 +550,7 @@
                 {
                     "allowed": [
                         "exome capture",
+                        "fragmented",
                         "poly-A",
                         "poly-A stranded",
                         "poly-A unstranded",
@@ -537,11 +590,36 @@
                     "BAM"
                 ]
             }
+        },
+        "is_adapter_trimmed": {
+            "type": ["boolean", "string"],
+            "required": false,
+            "allowed": [true, false, "Unknown"],
+            "dependencies": {
+                "file_format": [
+                    "FASTQ"
+                ]
+            }
+        },
+        "adapter_sequencing": {
+            "type": "string",
+            "required": false,
+            "dependencies": {
+                "is_adapter_trimmed": false
+            }
         }
     },
     "single_cell_rules": {
         "organism": {
             "required": true
+        },
+        "aws_s3_path": {
+            "type": "string",
+            "required": true,
+            "regex": "^s3://.+",
+            "dependencies": {
+                "file_source_platform": ["bti_aws", "bti_aws_and_local_drive"]
+            }
         },
         "cell_entity": {
             "required": true,
@@ -563,7 +641,7 @@
                 ]
             }
         },
-        "platform": {
+        "instrument_platform": {
             "type": "string",
             "required": true,
             "allowed": [
@@ -586,6 +664,7 @@
             "CITE-Seq",
             "scTCR-Seq",
             "scBCR-Seq",
+            "10x Flex GEX",
             "Spatial Transcriptomics"
           ]
         },
@@ -623,7 +702,7 @@
                 {
                     "allowed": ["GEX"],
                     "dependencies": {
-                        "experimental_strategy": ["scRNA-Seq", "snRNA-Seq", "Spatial Transcriptomics"]
+                        "experimental_strategy": ["scRNA-Seq", "snRNA-Seq", "10x Flex GEX", "Spatial Transcriptomics"]
                     }
                 },
                 {
@@ -707,7 +786,8 @@
                 "experimental_strategy": [
                     "CITE-Seq",
                     "scTCR-Seq",
-                    "scBCR-Seq"
+                    "scBCR-Seq",
+                    "10x Flex GEX"
                 ]
             }
         },
@@ -740,7 +820,8 @@
                 "experimental_strategy": [
                     "CITE-Seq",
                     "scTCR-Seq",
-                    "scBCR-Seq"
+                    "scBCR-Seq",
+                    "10x Flex GEX"
                 ]
             }
         },
@@ -751,7 +832,8 @@
                 "experimental_strategy": [
                     "CITE-Seq",
                     "scTCR-Seq",
-                    "scBCR-Seq"
+                    "scBCR-Seq",
+                    "10x Flex GEX"
                 ]
             }
         },
@@ -835,23 +917,86 @@
             "type": "integer",
             "required": false
         },
+        "cellranger_sample_id": {
+            "type": "string",
+            "required": true,
+            "dependencies": {
+                "experimental_strategy": "10x Flex GEX"
+            }
+        },
+        "probe_barcode_id": {
+            "type": "string",
+            "required": true,
+            "regex": "^[^,;|]+$",
+            "dependencies": {
+                "experimental_strategy": "10x Flex GEX"
+            }
+        },
+        "library_pool_id": {
+            "type": "string",
+            "required": true,
+            "dependencies": {
+                "experimental_strategy": "10x Flex GEX"
+            }
+        },
+        "probe_set": {
+            "type": "string",
+            "required": true,
+            "dependencies": {
+                "experimental_strategy": "10x Flex GEX"
+            }
+        },
+        "probe_spike_in": {
+            "type": "boolean",
+            "required": true,
+            "dependencies": {
+                "experimental_strategy": "10x Flex GEX"
+            }
+        },
+        "probe_spike_in_description": {
+            "type": "string",
+            "required": true,
+            "dependencies": {
+                "experimental_strategy": "10x Flex GEX",
+                "probe_spike_in": true
+            }
+        },
         "feature_type": {
             "required": true,
-            "allowed": [
-                "gex",
-                "vdj",
-                "ab",
-                "molecule",
-                "protein"
-            ],
             "dependencies": {
                 "experimental_strategy": [
                     "CITE-Seq",
                     "scTCR-Seq",
                     "scBCR-Seq",
+                    "10x Flex GEX",
                     "Spatial Transcriptomics"
                 ]
-            }
+            },
+            "anyof": [
+                {
+                    "allowed": ["gex"],
+                    "dependencies": {
+                        "experimental_strategy": "10x Flex GEX"
+                    }
+                },
+                {
+                    "allowed": [
+                        "gex",
+                        "vdj",
+                        "ab",
+                        "molecule",
+                        "protein"
+                    ],
+                    "dependencies": {
+                        "experimental_strategy": [
+                            "CITE-Seq",
+                            "scTCR-Seq",
+                            "scBCR-Seq",
+                            "Spatial Transcriptomics"
+                        ]
+                    }
+                }
+            ]
         },
         "image_type": {
             "type": "string",
@@ -901,7 +1046,7 @@
         }
     },
     "pacbio_longread_rules": {
-        "platform": {
+        "instrument_platform": {
             "type": "string",
             "required": true,
             "allowed": [
@@ -947,9 +1092,26 @@
                 ]
             }
         },
+        "is_adapter_trimmed": {
+            "type": ["boolean", "string"],
+            "required": false,
+            "allowed": [true, false, "Unknown"],
+            "dependencies": {
+                "file_format": [
+                    "FASTQ"
+                ]
+            }
+        },
+        "adapter_sequencing": {
+            "type": "string",
+            "required": false,
+            "dependencies": {
+                "is_adapter_trimmed": false
+            }
+        },
         "target_capture_kit_name": {
             "type": "string",
-            "required": true,
+            "required": false,
             "dependencies": {
                 "experimental_strategy": [
                     "Targeted Sequencing",
@@ -959,7 +1121,7 @@
         },
         "target_capture_kit_link": {
             "type": "string",
-            "required": true,
+            "required": false,
             "dependencies": {
                 "experimental_strategy": [
                     "Targeted Sequencing",
@@ -986,7 +1148,7 @@
                 "IDAT"
             ]
         },
-        "platform": {
+        "instrument_platform": {
             "type": "string",
             "required": true,
             "allowed": [
@@ -1028,7 +1190,7 @@
                 "Lipidome"
             ]
         },
-        "platform": {
+        "instrument_platform": {
             "type": "string",
             "required": true
         },
