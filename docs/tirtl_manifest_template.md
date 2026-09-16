@@ -28,7 +28,7 @@ Use this template for TIRTL-Seq submissions. One completed manifest represents o
 | aws_s3_path | False | S3 URI for the submitted data; required when file_source_platform is bti_aws or bti_aws_and_local_drive | | string | s3://bucket/prefix | |
 | file_source_platform | True | Platform where files are stored and from which they are harmonized | "bti_aws", "local_drive", "bti_aws_and_local_drive", "cgc", "kids_first", "sra", "synapse" | string | bti_aws | |
 | sequencing_batch | False | Sequencing batch identifier | | string | 30-XXXXXXXX | |
-| well_name | False | Optional plate coordinate for the well represented by the FASTQ. Paired R1/R2 files from the same well must share the same value when provided. Leave blank for raw-mode submissions containing only a FASTQ pair. | Plate coordinates A1 through P24 | string | A1 | |
+| well_name | False | Optional plate coordinate for the well represented by the FASTQ. Use the zero-padded format A01 through P24. Paired R1/R2 files from the same well must share the same value when provided. Leave blank for raw-mode submissions containing only a FASTQ pair. | Plate coordinates A01 through P24 | string | A01 | |
 | file_name | True | Name of the submitted file | | string | NCI-11Plex-13-F12A-z11358.fastq | |
 | file_format | True | Format of the submitted file | "FASTQ", "BAM", "BAI", "CRAM", "CRAI", "GVCF", "VCF", "TBI", "MAF", "PDF", "HTML", "DCM", "IDAT", "SVS", "GPR", "CNS", "TXT", "PNG", "CSV", "PED", "SEG", "TAR", "TSV", "mzML", "raw" | string | FASTQ | |
 | file_size | True | Reported file size in bytes | | integer | 529600 | |
