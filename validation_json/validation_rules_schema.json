@@ -609,6 +609,125 @@
             }
         }
     },
+    "TIRTL_rules": {
+        "instrument_platform": {
+            "type": "string",
+            "required": true,
+            "allowed": [
+                "Complete Genomics",
+                "Illumina",
+                "Ion Torrent",
+                "LS454",
+                "SOLiD",
+                "ONT",
+                "DNBSEQ",
+                "PacBio SMRT Cell",
+                "Other"
+            ]
+        },
+        "experimental_strategy": {
+            "type": "string",
+            "required": true,
+            "allowed": [
+                "TIRTL-Seq"
+            ]
+        },
+        "well_name": {
+            "type": "string",
+            "required": false,
+            "regex": "^[A-P](?:[1-9]|1[0-9]|2[0-4])$"
+        },
+        "library_selection": {
+            "type": "string",
+            "required": true,
+            "allowed": [
+                "Affinity Enrichment",
+                "Hybrid Selection",
+                "miRNA Size Fractionation",
+                "PCR",
+                "Poly-T Enrichment",
+                "Random Fragmentation",
+                "rRNA Depletion",
+                "Ribosome-protected fragments",
+                "Other"
+            ]
+        },
+        "library_strand": {
+            "type": "string",
+            "required": true,
+            "allowed": [
+                "Stranded",
+                "Unstranded",
+                "First Stranded",
+                "Second Stranded",
+                "Unknown",
+                "Not Applicable"
+            ]
+        },
+        "library_prep": {
+            "type": "string",
+            "required": true,
+            "allowed": [
+                "polyA",
+                "totalRNAseq",
+                "Other"
+            ]
+        },
+        "RNA_library": {
+            "type": "string",
+            "required": false,
+            "allowed": [
+                "exome capture",
+                "fragmented",
+                "poly-A",
+                "poly-A stranded",
+                "poly-A unstranded",
+                "RPFs",
+                "total RNA stranded",
+                "total RNA unstranded",
+                "small RNA first-stranded"
+            ]
+        },
+        "read_pair_number": {
+            "type": "string",
+            "required": true,
+            "allowed": [
+                "R1",
+                "R2",
+                "NA"
+            ],
+            "dependencies": {
+                "file_format": "FASTQ"
+            }
+        },
+        "is_paired_end": {
+            "type": "boolean",
+            "required": true,
+            "dependencies": {
+                "file_format": [
+                    "FASTQ",
+                    "BAM"
+                ]
+            }
+        },
+        "is_adapter_trimmed": {
+            "type": ["boolean", "string"],
+            "required": false,
+            "allowed": [true, false, "Unknown"],
+            "dependencies": {
+                "file_format": [
+                    "FASTQ"
+                ]
+            }
+        },
+        "adapter_sequencing": {
+            "type": "string",
+            "required": false,
+            "dependencies": {
+                "is_adapter_trimmed": false
+            }
+        }
+    },
     "single_cell_rules": {
         "organism": {
             "required": true

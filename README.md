@@ -35,6 +35,7 @@ This repository is consumed as a [git submodule](https://git-scm.com/book/en/v2/
 |---|---|---|
 | WGS / WXS / Targeted Panel | [CSV](manifest_templates/wgs_wxs_panel_manifest_template.csv) | [Docs](docs/wgs_wxs_panel_manifest_template.md) |
 | RNAseq / miRNAseq | [CSV](manifest_templates/rnaseq_mirnaseq_manifest_template.csv) | [Docs](docs/rnaseq_mirnaseq_manifest_template.md) |
+| TIRTL-Seq | [CSV](manifest_templates/tirtl_manifest_template.csv) | [Docs](docs/tirtl_manifest_template.md) |
 | Single Cell — 10x Flex | [CSV](manifest_templates/single_cell_flex_manifest_template.csv) | [Docs](docs/single_cell_flex_manifest_template.md) |
 | Single Cell — CITE-Seq / BCR / TCR | [CSV](manifest_templates/single_cell_citeseq_bcrtcr_manifest_template.csv) | [Docs](docs/single_cell_citeseq_bcrtcr_manifest_template.md) |
 | Single Cell — Spatial | [CSV](manifest_templates/single_cell_spatial_manifest_template.csv) | [Docs](docs/single_cell_spatial_manifest_template.md) |
@@ -46,7 +47,7 @@ This repository is consumed as a [git submodule](https://git-scm.com/book/en/v2/
 All validation logic lives in [`validation_json/validation_rules_schema.json`](validation_json/validation_rules_schema.json). Rules are organized as:
 
 - **`common_rules`** — fields shared across every manifest type (identifiers, file metadata, organism, etc.)
-- **Type-specific rule sets** (`DNAseq_rules`, `RNAseq_rules`, `single_cell_rules`, `pacbio_longread_rules`, `methylation_rules`, `proteomics_rules`) — fields and constraints unique to that assay type, including conditional requirements (`dependencies`) based on values like `experimental_strategy` or `file_format`.
+- **Type-specific rule sets** (`DNAseq_rules`, `RNAseq_rules`, `TIRTL_rules`, `single_cell_rules`, `pacbio_longread_rules`, `methylation_rules`, `proteomics_rules`) — fields and constraints unique to that assay type, including conditional requirements (`dependencies`) based on values like `experimental_strategy` or `file_format`.
 
 ## Shared Field Conventions
 
