@@ -408,7 +408,8 @@
             "dependencies": {
                 "file_format": [
                     "FASTQ",
-                    "BAM"
+                    "BAM",
+                    "CRAM"
                 ]
             }
         },
@@ -587,7 +588,8 @@
             "dependencies": {
                 "file_format": [
                     "FASTQ",
-                    "BAM"
+                    "BAM",
+                    "CRAM"
                 ]
             }
         },
