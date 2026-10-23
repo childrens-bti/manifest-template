@@ -34,12 +34,9 @@
 | sequencing_center | False | Name of the center generating sequencing data |  | string | Harvard Med School |  |
 | instrument_platform | True | Name of the platform used to obtain data |  | string | Orbitrap Exploris 480 |  |
 | experimental_strategy | True | Name of the type of experiment being performed | "Immunopeptidomics" | string | Immunopeptidomics |  |
-| hla_class | True | HLA class of the peptide-presenting molecules isolated by immunoprecipitation | "HLA Class I", "HLA Class II", "HLA Class I and II" | string | HLA Class I |  |
-| hla_alleles | False | HLA alleles of the sample (e.g. from HLA typing), comma-separated; use NA if unknown |  | string | HLA-A*02:01, HLA-B*07:02 |  |
 | ip_antibody | True | Antibody (clone) used for the MHC immunoprecipitation |  | string | W6/32 |  |
 | ip_input_amount | False | Input material for the immunoprecipitation, as cell number or tissue mass |  | string | 1e8 cells |  |
 | digestion_enzyme | False | Enzyme used to digest the eluted peptides, or None because HLA-bound peptides are eluted rather than digested |  | string | None |  |
-| search_database | False | Reference sequence database (e.g. FASTA name and version) used for peptide identification |  | string | UniProt Human 2024_01 |  |
 | acquisition_type | True | Data acquisition type | "DDA", "DIA" | string | DDA |  |
 | ion_fragmentation | True | Peptide fragmentation method used for MS/MS | "HCD fragmentation", "CID fragmentation" | string | HCD fragmentation |  |
 | quantification_technique | True | Approach used for peptide quantification | "LFQ", "TMT" | string | LFQ |  |

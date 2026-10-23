@@ -1374,19 +1374,6 @@
                 "Immunopeptidomics"
             ]
         },
-        "hla_class": {
-            "type": "string",
-            "required": true,
-            "allowed": [
-                "HLA Class I",
-                "HLA Class II",
-                "HLA Class I and II"
-            ]
-        },
-        "hla_alleles": {
-            "type": "string",
-            "required": false
-        },
         "ip_antibody": {
             "type": "string",
             "required": true
@@ -1396,10 +1383,6 @@
             "required": false
         },
         "digestion_enzyme": {
-            "type": "string",
-            "required": false
-        },
-        "search_database": {
             "type": "string",
             "required": false
         },
