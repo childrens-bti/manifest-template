@@ -42,7 +42,7 @@ Use this template for TIRTL-Seq submissions. One completed manifest represents o
 | library_strand | True | Library strandedness; use Not Applicable when strand is not meaningful for the assay | "Stranded", "Unstranded", "First Stranded", "Second Stranded", "Unknown", "Not Applicable" | string | Not Applicable | |
 | library_prep | True | Library preparation method | "polyA", "totalRNAseq", "Other" | string | Other | |
 | RNA_library | False | RNA library category. This field is optional for TIRTL-Seq and may be left blank when it does not apply | "exome capture", "fragmented", "poly-A", "poly-A stranded", "poly-A unstranded", "RPFs", "total RNA stranded", "total RNA unstranded", "small RNA first-stranded" | string | | |
-| is_paired_end | True | Whether FASTQ or BAM reads are paired end | "True", "False" | boolean | True | |
+| is_paired_end | True | Whether FASTQ reads are paired end | "True", "False" | boolean | True | |
 | read_pair_number | False | Whether a FASTQ file contains forward or reverse reads; required for FASTQ files | "R1", "R2", "NA" | string | R1 | |
 | flow_cell_barcode | False | Flow cell barcode; required for FASTQ files | | string | H0164ALXX140820 | |
 | lane_number | False | Physical sequencing lane number when applicable | | string | 1 | |
