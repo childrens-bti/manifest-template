@@ -41,13 +41,14 @@ This repository is consumed as a [git submodule](https://git-scm.com/book/en/v2/
 | Single Cell — Spatial | [CSV](manifest_templates/single_cell_spatial_manifest_template.csv) | [Docs](docs/single_cell_spatial_manifest_template.md) |
 | Methylation | [CSV](manifest_templates/methylation_manifest_template.csv) | [Docs](docs/methylation_manifest_template.md) |
 | Proteomics | [CSV](manifest_templates/proteomics_manifest_template.csv) | [Docs](docs/proteomics_manifest_template.md) |
+| Immunopeptidomics | [CSV](manifest_templates/immunopeptidomics_manifest_template.csv) | [Docs](docs/immunopeptidomics_manifest_template.md) |
 
 ## Validation Rules
 
 All validation logic lives in [`validation_json/validation_rules_schema.json`](validation_json/validation_rules_schema.json). Rules are organized as:
 
 - **`common_rules`** — fields shared across every manifest type (identifiers, file metadata, organism, etc.)
-- **Type-specific rule sets** (`DNAseq_rules`, `RNAseq_rules`, `TIRTL_rules`, `single_cell_rules`, `pacbio_longread_rules`, `methylation_rules`, `proteomics_rules`) — fields and constraints unique to that assay type, including conditional requirements (`dependencies`) based on values like `experimental_strategy` or `file_format`.
+- **Type-specific rule sets** (`DNAseq_rules`, `RNAseq_rules`, `TIRTL_rules`, `single_cell_rules`, `pacbio_longread_rules`, `methylation_rules`, `proteomics_rules`, `immunopeptidomics_rules`) — fields and constraints unique to that assay type, including conditional requirements (`dependencies`) based on values like `experimental_strategy` or `file_format`.
 
 ## Shared Field Conventions
 
