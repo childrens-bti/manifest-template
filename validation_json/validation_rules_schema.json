@@ -1293,20 +1293,66 @@
             "required": true,
             "allowed": [
                 "Whole Cell Proteomics",
-                "Phospho-Proteomics"
+                "Phospho-Proteomics",
+                "Ubiquitylomics",
+                "Acetylomics",
+                "Glycoproteomics"
             ]
         },
         "proteomics_experiment": {
             "type": "string",
             "required": true,
-            "allowed": [
-                "Proteome",
-                "Ubiquitylome",
-                "Phosphoproteome",
-                "Acetylome",
-                "Glycoproteome",
-                "Metabolome",
-                "Lipidome"
+            "anyof": [
+                {
+                    "allowed": [
+                        "Proteome"
+                    ],
+                    "dependencies": {
+                        "experimental_strategy": [
+                            "Whole Cell Proteomics"
+                        ]
+                    }
+                },
+                {
+                    "allowed": [
+                        "Phosphoproteome"
+                    ],
+                    "dependencies": {
+                        "experimental_strategy": [
+                            "Phospho-Proteomics"
+                        ]
+                    }
+                },
+                {
+                    "allowed": [
+                        "Ubiquitylome"
+                    ],
+                    "dependencies": {
+                        "experimental_strategy": [
+                            "Ubiquitylomics"
+                        ]
+                    }
+                },
+                {
+                    "allowed": [
+                        "Acetylome"
+                    ],
+                    "dependencies": {
+                        "experimental_strategy": [
+                            "Acetylomics"
+                        ]
+                    }
+                },
+                {
+                    "allowed": [
+                        "Glycoproteome"
+                    ],
+                    "dependencies": {
+                        "experimental_strategy": [
+                            "Glycoproteomics"
+                        ]
+                    }
+                }
             ]
         },
         "instrument_platform": {
@@ -1325,21 +1371,73 @@
             "type": "string",
             "required": true,
             "allowed": [
-                "HCD fragmentation"
+                "HCD fragmentation",
+                "CID fragmentation"
             ]
         },
         "enrichment_approach": {
             "type": "string",
             "required": true,
-            "allowed": [
-                "whole proteome"
+            "anyof": [
+                {
+                    "allowed": [
+                        "whole proteome"
+                    ],
+                    "dependencies": {
+                        "experimental_strategy": [
+                            "Whole Cell Proteomics"
+                        ]
+                    }
+                },
+                {
+                    "allowed": [
+                        "phosphopeptide enrichment"
+                    ],
+                    "dependencies": {
+                        "experimental_strategy": [
+                            "Phospho-Proteomics"
+                        ]
+                    }
+                },
+                {
+                    "allowed": [
+                        "ubiquitin remnant (K-ε-GG) enrichment"
+                    ],
+                    "dependencies": {
+                        "experimental_strategy": [
+                            "Ubiquitylomics"
+                        ]
+                    }
+                },
+                {
+                    "allowed": [
+                        "acetyl-lysine enrichment"
+                    ],
+                    "dependencies": {
+                        "experimental_strategy": [
+                            "Acetylomics"
+                        ]
+                    }
+                },
+                {
+                    "allowed": [
+                        "glycopeptide enrichment"
+                    ],
+                    "dependencies": {
+                        "experimental_strategy": [
+                            "Glycoproteomics"
+                        ]
+                    }
+                }
             ]
         },
         "quantification_technique": {
             "type": "string",
             "required": true,
             "allowed": [
-                "LFQ"
+                "LFQ",
+                "TMT",
+                "SILAC"
             ]
         },
         "quantification_labeling_method": {
@@ -1358,12 +1456,13 @@
             "type": "string",
             "required": true,
             "allowed": [
-                "HpH"
+                "HpH",
+                "None"
             ]
         },
         "fraction_number": {
             "type": "integer",
-            "required": true
+            "required": false
         }
     }
 }
