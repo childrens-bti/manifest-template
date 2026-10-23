@@ -407,8 +407,7 @@
             "required": true,
             "dependencies": {
                 "file_format": [
-                    "FASTQ",
-                    "BAM"
+                    "FASTQ"
                 ]
             }
         },
@@ -586,8 +585,7 @@
             "required": true,
             "dependencies": {
                 "file_format": [
-                    "FASTQ",
-                    "BAM"
+                    "FASTQ"
                 ]
             }
         },
@@ -705,8 +703,7 @@
             "required": true,
             "dependencies": {
                 "file_format": [
-                    "FASTQ",
-                    "BAM"
+                    "FASTQ"
                 ]
             }
         },
@@ -1011,8 +1008,7 @@
             "allowed": [true, false, "NA"],
             "dependencies": {
                 "file_format": [
-                    "FASTQ",
-                    "BAM"
+                    "FASTQ"
                 ]
             }
         },
@@ -1206,8 +1202,7 @@
             "required": true,
             "dependencies": {
                 "file_format": [
-                    "FASTQ",
-                    "BAM"
+                    "FASTQ"
                 ]
             }
         },
