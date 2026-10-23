@@ -1382,10 +1382,6 @@
             "type": "string",
             "required": false
         },
-        "digestion_enzyme": {
-            "type": "string",
-            "required": false
-        },
         "instrument_platform": {
             "type": "string",
             "required": true

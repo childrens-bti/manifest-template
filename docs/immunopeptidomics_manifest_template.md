@@ -1,5 +1,7 @@
 # Immunopeptidomics Manifest Readme
 
+HLA-bound peptides are isolated by MHC immunoprecipitation (see `ip_antibody`) and eluted directly from the complex. There is no enzymatic digestion step, so no digestion fields are collected.
+
 | Column Name | Required | Explanation | Allowed Values | Data Type | Example Entry | BTI Derived |
 | ---- | ---- | ---- | ---- | ---- | ---- |  ---- |
 | participant_id | True | Unique identifier for the participant from whom the sample was collected |  | string | P_5P2QIUH2 | True |
@@ -36,7 +38,6 @@
 | experimental_strategy | True | Name of the type of experiment being performed | "Immunopeptidomics" | string | Immunopeptidomics |  |
 | ip_antibody | True | Antibody (clone) used for the MHC immunoprecipitation |  | string | W6/32 |  |
 | ip_input_amount | False | Input material for the immunoprecipitation, as cell number or tissue mass |  | string | 1e8 cells |  |
-| digestion_enzyme | False | Enzyme used to digest the eluted peptides, or None because HLA-bound peptides are eluted rather than digested |  | string | None |  |
 | acquisition_type | True | Data acquisition type | "DDA", "DIA" | string | DDA |  |
 | ion_fragmentation | True | Peptide fragmentation method used for MS/MS | "HCD fragmentation", "CID fragmentation" | string | HCD fragmentation |  |
 | quantification_technique | True | Approach used for peptide quantification | "LFQ", "TMT" | string | LFQ |  |
