@@ -1401,7 +1401,7 @@
                 },
                 {
                     "allowed": [
-                        "ubiquitin remnant (K-ε-GG) enrichment"
+                        "ubiquitin remnant (K-GG) enrichment"
                     ],
                     "dependencies": {
                         "experimental_strategy": [
@@ -1478,7 +1478,10 @@
         },
         "fraction_number": {
             "type": "integer",
-            "required": false
+            "required": true,
+            "dependencies": {
+                "fractionation_approach": ["HpH"]
+            }
         }
     },
     "immunopeptidomics_rules": {
@@ -1563,7 +1566,10 @@
         },
         "fraction_number": {
             "type": "integer",
-            "required": false
+            "required": true,
+            "dependencies": {
+                "fractionation_approach": ["HpH"]
+            }
         }
     }
 }

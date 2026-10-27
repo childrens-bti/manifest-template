@@ -45,7 +45,7 @@ HLA-bound peptides are isolated by MHC immunoprecipitation (see `ip_antibody`) a
 | quantification_label_id | True | Specific label used or NA if label-free |  | string | NA |  |
 | chromatography_approach | True | Column type used for liquid chromatography |  | string | C18 |  |
 | fractionation_approach | True | Method used to fractionate sample, or None if the sample was not fractionated | "HpH", "None" | string | None |  |
-| fraction_number | False | Number of fractions generated for sample; leave blank or use 1 if not fractionated |  | integer | 1 |  |
+| fraction_number | False | Number of fractions generated for sample. Required when fractionation_approach is HpH; leave blank if not fractionated |  | integer |  |  |
 | FFPE | True | Is the sample preserved in FFPE | "True", "False" | boolean | False | |
 | PI_name | True | Principal Investigator of the project |  | string | Fonseca | True |
 | project | True | Short name of the project |  | string | RBT | True |

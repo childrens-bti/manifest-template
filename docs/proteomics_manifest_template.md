@@ -37,13 +37,13 @@
 | experimental_strategy | True | Name of the type of experiment being performed | "Whole Cell Proteomics", "Phospho-Proteomics", "Ubiquitylomics", "Acetylomics", "Glycoproteomics" | string | Phospho-Proteomics |  |
 | acquisition_type | True | Data acquisition type | "DDA", "DIA" | string | DDA |  |
 | ion_fragmentation | True | Peptide fragmentation method used for MS/MS | "HCD fragmentation", "CID fragmentation" | string | HCD fragmentation |  |
-| enrichment_approach | True | Enrichment method used; must match experimental_strategy: "whole proteome" for Whole Cell Proteomics, "phosphopeptide enrichment" for Phospho-Proteomics, "ubiquitin remnant (K-ε-GG) enrichment" for Ubiquitylomics, "acetyl-lysine enrichment" for Acetylomics, "glycopeptide enrichment" for Glycoproteomics | "whole proteome", "phosphopeptide enrichment", "ubiquitin remnant (K-ε-GG) enrichment", "acetyl-lysine enrichment", "glycopeptide enrichment" | string | phosphopeptide enrichment |  |
+| enrichment_approach | True | Enrichment method used; must match experimental_strategy: "whole proteome" for Whole Cell Proteomics, "phosphopeptide enrichment" for Phospho-Proteomics, "ubiquitin remnant (K-GG) enrichment" for Ubiquitylomics, "acetyl-lysine enrichment" for Acetylomics, "glycopeptide enrichment" for Glycoproteomics | "whole proteome", "phosphopeptide enrichment", "ubiquitin remnant (K-GG) enrichment", "acetyl-lysine enrichment", "glycopeptide enrichment" | string | phosphopeptide enrichment |  |
 | quantification_technique | True | Approach used for peptide quantification | "LFQ", "TMT", "SILAC" | string | TMT |  |
 | quantification_labeling_method | True | Method used for labeling or NA if label-free |  | string | TMT11plex |  |
 | quantification_label_id | True | Specific label used or NA if label-free | | string | 127N | |
 | chromatography_approach | True | Column type used for liquid chromatography | | string | C18 | |
 | fractionation_approach | True | Method used to fractionate sample, or None if the sample was not fractionated | "HpH", "None" | string | HpH |  |
-| fraction_number | False | Number of fractions generated for sample; leave blank or use 1 if not fractionated |  | integer | 12 |  |
+| fraction_number | False | Number of fractions generated for sample. Required when fractionation_approach is HpH; leave blank if not fractionated |  | integer | 12 |  |
 | FFPE | True | Is the sample preserved in FFPE | "True", "False" | boolean | False | |
 | PI_name | True | Principal Investigator of the project | | string | Fonseca | True |
 | project | True | Short name of the project | | string | RBT | True |
