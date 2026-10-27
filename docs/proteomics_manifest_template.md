@@ -28,7 +28,7 @@
 | sequencing_batch | False | Sequencing batch identifier | | string | 30-XXXXXXXX | |
 | proteomics_experiment | True | The type of proteomics data generated. Must match experimental_strategy: Whole Cell Proteomics = Proteome, Phospho-Proteomics = Phosphoproteome, Ubiquitylomics = Ubiquitylome, Acetylomics = Acetylome, Glycoproteomics = Glycoproteome | "Proteome", "Phosphoproteome", "Ubiquitylome", "Acetylome", "Glycoproteome" | string | Phosphoproteome |  |
 | file_name | True | Name of the file | | string | NCI-11Plex-13-F12A-z11358.mzML | |
-| file_format | True | Format of the file | "FASTQ", "BAM", "BAI", "CRAM", "CRAI", "GVCF", "VCF", "TBI", "MAF", "PDF", "HTML", "DCM", "IDAT", "SVS", "GPR", "CNS", "TXT", "PNG", "CSV", "PED", "SEG", "TAR", "TSV", "mzML", "raw" | string | mzML | |
+| file_format | True | Format of the file | "FASTQ", "BAM", "BAI", "CRAM", "CRAI", "GVCF", "VCF", "TBI", "MAF", "PDF", "HTML", "DCM", "IDAT", "SVS", "GPR", "CNS", "TXT", "PNG", "CSV", "PED", "SEG", "TAR", "TSV", "MZML", "RAW" | string | MZML | |
 | file_size | True | Reported file size in bytes | | integer | 235000 | |
 | file_hash_type | True | Hash algorithm used to generate file hash | "MD5", "SHA1", "SHA256", "SHA512", "ETag" | string | MD5 | |
 | file_hash_value | True | Full has value of the file | | string | 938c2cc0dcc05f2b68c4287040cfcf71 | |
@@ -37,13 +37,14 @@
 | experimental_strategy | True | Name of the type of experiment being performed | "Whole Cell Proteomics", "Phospho-Proteomics", "Ubiquitylomics", "Acetylomics", "Glycoproteomics" | string | Phospho-Proteomics |  |
 | acquisition_type | True | Data acquisition type | "DDA", "DIA" | string | DDA |  |
 | ion_fragmentation | True | Peptide fragmentation method used for MS/MS | "HCD fragmentation", "CID fragmentation" | string | HCD fragmentation |  |
-| enrichment_approach | True | Enrichment method used; must match experimental_strategy: "whole proteome" for Whole Cell Proteomics, "phosphopeptide enrichment" for Phospho-Proteomics, "ubiquitin remnant (K-ε-GG) enrichment" for Ubiquitylomics, "acetyl-lysine enrichment" for Acetylomics, "glycopeptide enrichment" for Glycoproteomics | "whole proteome", "phosphopeptide enrichment", "ubiquitin remnant (K-ε-GG) enrichment", "acetyl-lysine enrichment", "glycopeptide enrichment" | string | phosphopeptide enrichment |  |
+| enrichment_approach | True | Enrichment method used; must match experimental_strategy: "whole proteome" for Whole Cell Proteomics, "phosphopeptide enrichment" for Phospho-Proteomics, "ubiquitin remnant (K-GG) enrichment" for Ubiquitylomics, "acetyl-lysine enrichment" for Acetylomics, "glycopeptide enrichment" for Glycoproteomics | "whole proteome", "phosphopeptide enrichment", "ubiquitin remnant (K-GG) enrichment", "acetyl-lysine enrichment", "glycopeptide enrichment" | string | phosphopeptide enrichment |  |
 | quantification_technique | True | Approach used for peptide quantification | "LFQ", "TMT", "SILAC" | string | TMT |  |
 | quantification_labeling_method | True | Method used for labeling or NA if label-free |  | string | TMT11plex |  |
 | quantification_label_id | True | Specific label used or NA if label-free | | string | 127N | |
 | chromatography_approach | True | Column type used for liquid chromatography | | string | C18 | |
 | fractionation_approach | True | Method used to fractionate sample, or None if the sample was not fractionated | "HpH", "None" | string | HpH |  |
-| fraction_number | False | Number of fractions generated for sample; leave blank or use 1 if not fractionated |  | integer | 12 |  |
+| fraction_number | False | Number of fractions generated for sample. Required when fractionation_approach is HpH; leave blank if not fractionated |  | integer | 12 |  |
+| FFPE | True | Is the sample preserved in FFPE | "True", "False" | boolean | False | |
 | PI_name | True | Principal Investigator of the project | | string | Fonseca | True |
 | project | True | Short name of the project | | string | RBT | True |
 | organism | True | Binomial name of organism with full genus name | "Homo sapiens", "Mus musculus" | string | Homo sapiens | |

@@ -1396,7 +1396,7 @@
                 },
                 {
                     "allowed": [
-                        "ubiquitin remnant (K-ε-GG) enrichment"
+                        "ubiquitin remnant (K-GG) enrichment"
                     ],
                     "dependencies": {
                         "experimental_strategy": [
@@ -1437,11 +1437,27 @@
         },
         "quantification_labeling_method": {
             "type": "string",
-            "required": true
+            "required": true,
+            "anyof": [
+                {
+                    "allowed": ["NA"],
+                    "dependencies": {
+                        "quantification_technique": ["LFQ"]
+                    }
+                }
+            ]
         },
         "quantification_label_id": {
             "type": "string",
-            "required": true
+            "required": true,
+            "anyof": [
+                {
+                    "allowed": ["NA"],
+                    "dependencies": {
+                        "quantification_technique": ["LFQ"]
+                    }
+                }
+            ]
         },
         "chromatography_approach": {
             "type": "string",
@@ -1457,7 +1473,98 @@
         },
         "fraction_number": {
             "type": "integer",
+            "required": true,
+            "dependencies": {
+                "fractionation_approach": ["HpH"]
+            }
+        }
+    },
+    "immunopeptidomics_rules": {
+        "experimental_strategy": {
+            "type": "string",
+            "required": true,
+            "allowed": [
+                "Immunopeptidomics"
+            ]
+        },
+        "ip_antibody": {
+            "type": "string",
+            "required": true
+        },
+        "ip_input_amount": {
+            "type": "string",
             "required": false
+        },
+        "instrument_platform": {
+            "type": "string",
+            "required": true
+        },
+        "acquisition_type": {
+            "type": "string",
+            "required": true,
+            "allowed": [
+                "DIA",
+                "DDA"
+            ]
+        },
+        "ion_fragmentation": {
+            "type": "string",
+            "required": true,
+            "allowed": [
+                "HCD fragmentation",
+                "CID fragmentation"
+            ]
+        },
+        "quantification_technique": {
+            "type": "string",
+            "required": true,
+            "allowed": [
+                "LFQ",
+                "TMT"
+            ]
+        },
+        "quantification_labeling_method": {
+            "type": "string",
+            "required": true,
+            "anyof": [
+                {
+                    "allowed": ["NA"],
+                    "dependencies": {
+                        "quantification_technique": ["LFQ"]
+                    }
+                }
+            ]
+        },
+        "quantification_label_id": {
+            "type": "string",
+            "required": true,
+            "anyof": [
+                {
+                    "allowed": ["NA"],
+                    "dependencies": {
+                        "quantification_technique": ["LFQ"]
+                    }
+                }
+            ]
+        },
+        "chromatography_approach": {
+            "type": "string",
+            "required": true
+        },
+        "fractionation_approach": {
+            "type": "string",
+            "required": true,
+            "allowed": [
+                "HpH",
+                "None"
+            ]
+        },
+        "fraction_number": {
+            "type": "integer",
+            "required": true,
+            "dependencies": {
+                "fractionation_approach": ["HpH"]
+            }
         }
     }
 }
