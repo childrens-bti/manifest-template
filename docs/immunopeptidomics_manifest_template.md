@@ -32,7 +32,7 @@ HLA-bound peptides are isolated by MHC immunoprecipitation (see `ip_antibody`) a
 | file_format | True | Format of the file | "FASTQ", "BAM", "BAI", "CRAM", "CRAI", "GVCF", "VCF", "TBI", "MAF", "PDF", "HTML", "DCM", "IDAT", "SVS", "GPR", "CNS", "TXT", "PNG", "CSV", "PED", "SEG", "TAR", "TSV", "MZML", "RAW" | string | RAW |  |
 | file_size | True | Reported file size in bytes |  | integer | 235000 |  |
 | file_hash_type | True | Hash algorithm used to generate file hash | "MD5", "SHA1", "SHA256", "SHA512", "ETag" | string | MD5 |  |
-| file_hash_value | True | Full has value of the file |  | string | 938c2cc0dcc05f2b68c4287040cfcf71 |  |
+| file_hash_value | True | Full hash value of the file |  | string | 938c2cc0dcc05f2b68c4287040cfcf71 |  |
 | sequencing_center | False | Name of the center generating sequencing data |  | string | Harvard Med School |  |
 | instrument_platform | True | Name of the platform used to obtain data |  | string | Orbitrap Exploris 480 |  |
 | experimental_strategy | True | Name of the type of experiment being performed | "Immunopeptidomics" | string | Immunopeptidomics |  |

@@ -8,6 +8,8 @@ has an Allowed Values list in the data dictionary).
 
 import csv
 import re
+import zipfile
+from datetime import datetime
 from pathlib import Path
 
 from openpyxl import Workbook
@@ -18,6 +20,8 @@ from openpyxl.worksheet.datavalidation import DataValidation
 REPO_ROOT = Path(__file__).resolve().parent.parent
 DOCS_DIR = REPO_ROOT / "docs"
 TEMPLATES_DIR = REPO_ROOT / "manifest_templates"
+# Fixed so regenerating an unchanged template yields a byte-identical workbook
+FIXED_TIMESTAMP = datetime(2000, 1, 1)
 OUT_DIR = REPO_ROOT / "excel_templates"
 
 DICT_HEADERS = [
@@ -140,9 +144,31 @@ def generate_workbook(csv_path: Path, md_path: Path, out_path: Path) -> None:
     build_data_dictionary_sheet(wb, dict_rows)
     build_manifest_template_sheet(wb, csv_header, values_by_column)
     wb.active = 0
+    wb.properties.created = FIXED_TIMESTAMP
 
     out_path.parent.mkdir(parents=True, exist_ok=True)
     wb.save(out_path)
+    pin_timestamps(out_path)
+
+
+def pin_timestamps(path: Path) -> None:
+    """Rewrite the saved workbook with fixed timestamps.
+
+    openpyxl stamps `modified` with the current time inside save() and the zip
+    entries with the current time too, so neither can be pinned beforehand.
+    """
+    modified = FIXED_TIMESTAMP.strftime("%Y-%m-%dT%H:%M:%SZ")
+    with zipfile.ZipFile(path) as zin:
+        entries = [(info.filename, zin.read(info.filename)) for info in zin.infolist()]
+    with zipfile.ZipFile(path, "w", zipfile.ZIP_DEFLATED) as zout:
+        for name, data in entries:
+            if name == "docProps/core.xml":
+                data = re.sub(
+                    rb"(<dcterms:modified[^>]*>)[^<]*",
+                    rb"\g<1>" + modified.encode(),
+                    data,
+                )
+            zout.writestr(zipfile.ZipInfo(name, FIXED_TIMESTAMP.timetuple()[:6]), data)
 
 
 def main() -> None:
