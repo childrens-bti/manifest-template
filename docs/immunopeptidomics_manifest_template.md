@@ -50,5 +50,5 @@ HLA-bound peptides are isolated by MHC immunoprecipitation (see `ip_antibody`) a
 | PI_name | True | Principal Investigator of the project |  | string | Fonseca | True |
 | project | True | Short name of the project |  | string | RBT | True |
 | organism | True | Binomial name of organism with full genus name | "Homo sapiens", "Mus musculus" | string | Homo sapiens |  |
-| host_organism | False | Host organism binomial name when the sequenced sample is a xenograft. Required when compisition is "Patient Derived Xenograft" or "Xenograft" | "Mus musculus" | string | Mus musculus | True |
+| host_organism | False | Host organism binomial name when the sequenced sample is a xenograft. Required when composition is "Patient Derived Xenograft" or "Xenograft" | "Mus musculus" | string | Mus musculus |  |
 | reported_gender | False | Reported gender of the participant. Required when organism is "Homo sapiens" | "Female", "Male", "Not Reported" | string | Female |  |

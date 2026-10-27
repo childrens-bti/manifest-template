@@ -1445,7 +1445,7 @@
             "required": true,
             "anyof": [
                 {
-                    "allowed": ["NA"],
+                    "allowed": ["NA", "Label-free"],
                     "dependencies": {
                         "quantification_technique": ["LFQ"]
                     }
@@ -1457,7 +1457,7 @@
             "required": true,
             "anyof": [
                 {
-                    "allowed": ["NA"],
+                    "allowed": ["NA", "Not Applicable"],
                     "dependencies": {
                         "quantification_technique": ["LFQ"]
                     }
@@ -1533,7 +1533,7 @@
             "required": true,
             "anyof": [
                 {
-                    "allowed": ["NA"],
+                    "allowed": ["NA", "Label-free"],
                     "dependencies": {
                         "quantification_technique": ["LFQ"]
                     }
@@ -1545,7 +1545,7 @@
             "required": true,
             "anyof": [
                 {
-                    "allowed": ["NA"],
+                    "allowed": ["NA", "Not Applicable"],
                     "dependencies": {
                         "quantification_technique": ["LFQ"]
                     }
