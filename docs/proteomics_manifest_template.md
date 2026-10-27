@@ -26,26 +26,27 @@
 | aws_s3_path | False | S3 URI for the submitted data location. Required when file_source_platform is bti_aws or bti_aws_and_local_drive | | string | s3://bucket/prefix | |
 | file_source_platform | True | Source platform where files are stored and from which they are harmonized | "bti_aws", "local_drive", "bti_aws_and_local_drive", "cgc", "kids_first", "sra", "synapse" | string | bti_aws | |
 | sequencing_batch | False | Sequencing batch identifier | | string | 30-XXXXXXXX | |
-| proteomics_experiment | True | The type of omics experiment that the sample was subject to. This will be a proteomics-based data, by default, but this should specify the type of proteomics data. | "Proteome", "Ubiquitylome", "Phosphoproteome", "Acetylome", "Glycoproteome", "Metabolome", "Lipidome" | string | Metabolome | |
+| proteomics_experiment | True | The type of proteomics data generated. Must match experimental_strategy: Whole Cell Proteomics = Proteome, Phospho-Proteomics = Phosphoproteome, Ubiquitylomics = Ubiquitylome, Acetylomics = Acetylome, Glycoproteomics = Glycoproteome | "Proteome", "Phosphoproteome", "Ubiquitylome", "Acetylome", "Glycoproteome" | string | Phosphoproteome |  |
 | file_name | True | Name of the file | | string | NCI-11Plex-13-F12A-z11358.mzML | |
-| file_format | True | Format of the file | "FASTQ", "BAM", "BAI", "CRAM", "CRAI", "GVCF", "VCF", "TBI", "MAF", "PDF", "HTML", "DCM", "IDAT", "SVS", "GPR", "CNS", "TXT", "PNG", "CSV", "PED", "SEG", "TAR", "TSV", "mzML", "raw" | string | mzML | |
+| file_format | True | Format of the file | "FASTQ", "BAM", "BAI", "CRAM", "CRAI", "GVCF", "VCF", "TBI", "MAF", "PDF", "HTML", "DCM", "IDAT", "SVS", "GPR", "CNS", "TXT", "PNG", "CSV", "PED", "SEG", "TAR", "TSV", "MZML", "RAW" | string | MZML | |
 | file_size | True | Reported file size in bytes | | integer | 235000 | |
 | file_hash_type | True | Hash algorithm used to generate file hash | "MD5", "SHA1", "SHA256", "SHA512", "ETag" | string | MD5 | |
-| file_hash_value | True | Full has value of the file | | string | 938c2cc0dcc05f2b68c4287040cfcf71 | |
+| file_hash_value | True | Full hash value of the file | | string | 938c2cc0dcc05f2b68c4287040cfcf71 | |
 | sequencing_center | False | Name of the center generating sequencing data | | string | Harvard Med School | |
 | instrument_platform | True | Name of the platform used to obtain data | | string | Orbitrap Fusion Lumos | |
-| experimental_strategy | True | Name of the type of experiment being performed | "Whole Cell Proteomics", "Phospho-Proteomics" | string | Whole Cell Proteomics | |
-| acquisition_type | True | Data acquisition type | | string | DDA | |
-| ion_fragmentation | True | Reporter ion MS level | | string | MS2 | |
-| enrichment_approach | True | Enrichment method used for phospho, ubiquitin, acetyl, or other enrichment | | string | metabolome | |
-| quantification_technique | True | Approach used for peptide quantification | | string | Stable isotopic labeling | |
-| quantification_labeling_method | True | Method used for labeling or NA if label-free | | string | L-Lysine SILAC | |
+| experimental_strategy | True | Name of the type of experiment being performed | "Whole Cell Proteomics", "Phospho-Proteomics", "Ubiquitylomics", "Acetylomics", "Glycoproteomics" | string | Phospho-Proteomics |  |
+| acquisition_type | True | Data acquisition type | "DDA", "DIA" | string | DDA |  |
+| ion_fragmentation | True | Peptide fragmentation method used for MS/MS | "HCD fragmentation", "CID fragmentation" | string | HCD fragmentation |  |
+| enrichment_approach | True | Enrichment method used; must match experimental_strategy: "whole proteome" for Whole Cell Proteomics, "phosphopeptide enrichment" for Phospho-Proteomics, "ubiquitin remnant (K-GG) enrichment" for Ubiquitylomics, "acetyl-lysine enrichment" for Acetylomics, "glycopeptide enrichment" for Glycoproteomics | "whole proteome", "phosphopeptide enrichment", "ubiquitin remnant (K-GG) enrichment", "acetyl-lysine enrichment", "glycopeptide enrichment" | string | phosphopeptide enrichment |  |
+| quantification_technique | True | Approach used for peptide quantification | "LFQ", "TMT", "SILAC" | string | TMT |  |
+| quantification_labeling_method | True | Method used for labeling or NA if label-free |  | string | TMT11plex |  |
 | quantification_label_id | True | Specific label used or NA if label-free | | string | 127N | |
 | chromatography_approach | True | Column type used for liquid chromatography | | string | C18 | |
-| fractionation_approach | True | Method used to fractionate sample. | | string | reverse-phase HPLC | |
-| fraction_number | True | Number of fractions generated for sample. | | integer | 12 | |
+| fractionation_approach | True | Method used to fractionate sample, or None if the sample was not fractionated | "HpH", "None" | string | HpH |  |
+| fraction_number | False | Number of fractions generated for sample. Required when fractionation_approach is HpH; leave blank if not fractionated |  | integer | 12 |  |
+| FFPE | True | Is the sample preserved in FFPE | "True", "False" | boolean | False | |
 | PI_name | True | Principal Investigator of the project | | string | Fonseca | True |
 | project | True | Short name of the project | | string | RBT | True |
 | organism | True | Binomial name of organism with full genus name | "Homo sapiens", "Mus musculus" | string | Homo sapiens | |
-| host_organism | False | Host organism binomial name when the sequenced sample is a xenograft. Required when compisition is "Patient Derived Xenograft" or "Xenograft" | "Mus musculus" | string | Mus musculus | True |
+| host_organism | False | Host organism binomial name when the sequenced sample is a xenograft. Required when composition is "Patient Derived Xenograft" or "Xenograft" | "Mus musculus" | string | Mus musculus |  |
 | reported_gender | False | Reported gender of the participant. Required when organism is "Homo sapiens" | "Female", "Male", "Not Reported" | string | Female | |

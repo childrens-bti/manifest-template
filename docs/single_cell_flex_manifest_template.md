@@ -62,7 +62,7 @@ This template is for 10x Genomics Flex / Fixed RNA Profiling gene expression sub
 | cell_barcode_size | True | Length of the cell barcode sequence | | integer | 16 | |
 | cDNA_read | True | The type of read that contains the cDNA read | "index1", "index2", "read1", "read2", "Not Applicable" | string | read2 | |
 | cDNA_read_offset | True | Offset in sequence of the cDNA read | | integer | 0 | |
-| is_paired_end | True | If FASTQ/BAM files, are the reads paired end? | "True", "False", "NA" | boolean/string | True | |
+| is_paired_end | False | If FASTQ files, are the reads paired end? Required when inputs are FASTQ files. | "True", "False", "NA" | boolean/string | True | |
 | read_pair_number | False | Denotes whether a submitted FASTQ file contains forward (R1) or reverse (R2) reads for paired-end sequencing. Required when inputs are FASTQ files | "R1", "R2", "NA" | string | R1 | |
 | flow_cell_barcode | False | Flow cell barcode. Required when inputs are FASTQ files | | string | H0164ALXX | |
 | lane_number | False | Physical sequencing lane number. Required when inputs are FASTQ files | | string | 1 | |
