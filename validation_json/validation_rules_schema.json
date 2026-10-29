@@ -153,8 +153,7 @@
                 "Patient-Derived Primary Cells",
                 "iPSC-Derived Organoid",
                 "Cerebrospinal Fluid",
-                "Embryonic Stem Cell Derived Cell Line",
-                "Extracellular Vesicles"
+                "Embryonic Stem Cell Derived Cell Line"
             ]
         },
         "bio_replicate": {
@@ -567,6 +566,14 @@
                         ]
                     }
                 }
+            ]
+        },
+        "sample_fraction": {
+            "type": "string",
+            "required": false,
+            "allowed": [
+                "Large Extracellular Vesicles",
+                "Small Extracellular Vesicles"
             ]
         },
         "read_pair_number": {
