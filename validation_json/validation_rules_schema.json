@@ -568,6 +568,14 @@
                 }
             ]
         },
+        "sample_fraction": {
+            "type": "string",
+            "required": false,
+            "allowed": [
+                "Large Extracellular Vesicles",
+                "Small Extracellular Vesicles"
+            ]
+        },
         "read_pair_number": {
             "type": "string",
             "required": true,
