@@ -22,6 +22,17 @@
             "bai": ".bai",
             "cram": ".cram",
             "crai": ".crai"
+        },
+        "rule_set_file_name_extensions": {
+            "_comment": "file_name extension rules that apply only to the listed rule sets; file_name must end in one of the listed extensions. Other manifest types may submit ZIP or TAR files with any name (e.g. .fastq.zip).",
+            "proteomics_rules": {
+                "zip": [".d.zip"],
+                "tar": [".d.tar", ".d.tar.gz", ".d.tgz"]
+            },
+            "immunopeptidomics_rules": {
+                "zip": [".d.zip"],
+                "tar": [".d.tar", ".d.tar.gz", ".d.tgz"]
+            }
         }
     },
     "common_rules": {
@@ -97,7 +108,8 @@
                 "TIFF",
                 "BTF",
                 "BIGTIFF",
-                "RAW"
+                "RAW",
+                "ZIP"
             ]
         },
         "file_size": {
