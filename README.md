@@ -49,6 +49,7 @@ All validation logic lives in [`validation_json/validation_rules_schema.json`](v
 
 - **`common_rules`** — fields shared across every manifest type (identifiers, file metadata, organism, etc.)
 - **Type-specific rule sets** (`DNAseq_rules`, `RNAseq_rules`, `TIRTL_rules`, `single_cell_rules`, `pacbio_longread_rules`, `methylation_rules`, `proteomics_rules`, `immunopeptidomics_rules`) — fields and constraints unique to that assay type, including conditional requirements (`dependencies`) based on values like `experimental_strategy` or `file_format`.
+- **Single-cell / spatial sequencing fields** — in `single_cell_rules`, the sequencing platform, library (`library_type`, `library_selection`, `library_strand`, `end_bias`, `feature_type`) and read-structure fields (UMI, cell and spatial barcode, cDNA read/offset/size) are required only for `FASTQ` rows. Image files in spatial manifests (e.g. CytAssist `TIFF`, brightfield `BTF`) can leave them `NA` and record the imaging instrument in `instrument_platform`/`instrument_model`.
 
 ## Shared Field Conventions
 

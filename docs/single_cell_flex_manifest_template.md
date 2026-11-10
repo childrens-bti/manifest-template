@@ -41,27 +41,27 @@ This template is for 10x Genomics Flex / Fixed RNA Profiling gene expression sub
 | file_hash_type | True | Hash algorithm used to generate file hash | "MD5", "SHA1", "SHA256", "SHA512", "ETag" | string | MD5 | |
 | file_hash_value | True | Full hash value of the file | | string | 938c2cc0dcc05f2b68c4287040cfcf71 | |
 | sequencing_center | False | Name of the center generating sequencing data | | string | Harvard Med School | |
-| instrument_platform | True | Name of the platform used to obtain data | "Complete Genomics", "Illumina", "Ion Torrent", "LS454", "SOLiD", "ONT", "DNBSEQ", "Other" | string | Illumina | |
+| instrument_platform | True (FASTQ files) | Name of the platform used to obtain data | "Complete Genomics", "Illumina", "Ion Torrent", "LS454", "SOLiD", "ONT", "DNBSEQ", "Other" | string | Illumina | |
 | instrument_model | False | Specific model of sequencing instrument used | | string | NovaSeq 6000 | |
 | experimental_strategy | True | The sequencing strategy used to generate the data file | "10x Flex GEX" | string | 10x Flex GEX | |
-| end_bias | True | The end of the cDNA molecule that is preferentially sequenced | "3'-end", "5'-end", "Full-length" | string | 3'-end | |
-| library_type | True | Library modality | "GEX" | string | GEX | |
-| library_selection | True | Library selection method | "Affinity Enrichment", "Hybrid Selection", "miRNA Size Fractionation", "PCR", "Poly-T Enrichment", "Random", "rRNA Depletion", "Other" | string | Hybrid Selection | |
-| library_strand | True | Library strandedness | "Stranded", "Unstranded", "First Stranded", "Second Stranded", "Not Applicable" | string | Not Applicable | |
+| end_bias | True (FASTQ files) | The end of the cDNA molecule that is preferentially sequenced | "3'-end", "5'-end", "Full-length" | string | 3'-end | |
+| library_type | True (FASTQ files) | Library modality | "GEX" | string | GEX | |
+| library_selection | True (FASTQ files) | Library selection method | "Affinity Enrichment", "Hybrid Selection", "miRNA Size Fractionation", "PCR", "Poly-T Enrichment", "Random", "rRNA Depletion", "Other" | string | Hybrid Selection | |
+| library_strand | True (FASTQ files) | Library strandedness | "Stranded", "Unstranded", "First Stranded", "Second Stranded", "Not Applicable" | string | Not Applicable | |
 | library_construction | True | Library construction method including version | | string | 10x Flex | |
-| feature_type | True | 10x feature type represented by the library | "gex" | string | gex | |
+| feature_type | True (FASTQ files) | 10x feature type represented by the library | "gex" | string | gex | |
 | probe_set | True | 10x Flex transcriptome probe set name and version used for alignment/counting. Use a stable probe set name/version rather than a local machine-specific path | | string | Chromium_Mouse_Transcriptome_Probe_Set_v2.0.0_GRCm39-2024-A | |
 | probe_spike_in | True | Were custom probes spiked into the standard 10x Flex probe set? | "True", "False" | boolean | False | |
 | probe_spike_in_description | False | Description of custom spike-in probes when `probe_spike_in` is True. Use NA when no custom probes were spiked in | | string | CD123/B7H3 CAR construct spike-in probes | |
 | total_reads | False | Total number of reads that align to the reference | | integer | 525600 | |
-| UMI_barcode_read | True | The type of read that contains the UMI barcode | "index1", "index2", "read1", "read2", "Not Applicable" | string | read1 | |
-| UMI_barcode_offset | True | Offset in sequence of the UMI barcode | | integer | 12 | |
-| UMI_barcode_size | True | Length of the UMI barcode sequence | | integer | 12 | |
-| cell_barcode_read | True | The type of read that contains the cell barcode | "index1", "index2", "read1", "read2", "Not Applicable" | string | read1 | |
-| cell_barcode_offset | True | Offset in sequence of the cell barcode | | integer | 0 | |
-| cell_barcode_size | True | Length of the cell barcode sequence | | integer | 16 | |
-| cDNA_read | True | The type of read that contains the cDNA read | "index1", "index2", "read1", "read2", "Not Applicable" | string | read2 | |
-| cDNA_read_offset | True | Offset in sequence of the cDNA read | | integer | 0 | |
+| UMI_barcode_read | True (FASTQ files) | The type of read that contains the UMI barcode | "index1", "index2", "read1", "read2", "Not Applicable" | string | read1 | |
+| UMI_barcode_offset | True (FASTQ files) | Offset in sequence of the UMI barcode | | integer | 12 | |
+| UMI_barcode_size | True (FASTQ files) | Length of the UMI barcode sequence | | integer | 12 | |
+| cell_barcode_read | True (FASTQ files) | The type of read that contains the cell barcode | "index1", "index2", "read1", "read2", "Not Applicable" | string | read1 | |
+| cell_barcode_offset | True (FASTQ files) | Offset in sequence of the cell barcode | | integer | 0 | |
+| cell_barcode_size | True (FASTQ files) | Length of the cell barcode sequence | | integer | 16 | |
+| cDNA_read | True (FASTQ files) | The type of read that contains the cDNA read | "index1", "index2", "read1", "read2", "Not Applicable" | string | read2 | |
+| cDNA_read_offset | True (FASTQ files) | Offset in sequence of the cDNA read | | integer | 0 | |
 | is_paired_end | False | If FASTQ files, are the reads paired end? Required when inputs are FASTQ files. | "True", "False", "NA" | boolean/string | True | |
 | read_pair_number | False | Denotes whether a submitted FASTQ file contains forward (R1) or reverse (R2) reads for paired-end sequencing. Required when inputs are FASTQ files | "R1", "R2", "NA" | string | R1 | |
 | flow_cell_barcode | False | Flow cell barcode. Required when inputs are FASTQ files | | string | H0164ALXX | |
