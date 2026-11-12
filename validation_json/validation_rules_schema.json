@@ -777,7 +777,10 @@
                 "ONT",
                 "DNBSEQ",
                 "Other"
-            ]
+            ],
+            "dependencies": {
+                "file_format": ["FASTQ"]
+            }
         },
         "experimental_strategy": {
           "type": "string",
@@ -816,6 +819,9 @@
         "library_type": {
             "type": "string",
             "required": true,
+            "dependencies": {
+                "file_format": ["FASTQ"]
+            },
             "anyof": [
                 {
                     "allowed": ["GEX", "ADT"],
@@ -846,6 +852,9 @@
         "end_bias": {
             "type": "string",
             "required": true,
+            "dependencies": {
+                "file_format": ["FASTQ"]
+            },
             "allowed": [
                 "3'-end",
                 "5'-end",
@@ -864,7 +873,10 @@
                 "Random",
                 "rRNA Depletion",
                 "Other"
-            ]
+            ],
+            "dependencies": {
+                "file_format": ["FASTQ"]
+            }
         },
         "library_strand": {
             "type": "string",
@@ -875,7 +887,10 @@
                 "First Stranded",
                 "Second Stranded",
                 "Not Applicable"
-            ]
+            ],
+            "dependencies": {
+                "file_format": ["FASTQ"]
+            }
         },
         "library_construction": {
             "type": "string",
@@ -890,11 +905,17 @@
                 "read1",
                 "read2",
                 "Not Applicable"
-            ]
+            ],
+            "dependencies": {
+                "file_format": ["FASTQ"]
+            }
         },
         "UMI_barcode_offset": {
             "type": "integer",
-            "required": true
+            "required": true,
+            "dependencies": {
+                "file_format": ["FASTQ"]
+            }
         },
         "cell_barcode_read": {
             "type": "string",
@@ -912,7 +933,8 @@
                     "scTCR-Seq",
                     "scBCR-Seq",
                     "10x Flex GEX"
-                ]
+                ],
+                "file_format": ["FASTQ"]
             }
         },
         "spatial_barcode_read": {
@@ -930,12 +952,16 @@
                     "scRNA-Seq",
                     "snRNA-Seq",
                     "Spatial Transcriptomics"
-                ]
+                ],
+                "file_format": ["FASTQ"]
             }
         },
         "UMI_barcode_size": {
             "type": "integer",
-            "required": true
+            "required": true,
+            "dependencies": {
+                "file_format": ["FASTQ"]
+            }
         },
         "cell_barcode_offset": {
             "type": "integer",
@@ -946,7 +972,8 @@
                     "scTCR-Seq",
                     "scBCR-Seq",
                     "10x Flex GEX"
-                ]
+                ],
+                "file_format": ["FASTQ"]
             }
         },
         "cell_barcode_size": {
@@ -958,7 +985,8 @@
                     "scTCR-Seq",
                     "scBCR-Seq",
                     "10x Flex GEX"
-                ]
+                ],
+                "file_format": ["FASTQ"]
             }
         },
         "spatial_barcode_offset": {
@@ -969,7 +997,8 @@
                     "scRNA-Seq",
                     "snRNA-Seq",
                     "Spatial Transcriptomics"
-                ]
+                ],
+                "file_format": ["FASTQ"]
             }
         },
         "spatial_barcode_size": {
@@ -980,7 +1009,8 @@
                     "scRNA-Seq",
                     "snRNA-Seq",
                     "Spatial Transcriptomics"
-                ]
+                ],
+                "file_format": ["FASTQ"]
             }
         },
         "cDNA_read": {
@@ -992,11 +1022,17 @@
                 "read1",
                 "read2",
                 "Not Applicable"
-            ]
+            ],
+            "dependencies": {
+                "file_format": ["FASTQ"]
+            }
         },
         "cDNA_read_offset": {
             "type": "integer",
-            "required": true
+            "required": true,
+            "dependencies": {
+                "file_format": ["FASTQ"]
+            }
         },
         "read_pair_number": {
             "type": "string",
@@ -1093,7 +1129,8 @@
                     "scBCR-Seq",
                     "10x Flex GEX",
                     "Spatial Transcriptomics"
-                ]
+                ],
+                "file_format": ["FASTQ"]
             },
             "anyof": [
                 {
