@@ -27,8 +27,8 @@
 | file_source_platform | True | Source platform where files are stored and from which they are harmonized | "bti_aws", "local_drive", "bti_aws_and_local_drive", "cgc", "kids_first", "sra", "synapse" | string | bti_aws | |
 | sequencing_batch | False | Sequencing batch identifier | | string | 30-XXXXXXXX | |
 | proteomics_experiment | True | The type of proteomics data generated. Must match experimental_strategy: Whole Cell Proteomics = Proteome, Phospho-Proteomics = Phosphoproteome, Ubiquitylomics = Ubiquitylome, Acetylomics = Acetylome, Glycoproteomics = Glycoproteome | "Proteome", "Phosphoproteome", "Ubiquitylome", "Acetylome", "Glycoproteome" | string | Phosphoproteome |  |
-| file_name | True | Name of the file | | string | NCI-11Plex-13-F12A-z11358.mzML | |
-| file_format | True | Format of the file | "FASTQ", "BAM", "BAI", "CRAM", "CRAI", "GVCF", "VCF", "TBI", "MAF", "PDF", "HTML", "DCM", "IDAT", "SVS", "GPR", "CNS", "TXT", "PNG", "CSV", "PED", "SEG", "TAR", "TSV", "MZML", "RAW" | string | MZML | |
+| file_name | True | Name of the file. For Bruker timsTOF runs, submit the `.d` folder as one archive: "ZIP" for `.d.zip`, or "TAR" for `.d.tar`, `.d.tar.gz` or `.d.tgz` | | string | NCI-11Plex-13-F12A-z11358.mzML | |
+| file_format | True | Format of the file | "FASTQ", "BAM", "BAI", "CRAM", "CRAI", "GVCF", "VCF", "TBI", "MAF", "PDF", "HTML", "DCM", "IDAT", "SVS", "GPR", "CNS", "TXT", "PNG", "CSV", "PED", "SEG", "TAR", "TSV", "MZML", "RAW", "ZIP" | string | MZML | |
 | file_size | True | Reported file size in bytes | | integer | 235000 | |
 | file_hash_type | True | Hash algorithm used to generate file hash | "MD5", "SHA1", "SHA256", "SHA512", "ETag" | string | MD5 | |
 | file_hash_value | True | Full hash value of the file | | string | 938c2cc0dcc05f2b68c4287040cfcf71 | |

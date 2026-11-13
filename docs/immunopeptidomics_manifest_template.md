@@ -28,8 +28,8 @@ HLA-bound peptides are isolated by MHC immunoprecipitation (see `ip_antibody`) a
 | aws_s3_path | False | S3 URI for the submitted data location. Required when file_source_platform is bti_aws or bti_aws_and_local_drive |  | string | s3://bucket/prefix |  |
 | file_source_platform | True | Source platform where files are stored and from which they are harmonized | "bti_aws", "local_drive", "bti_aws_and_local_drive", "cgc", "kids_first", "sra", "synapse" | string | bti_aws |  |
 | sequencing_batch | False | Sequencing batch identifier |  | string | 30-XXXXXXXX |  |
-| file_name | True | Name of the file |  | string | IP_HLA1_Rep1.raw |  |
-| file_format | True | Format of the file | "FASTQ", "BAM", "BAI", "CRAM", "CRAI", "GVCF", "VCF", "TBI", "MAF", "PDF", "HTML", "DCM", "IDAT", "SVS", "GPR", "CNS", "TXT", "PNG", "CSV", "PED", "SEG", "TAR", "TSV", "MZML", "RAW" | string | RAW |  |
+| file_name | True | Name of the file. For Bruker timsTOF runs, submit the `.d` folder as one archive: "ZIP" for `.d.zip`, or "TAR" for `.d.tar`, `.d.tar.gz` or `.d.tgz` |  | string | IP_HLA1_Rep1.raw |  |
+| file_format | True | Format of the file | "FASTQ", "BAM", "BAI", "CRAM", "CRAI", "GVCF", "VCF", "TBI", "MAF", "PDF", "HTML", "DCM", "IDAT", "SVS", "GPR", "CNS", "TXT", "PNG", "CSV", "PED", "SEG", "TAR", "TSV", "MZML", "RAW", "ZIP" | string | RAW |  |
 | file_size | True | Reported file size in bytes |  | integer | 235000 |  |
 | file_hash_type | True | Hash algorithm used to generate file hash | "MD5", "SHA1", "SHA256", "SHA512", "ETag" | string | MD5 |  |
 | file_hash_value | True | Full hash value of the file |  | string | 938c2cc0dcc05f2b68c4287040cfcf71 |  |

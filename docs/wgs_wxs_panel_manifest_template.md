@@ -27,7 +27,7 @@
 | file_source_platform | True | Source platform where files are stored and from which they are harmonized | "bti_aws", "local_drive", "bti_aws_and_local_drive", "cgc", "kids_first", "sra", "synapse" | string | bti_aws | |
 | sequencing_batch | False | Sequencing batch identifier | | string | 30-XXXXXXXX | |
 | file_name | True | Name of the file | | string | NCI-11Plex-13-F12A-z11358.fastq | |
-| file_format | True | Format of the file | "FASTQ", "BAM", "BAI", "CRAM", "CRAI", "GVCF", "VCF", "TBI", "MAF", "PDF", "HTML", "DCM", "IDAT", "SVS", "GPR", "CNS", "TXT", "PNG", "CSV", "PED", "SEG", "TAR", "TSV", "mzML", "raw" | string | FASTQ | |
+| file_format | True | Format of the file | "FASTQ", "BAM", "BAI", "CRAM", "CRAI", "GVCF", "VCF", "TBI", "MAF", "PDF", "HTML", "DCM", "IDAT", "SVS", "GPR", "CNS", "TXT", "PNG", "CSV", "PED", "SEG", "TAR", "TSV", "mzML", "raw", "ZIP" | string | FASTQ | |
 | file_size | True | Reported file size in bytes | | integer | 529600 | |
 | file_hash_type | True | Hash algorithm used to generate file hash | "MD5", "SHA1", "SHA256", "SHA512", "ETag" | string | MD5 | |
 | file_hash_value | True | Full has value of the file | | string | 938c2cc0dcc05f2b68c4287040cfcf71 | |
